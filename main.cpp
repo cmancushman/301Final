@@ -11,6 +11,6 @@
 int main(int argc, const char * argv[]) {
     // insert code here...
     //std::cout << "Hello, World!\n";
-    Parser parse = Parser("inst.txt");
+    Parser parse = Parser("inst.asm");
     return 0;
 }

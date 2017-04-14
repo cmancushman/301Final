@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include <fstream>
 #include <iostream>
+#include <algorithm>
+
 using namespace std;
 class Parser{
 public:
@@ -20,5 +22,7 @@ public:
     Parser(string file);
     
     void setFile(string file);
+    
+    void executeInstruction(string stringArray[]);
 };
 #endif /* Parser_hpp */
