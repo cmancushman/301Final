@@ -10,8 +10,9 @@
 #define Instruction_hpp
 
 #include <stdio.h>
-
+using namespace std;
 class Instruction{
+    
 private:
     string typeOfInstruction;
     string component1;
@@ -27,6 +28,6 @@ public:
     string getComponent2();
     string getComponent3();
     string getComponent4();
-    
+    void print();
 };
 #endif /* Instruction_hpp */

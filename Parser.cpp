@@ -75,12 +75,7 @@ void Parser::executeInstruction(string stringArray[]){
     }else if(stringArray[0] == "j"){
         
     }
-    
-    cout << stringArray[0] << endl;
-    
-    cout << stringArray[1] << endl;
-    
-    cout << stringArray[2] << endl;
-    
-    cout << stringArray[3] << endl;
+    Instruction instr = Instruction(string str1, string str2, string str3, string str4);
+    instr.print();
+
 }

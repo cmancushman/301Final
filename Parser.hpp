@@ -13,7 +13,7 @@
 #include <fstream>
 #include <iostream>
 #include <algorithm>
-
+#include "Instruction.hpp"
 using namespace std;
 class Parser{
 public:
