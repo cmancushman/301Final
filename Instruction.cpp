@@ -14,6 +14,24 @@ Instruction::Instruction(string str1, string str2, string str3, string str4){
     component2 = str2;
     component3 = str3;
     component4 = str4;
+    
+    if(component1 == "add"){
+        typeOfInstruction = 0;
+    }else if(component1 == "sub"){
+        typeOfInstruction = 1;
+    }else if(component1 == "addi"){
+        typeOfInstruction = 2;
+    }else if(component1 == "slt"){
+        typeOfInstruction = 3;
+    }else if(component1 == "lw"){
+        typeOfInstruction = 4;
+    }else if(component1 == "sw"){
+        typeOfInstruction = 5;
+    }else if(component1 == "beq"){
+        typeOfInstruction = 6;
+    }else if(component1 == "j"){
+        typeOfInstruction = 7;
+    }
 }
 
 string Instruction::getComponent1(){

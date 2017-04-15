@@ -15,7 +15,7 @@ using namespace std;
 class Instruction{
     
 private:
-    string typeOfInstruction;
+    int typeOfInstruction;
     string component1;
     string component2;
     string component3;

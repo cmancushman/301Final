@@ -58,24 +58,8 @@ void Parser::executeInstruction(string stringArray[]){
     
     std::transform(stringArray[0].begin(), stringArray[0].end(), stringArray[0].begin(), ::tolower);
     
-    if(stringArray[0] == "add"){
-        
-    }else if(stringArray[0] == "sub"){
-        
-    }else if(stringArray[0] == "addi"){
-        
-    }else if(stringArray[0] == "slt"){
-        
-    }else if(stringArray[0] == "lw"){
-        
-    }else if(stringArray[0] == "sw"){
-        
-    }else if(stringArray[0] == "beq"){
-        
-    }else if(stringArray[0] == "j"){
-        
-    }
     Instruction instr = Instruction(stringArray[0], stringArray[1], stringArray[2], stringArray[3]);
     instr.print();
+    
 
 }
