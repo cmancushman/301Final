@@ -24,15 +24,16 @@ string Instruction::getComponent2(){
     return component2;
 }
 
-string Instruction::getComponent2(){
-    return component2;
-}
-
 string Instruction::getComponent3(){
     return component3;
 }
 
-void print(){
+string Instruction::getComponent4(){
+    return component4;
+}
+
+void Instruction::print(){
+    cout << "Print Separated Instruction:" << endl;
     cout << component1 << endl << component2 << endl << component3 << endl << component4 << endl << endl;
     
 }

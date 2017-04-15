@@ -75,7 +75,7 @@ void Parser::executeInstruction(string stringArray[]){
     }else if(stringArray[0] == "j"){
         
     }
-    Instruction instr = Instruction(string str1, string str2, string str3, string str4);
+    Instruction instr = Instruction(stringArray[0], stringArray[1], stringArray[2], stringArray[3]);
     instr.print();
 
 }
