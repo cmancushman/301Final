@@ -14,8 +14,14 @@
 #include <iostream>
 #include <algorithm>
 #include "Instruction.hpp"
+#include "LinkedList.h"
 using namespace std;
 class Parser{
+    
+private:
+    Instruction toInstruction(string stringArray[]);
+    LinkedList<Instruction>  instructionList;
+
 public:
     Parser();
     
@@ -23,6 +29,11 @@ public:
     
     void setFile(string file);
     
-    void executeInstruction(string stringArray[]);
+    
+    Instruction getInstruction(double index);
+    
+    void printAllInstructions();
+    
+
 };
 #endif /* Parser_hpp */

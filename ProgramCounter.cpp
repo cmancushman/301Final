@@ -22,6 +22,6 @@ void ProgramCounter::jump(double amount){
     currentAddress += amount;
 }
 
-void ProgramCounter::branch(double amount){
-    currentAddress += amount;
+double ProgramCounter::getAddress(){
+    return currentAddress;
 }

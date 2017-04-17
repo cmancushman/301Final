@@ -6,8 +6,8 @@
 //  Copyright © 2017 Ubord, Inc. All rights reserved.
 //
 
-#ifndef Instruction_hpp
-#define Instruction_hpp
+#ifndef ShiftLeft_hpp
+#define ShiftLeft_hpp
 
 #include <stdio.h>
 #include <iostream>
@@ -16,11 +16,7 @@ using namespace std;
 class Instruction{
     
 private:
-    int typeOfInstruction;
-    string component1;
-    string component2;
-    string component3;
-    string component4;
+
     
 public:
     
@@ -32,4 +28,4 @@ public:
     string getComponent4();
     void print();
 };
-#endif /* Instruction_hpp */
+#endif /* ShiftLeft_hpp */

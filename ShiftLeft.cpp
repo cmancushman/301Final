@@ -8,7 +8,6 @@
 
 #include "Instruction.hpp"
 
-int hexToInt(string hexString);
 
 Instruction::Instruction(string str1, string str2, string str3, string str4){
     component1 = str1;
@@ -33,24 +32,19 @@ Instruction::Instruction(string str1, string str2, string str3, string str4){
     }else if(component1 == "j"){
         typeOfInstruction = 7;
         
-        if(component2.find("0x") == std::string::npos){
-            component2 = "0x" + component2;
-        }
+        unsigned int x;
+        stringstream ss;
+        ss << std::hex << component2;
+        ss >> x;
         
-        //cout << "hex:" << component2 << " to int: " << hexToInt(component2) << endl;
+        cout << "hex to int: " << x << endl;
 
         
         
     }
     
 }
-int hexToInt(string hexString){
-    unsigned int x;
-    stringstream ss;
-    ss << std::hex << hexString;
-    ss >> x;
-    return x;
-}
+
 string Instruction::getComponent1(){
     return component1;
 }
@@ -68,7 +62,7 @@ string Instruction::getComponent4(){
 }
 
 void Instruction::print(){
-    //cout << "Print Separated Instruction:" << endl;
-    cout << component1 << " " << component2 << " "  << component3 << " "  << component4 << " "  << endl;
+    cout << "Print Separated Instruction:" << endl;
+    cout << component1 << endl << component2 << endl << component3 << endl << component4 << endl << endl;
     
 }

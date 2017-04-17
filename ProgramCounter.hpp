@@ -21,14 +21,14 @@ public:
     /* Constructor for program counter */
     ProgramCounter();
     
-    /* Branch to a given address */
-    void branch(double amount);
     
     /* Jump to a given address */
     void jump(double amount);
     
     /* Increment by 4 */
     void increment();
+    
+    double getAddress();
     
 };
 

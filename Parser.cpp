@@ -13,9 +13,10 @@ Parser::Parser(){
 }
 
 Parser::Parser(string file){
-    ifstream in;
+    fstream in;
     in.open(file.c_str());
     
+    instructionList = LinkedList<Instruction>();
     if(in.bad()){
         cout <<"BAD FILE" << endl;
     }
@@ -24,7 +25,7 @@ Parser::Parser(string file){
 
         
         while( getline(in, line)){
-            cout  << line << endl;
+            //cout  << line << endl;
             
             line.erase(std::remove(line.begin(), line.end(), ','), line.end());
             
@@ -41,8 +42,8 @@ Parser::Parser(string file){
                     stringArray[counter] += line[i];
                 }
             }
+            instructionList.add(toInstruction(stringArray));
             
-            executeInstruction(stringArray);
             
         }
     }
@@ -54,12 +55,23 @@ void Parser::setFile(string file){
 }
 
 
-void Parser::executeInstruction(string stringArray[]){
+Instruction Parser::getInstruction(double index){
+    cout << "GetInstruction: INPUT:  " << index << "    OUTPUT "; instructionList.get((int)index).print();
+    return instructionList.get((int)index);
+}
+
+Instruction Parser::toInstruction(string stringArray[]){
     
     std::transform(stringArray[0].begin(), stringArray[0].end(), stringArray[0].begin(), ::tolower);
     
     Instruction instr = Instruction(stringArray[0], stringArray[1], stringArray[2], stringArray[3]);
-    instr.print();
-    
+    //instr.print();
+    return instr;
 
+}
+
+void Parser::printAllInstructions(){
+    for(int x = 0; x < instructionList.size(); x ++){
+        cout << "Instruction #"<<x << " : "; instructionList.get(x).print();
+    }
 }
