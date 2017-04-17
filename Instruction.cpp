@@ -30,6 +30,9 @@ Instruction::Instruction(string str1, string str2, string str3, string str4){
         typeOfInstruction = 5;
     }else if(component1 == "beq"){
         typeOfInstruction = 6;
+        if(component4.find("0x") == std::string::npos){
+            component4 = "0x" + component2;
+        }
     }else if(component1 == "j"){
         typeOfInstruction = 7;
         
