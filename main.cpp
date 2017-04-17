@@ -11,19 +11,41 @@
 #include "Registers.hpp"
 #include "ProgramCounter.hpp"
 //include "Instruction.hpp"
+
+void fetch(){
+    
+}
+
+void execute(){
+    
+}
+
+void writeToMemory(){
+    
+}
+
+void nextInstruction(){
+    
+}
+
 int main(int argc, const char * argv[]) {
     // insert code here...
     //std::cout << "Hello, World!\n";
     Parser parse = Parser("inst.asm");
-    //parse.printAllInstructions();
+    parse.printAllInstructions();
     Registers registers = Registers();
     registers.setRegister(8, "0xffffffff");
-    //registers.print();
+    registers.print();
     
     ProgramCounter prgrmCounter = ProgramCounter();
     
     parse.getInstruction(prgrmCounter.getAddress());
     //parse.getNextInstruction().print();
     
+    
+    
+    
     return 0;
 }
+
+
