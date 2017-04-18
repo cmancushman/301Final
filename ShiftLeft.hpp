@@ -20,12 +20,8 @@ private:
     
 public:
     
-    Instruction(string str1, string str2, string str3, string str4);
-    string getType();
-    string getComponent1();
-    string getComponent2();
-    string getComponent3();
-    string getComponent4();
-    void print();
+    ShiftLeft();
+    string shift(string input);
 };
+
 #endif /* ShiftLeft_hpp */
