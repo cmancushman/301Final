@@ -9,7 +9,7 @@
 #include "Instruction.hpp"
 
 int hexToInt(string hexString);
-
+string intToHex(int integer);
 Instruction::Instruction(string str1, string str2, string str3, string str4){
     component1 = str1;
     component2 = str2;
@@ -40,7 +40,9 @@ Instruction::Instruction(string str1, string str2, string str3, string str4){
             component2 = "0x" + component2;
         }
         
-        //cout << "hex:" << component2 << " to int: " << hexToInt(component2) << endl;
+        cout << "hex:" << component2 << " to int: " << hexToInt(component2) << endl;
+        
+        cout << "int:" << hexToInt(component2) << " to hex: " << intToHex(hexToInt(component2)) << endl;
 
         
         
@@ -53,6 +55,13 @@ int hexToInt(string hexString){
     ss << std::hex << hexString;
     ss >> x;
     return x;
+}
+string intToHex(int integer){
+    string hexString;
+    stringstream ss;
+    integer >> ss;
+    ss >> std::hex >> hexString;
+    return hexString;
 }
 string Instruction::getComponent1(){
     return component1;
