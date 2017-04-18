@@ -17,10 +17,10 @@ string SignExtend::extend(string input)
 {
     cout << "SignExtend INPUT: " << input << endl;
     if (input.front == "0")
-        input = "00000000" + input;
+        input = "0000000000000000" + input;
     
     else
-        input = "11111111" + input;
+        input = "1111111111111111" + input;
     
     cout << "SignExtend OUTPUT: " << input << endl << endl;
     

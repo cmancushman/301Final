@@ -35,7 +35,7 @@ int main(int argc, const char * argv[]) {
     parse.printAllInstructions();
     Registers registers = Registers();
     registers.setRegister(8, "0xffffffff");
-    registers.print();
+    //registers.print();
     
     ProgramCounter prgrmCounter = ProgramCounter();
     

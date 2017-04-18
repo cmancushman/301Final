@@ -21,6 +21,8 @@ private:
     string component2;
     string component3;
     string component4;
+    string immediate;
+    string jumpComponent;
     
 public:
     
@@ -30,6 +32,7 @@ public:
     string getComponent2();
     string getComponent3();
     string getComponent4();
+    string getImmediate();
     void print();
 };
 #endif /* Instruction_hpp */
