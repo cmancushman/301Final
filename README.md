@@ -20,3 +20,11 @@ unsigned int x;
 std::stringstream ss;
 ss << std::hex << "fffefffe";
 ss >> x;
+
+
+
+
+git pull
+git add -A
+git commit -m "This is the message"
+git push
