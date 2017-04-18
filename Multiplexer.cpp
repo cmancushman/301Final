@@ -13,14 +13,19 @@ Multiplexer::Multiplexer()
     
 }
 
-/*
-    Selects an output based on control. If control is true it outputs input1,
-    if control is false it outputs input2.
-*/
+
 string Multiplexer::multiplex(bool control, string input1, string input2)
 {
-    if (control == true)
-        return input1;
+    cout << "Multiplexer INPUT 1: " << input1 << endl;
+    cout << "Multiplexer INPUT 2: " << input2 << endl;
+    cout << "Multiplexer CONTROL: " << control << endl;
     
+    if (control == true)
+    {
+        cout << "Multiplexer OUTPUT: " << input1 << endl << endl;
+        return input1;
+    }
+    
+    cout << "Multiplexer OUTPUT: " << input2 << endl << endl;
     return input2;
 }

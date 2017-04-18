@@ -15,7 +15,11 @@ ShiftLeft::ShiftLeft()
 
 string ShiftLeft::shift(string input)
 {
+    cout << "ShiftLeft INPUT: " << input << endl;
+    
     input += "00";
+    
+    cout << "ShiftLeft OUTPUT: " << input << endl << endl;
     return input;
 }
 
