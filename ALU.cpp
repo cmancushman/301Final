@@ -105,4 +105,12 @@ void ALU::setOperation(int operationInput){
 	operation = operationInput;
 }
 
+string ALU::getOutput(){
+	return output;
+}
+
+bool ALU::getComparisonResult(){
+	return comparisonResult;
+}
+
 
