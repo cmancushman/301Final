@@ -26,16 +26,26 @@ private:
 	string operand1;
 	string operand2;
 	string output;
+	bool comparisonResult;
+	void compare();
+	void add();
+	void subtract();
 
-	string execute();
-	int compare();
-	string add();
-	string subtract();
+	int hexToInt(string hexString);
+
+	string intToHex(int integer);
 
 public:
 
 	ALU();
-	ALU(int _operation, string _operand1, string _operand2);
+
+	void execute();
+
+	void setOperand1(string operand);
+
+	void setOperand2(string operand);
+
+	void setOperation(int operationInput);
 
 };
 

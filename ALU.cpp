@@ -15,55 +15,36 @@ ALU::ALU() {
 
 }
 
-ALU::ALU(int _operation, string _operand1, string _operand2) {
 
-	//convert binary strings to int
-
-	operation = _operation;
-	operand1 = _operand1;
-	operand2 = _operand2;
-
-	if (operation < 0 || operation > 2) {
-		cout << "Error: operation value must be 0-2" << endl;
-		//HANDLE THIS ERROR
-		//exit();
-	}
-
-	execute();
-
-}
-
-string ALU::execute() {
+void ALU::execute() {
 	if (operation == 0) compare();
 
 	else if (operation == 1) add();
 
 	else if (operation == 2) subtract();
-
-	return output;
 }
 
 /*
 * Compares the two operands, returns 0 if the same and 1 if different
 */
-int ALU::compare() {
+void ALU::compare() {
 
 	if (operand1.compare(operand2) != 0) {
 		//strings are different
 		cout << "The strings are not the same" << endl;
-		return 1;
+		comparisonResult = false;
 	}
 
 	else {
 		cout << "The strings are the same" << endl;
-		return 0;
+		comparisonResult = true;
 	}
 }
 
 /*
 * Adds two operands and returns the result
 */
-string ALU::add() {
+void ALU::add() {
 	//convert hex string to int to add
 	int temp1 = hexToInt(operand1);
 	int temp2 = hexToInt(operand2);
@@ -72,28 +53,26 @@ string ALU::add() {
 
 	output = intToHex(result);
 
-	return output;
 }
 
 /*
 * Subtracts two operands and returns the result
 */
-string ALU::subtract() {
+void ALU::subtract() {
 	
 	int temp1 = hexToInt(operand1);
 	int temp2 = hexToInt(operand2);
 
 	int result = temp1 + temp2;
 
-	string output = intToHex(result);
+	output = intToHex(result);
 
-	return output;
 }
 
 /*
 * Converts a hex string to its integer representation
 */
-int hexToInt(string hexString) {
+int ALU::hexToInt(string hexString) {
     unsigned int x;
     stringstream ss;
     ss << std::hex << hexString;
@@ -104,11 +83,26 @@ int hexToInt(string hexString) {
 /*
 * converts int to a string representation of its hex value
 */
-string intToHex(int integer) {
+string ALU::intToHex(int integer) {
     string hexString;
     stringstream ss;
     integer >> ss;
     ss >> std::hex >> hexString;
     return hexString;
 }
+
+
+void ALU::setOperand1(string operand){
+	operand1 = operand;
+}
+
+void ALU::setOperand2(string operand){
+	operand2 = operand;
+
+}
+
+void ALU::setOperation(int operationInput){
+	operation = operationInput;
+}
+
 
