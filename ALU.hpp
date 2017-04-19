@@ -15,16 +15,19 @@
 #include "ALU.hpp"
 #include "DataMemory.hpp"
 #include "Instruction.hpp"
+#include <iostream>
+#include <string>
 
 
 class ALU {
 
 private:
 	int operation; //0 = compare, 1 = add, 2 = subtract
-	int operand1;
-	int operand2;
+	string operand1;
+	string operand2;
+	string output;
 
-	void execute();
+	string execute();
 	int compare();
 	string add();
 	string subtract();
@@ -32,7 +35,7 @@ private:
 public:
 
 	ALU();
-	ALU(int _operation, int _operand1, int _operand2);
+	ALU(int _operation, string _operand1, string _operand2);
 
 };
 

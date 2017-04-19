@@ -43,7 +43,7 @@ Parser::Parser(string file){
                 }
             }
             instructionList.add(toInstruction(stringArray));
-            
+    
             
         }
     }

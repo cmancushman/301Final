@@ -10,6 +10,7 @@
 #include "Parser.hpp"
 #include "Registers.hpp"
 #include "ProgramCounter.hpp"
+#include "DataMemory.hpp"
 //include "Instruction.hpp"
 
 void fetch(){
@@ -35,11 +36,14 @@ int main(int argc, const char * argv[]) {
     parse.printAllInstructions();
     Registers registers = Registers();
     registers.setRegister(8, "0xffffffff");
-    registers.print();
+    //registers.print();
     
     ProgramCounter prgrmCounter = ProgramCounter();
     
     parse.getInstruction(prgrmCounter.getAddress());
+    
+    DataMemory data = DataMemory();
+    data.getWord("00000000000000000000000000000001");
     //parse.getNextInstruction().print();
     
     

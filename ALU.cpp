@@ -9,12 +9,13 @@
 #include "ALU.hpp"
 
 string intToHex(int integer);
+int hexToInt(string hexString);
 
 ALU::ALU() {
 
 }
 
-ALU::ALU(int _operation, int _operand1, int _operand2) {
+ALU::ALU(int _operation, string _operand1, string _operand2) {
 
 	//convert binary strings to int
 
@@ -22,41 +23,56 @@ ALU::ALU(int _operation, int _operand1, int _operand2) {
 	operand1 = _operand1;
 	operand2 = _operand2;
 
-	if (operation < 0) {
+	if (operation < 0 || operation > 2) {
 		cout << "Error: operation value must be 0-2" << endl;
-		exit();
+		//HANDLE THIS ERROR
+		//exit();
 	}
 
 	execute();
+
 }
 
-void ALU::execute() {
+string ALU::execute() {
 	if (operation == 0) compare();
 
 	else if (operation == 1) add();
 
 	else if (operation == 2) subtract();
+
+	return output;
 }
 
 /*
-* Compares the two operands, returns 1 if the same and 0 if different
+* Compares the two operands, returns 0 if the same and 1 if different
 */
 int ALU::compare() {
 
-	if (operand1 == operand2) return 1;
+	if (operand1.compare(operand2) != 0) {
+		//strings are different
+		cout << "The strings are not the same" << endl;
+		return 1;
+	}
 
-	//operands are different
-	return 0;
+	else {
+		cout << "The strings are the same" << endl;
+		return 0;
+	}
 }
 
 /*
 * Adds two operands and returns the result
 */
 string ALU::add() {
+	//convert hex string to int to add
+	int temp1 = hexToInt(operand1);
+	int temp2 = hexToInt(operand2);
 
-	string result = intToHex(operand1 + operand2);
+	int result = temp1 + temp2;
 
-	return result;
+	output = intToHex(result);
+
+	return output;
 }
 
 /*
@@ -64,17 +80,31 @@ string ALU::add() {
 */
 string ALU::subtract() {
 	
-	//probably need some binary substraction method
-	//how to represent a negative integer?
-	int result = 0;
+	int temp1 = hexToInt(operand1);
+	int temp2 = hexToInt(operand2);
 
-	return result;
+	int result = temp1 + temp2;
+
+	string output = intToHex(result);
+
+	return output;
+}
+
+/*
+* Converts a hex string to its integer representation
+*/
+int hexToInt(string hexString) {
+    unsigned int x;
+    stringstream ss;
+    ss << std::hex << hexString;
+    ss >> x;
+    return x;
 }
 
 /*
 * converts int to a string representation of its hex value
 */
-string intToHex(int integer){
+string intToHex(int integer) {
     string hexString;
     stringstream ss;
     integer >> ss;
