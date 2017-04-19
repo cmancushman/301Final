@@ -65,7 +65,7 @@ string DataMemory::getHexFromBin(string sBinary)
     while (s.length() != 8){
         s = "0" + s;
     }
-    s = "0x" + s;
+
     return s;
 }
 
