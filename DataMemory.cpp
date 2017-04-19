@@ -49,7 +49,7 @@ DataMemory::DataMemory(string file){
 
 //Step 1: convert binary string into hex
 //This method is for converting binary string to hexadecmial values
-DataMemory::GetHexFromBin(string sBinary)
+string DataMemory::GetHexFromBin(string sBinary)
 {
 	string rest("0x"),tmp,chr = "0000";
 	int len = sBinary.length()/4;

@@ -10,20 +10,26 @@
 #define DataMemory_hpp
 
 #include <stdio.h>
-
+#include <string>
+using namespace std;
 class DataMemory{
 public:
     DataMemory();
     
     DataMemory(string file);
 
-    GetHexFromBin(string sBinary);
 
-    Mapping(string rest);
+    void getWord(string address);
 
-    GetBinFromHex(string sHex);
+    void print();
+    
+private:
+    
+    string GetHexFromBin(string sBinary);
+    
+    string GetBinFromHex(string sHex);
 
-    print();
+
 };
 
 #endif /* DataMemory_hpp */

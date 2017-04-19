@@ -92,6 +92,7 @@ Instruction::Instruction(string str1, string str2, string str3, string str4){
     }
     
 }
+
 int hexToInt(string hexString){
     unsigned int x;
     stringstream ss;
