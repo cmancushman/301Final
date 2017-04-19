@@ -43,7 +43,7 @@ int main(int argc, const char * argv[]) {
     parse.getInstruction(prgrmCounter.getAddress());
     
     DataMemory data = DataMemory();
-    data.getWord("11111111111111111111111111111111");
+    data.getWord("00000000000000000000000000000001");
     //parse.getNextInstruction().print();
     
     

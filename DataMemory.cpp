@@ -11,8 +11,8 @@
 
 DataMemory::DataMemory(){
     memoryMap = map<string, string>();
-    memoryMap["0xffffffff"] = "0xffffffff";
-    cout << " Memory map "<< memoryMap["0xffffffff"] << endl;
+    memoryMap["0x00000001"] = "0xffffffff";
+    //cout << " Memory map "<< memoryMap["0x00000001"] << endl;
 }
 //This is to read in the file
 DataMemory::DataMemory(string file){
@@ -60,7 +60,12 @@ string DataMemory::getHexFromBin(string sBinary)
     std::stringstream ss;
     ss << std::hex << std::stoll(sBinary, NULL, 2);
     std::cout <<"hex test " << ss.str() << std::endl;
-    string s = "0x" + ss.str();
+    
+    string s =  ss.str();
+    while (s.length() != 8){
+        s = "0" + s;
+    }
+    s = "0x" + s;
     return s;
 }
 
