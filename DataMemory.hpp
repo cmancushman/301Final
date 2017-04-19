@@ -11,4 +11,19 @@
 
 #include <stdio.h>
 
+class DataMemory{
+public:
+    DataMemory();
+    
+    DataMemory(string file);
+
+    GetHexFromBin(string sBinary);
+
+    Mapping(string rest);
+
+    GetBinFromHex(string sHex);
+
+    print();
+};
+
 #endif /* DataMemory_hpp */
