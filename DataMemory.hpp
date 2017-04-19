@@ -10,7 +10,9 @@
 #define DataMemory_hpp
 
 #include <stdio.h>
-#include <string>
+#include <map>
+#include <sstream>
+#include <iostream>
 using namespace std;
 class DataMemory{
 public:
@@ -19,15 +21,18 @@ public:
     DataMemory(string file);
 
 
-    void getWord(string address);
+    string getWord(string address);
 
     void print();
+
     
 private:
     
-    string GetHexFromBin(string sBinary);
+    string getHexFromBin(string sBinary);
     
-    string GetBinFromHex(string sHex);
+    string getBinFromHex(string sHex);
+    
+    map<string, string> memoryMap;
 
 
 };
