@@ -7,7 +7,7 @@
 //
 
 #include "Instruction.hpp"
-
+#include "SignExtend.hpp"
 int hexToInt(string hexString);
 string intToHex(int integer);
 Instruction::Instruction(string str1, string str2, string str3, string str4){
@@ -61,6 +61,8 @@ Instruction::Instruction(string str1, string str2, string str3, string str4){
         // outputs "00000000000000000000000000001010"
         cout << "Test bits " << b.to_string() << endl;
         immediate = b.to_string();
+        SignExtend ext = SignExtend();
+        cout << "Sign extend " << ext.extend(b.to_string()) << endl;
         
         
     }else if(component1 == "j"){
@@ -81,11 +83,6 @@ Instruction::Instruction(string str1, string str2, string str3, string str4){
         jumpComponent = b.to_string();
         
         
-        
-        std::stringstream stream;
-        stream << std::hex << -100;
-        std::string result( stream.str() );
-        
         cout << "hex:" << component2 << " to int: " << hexToInt(component2) << endl;
         
         cout << "int:" << hexToInt(component2) << " to hex: " << intToHex(hexToInt(component2)) << endl;
@@ -95,6 +92,7 @@ Instruction::Instruction(string str1, string str2, string str3, string str4){
     }
     
 }
+
 int hexToInt(string hexString){
     unsigned int x;
     stringstream ss;

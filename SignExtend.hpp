@@ -14,12 +14,13 @@
 
 using namespace std;
 
-class SignExtend()
+class SignExtend
 {
     
 private:
     
 public:
+    // Constructor
     SignExtend();
     
     /*
@@ -28,6 +29,5 @@ public:
         32-bit binary string. Returns the 32-bit equivalent string.
     */
     string extend(string input);
-}
-
+};
 #endif /* SignExtend_hpp */
