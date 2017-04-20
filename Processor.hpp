@@ -9,7 +9,10 @@
 
 #ifndef Processor_hpp
 #define Processor_hpp
+<<<<<<< HEAD
 
+=======
+>>>>>>> c89008d8d9c444cadde4de3e229f4eaef9677643
 #include <stdio.h>
 #include <iostream>
 #include "Parser.hpp"
@@ -17,7 +20,10 @@
 #include "ProgramCounter.hpp"
 #include "DataMemory.hpp"
 #include "ALU.hpp"
+<<<<<<< HEAD
 
+=======
+>>>>>>> c89008d8d9c444cadde4de3e229f4eaef9677643
 #include "Multiplexer.hpp"
 
 class Processor{

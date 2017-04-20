@@ -7,22 +7,7 @@
 //
 
 #include "Processor.hpp"
-<<<<<<< HEAD
-void fetch(){
-    currentInstruction = parse.getInstruction(prgrmCounter.getAddress());
-    currentInstruction.print();
-}
 
-void execute(){
-    
-}
-
-void writeToMemory(){
-    
-}
-
-void nextInstruction(){
-=======
 
 Processor::Processor(){
     // insert code here...
@@ -60,6 +45,6 @@ void Processor::writeToMemory(){
 }
 
 void Processor::nextInstruction(){
->>>>>>> 95c998b18517b30ec1c47f3506eec7f82ca8b0ab
+
     
 }
