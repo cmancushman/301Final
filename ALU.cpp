@@ -8,13 +8,18 @@
 
 #include "ALU.hpp"
 
-string intToHex(int integer);
-int hexToInt(string hexString);
 
+/*
+* Default constructor
+*/
 ALU::ALU() {
 
 }
 
+/*
+* Calls either the compare(), add(), or subtract() function depending on the value
+* of the operation instance variable
+*/
 void ALU::execute() {
 
 	if (operation == 0) compare();
@@ -25,7 +30,7 @@ void ALU::execute() {
 }
 
 /*
-* Compares the two operands, returns 0 if the same and 1 if different
+* Compares the two operands, returns true if the same and false if different
 */
 void ALU::compare() {
 
