@@ -24,6 +24,9 @@ public:
     //This method reads in a file
     DataMemory(string file);
 
+    //This method sets the file
+    void setFile(string file);
+
     //Declaration for getWord method
     string getWord(string address);
 

@@ -14,45 +14,56 @@ DataMemory::DataMemory(){
     memoryMap["0x00000003"] = "0xffffffff";
     //cout << " Memory map "<< memoryMap["0x00000001"] << endl;
 }
-//This method reads in a file of strings
+//This constructor reads in a file of strings
 DataMemory::DataMemory(string file){
-    /*cout << "GetInstruction: INPUT:  " << binary strings << "    OUTPUT " << binary strings;
-     fstream in;
-     in.open(file.c_str());
-     
-     instructionList = LinkedList<Instruction>();
-     if(in.bad()){
-     cout <<"BAD FILE" << endl;
-     }
-     else{
-     string line;
-     
-     
-     while( getline(in, line)){
-     //cout  << line << endl;
-     
-     line.erase(std::remove(line.begin(), line.end(), ','), line.end());
-     
-     std::replace( line.begin(), line.end(), '(', ' ');
-     
-     std::replace( line.begin(), line.end(), ')', ' ');
-     
-     string stringArray[10];
-     int counter = 0;
-     for (short i = 0; i<line.length(); i++){
-     if (line[i] == ' '){
-     counter++;
-     }
-     else{
-     stringArray[counter] += line[i];
-     }
-     }
-     instructionList.add(toInstruction(stringArray));
-     }
-     }*/
+
 }
 
+void DataMemory::setFile(){
+    fstream in;
+    in.open(file.c_str());
+    
+    if(in.bad()){
+        cout <<"BAD FILE" << endl;
+    }
+    else{
+        string line;
 
+        
+        while(getLine(in, line)){
+            //cout  << line << endl;
+            
+            
+            std::replace( line.begin(), line.end(), ':', ' ');
+            
+            
+            string stringArray[10];
+            int counter = 0;
+            for (short i = 0; i<line.length(); i++){
+                if (line[i] == ' '){
+                    counter++;
+                }else{
+                    stringArray[counter] += line[i];
+                }
+            }
+            //array[0] is the key
+            //array[1] is the object
+            if(array[0].substr(0,2)!="0x"){
+                stringArray[0] = "0x" + stringArray[0];
+            }
+            if(array[1].substr(0,2)!="0x"){
+                stringArray[1] = "0x" + stringArray[1];
+            }
+
+            cout <<"Process check " << stringArray[0] << " " << stringArray[1] << endl; 
+            memoryMap[stringArray[0]] = stringArray[1];
+    
+            
+        }
+    }
+
+    cout << "Memory map test " << memoryMap["0x44578224"] << endl;
+}
 
 //This method is for converting binary string to hexadecmial values
 //It receives a binary string and returns a hexadecimal string
