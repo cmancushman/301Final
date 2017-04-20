@@ -13,6 +13,9 @@
 #include <iostream>
 #include <sstream>
 using namespace std;
+
+//This class simulates the Instruction component of the processor, determining the register names, operands and 
+//op-fields, and instruction type
 class Instruction{
     
 private:

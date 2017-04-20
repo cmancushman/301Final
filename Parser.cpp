@@ -8,10 +8,12 @@
 
 #include "Parser.h"
 
+//Default constructor
 Parser::Parser(){
     cout << "oy" << endl;
 }
 
+//Constructor that intakes a file of strings
 Parser::Parser(string file){
     fstream in;
     in.open(file.c_str());
@@ -50,16 +52,18 @@ Parser::Parser(string file){
     
 }
 
+//Sets the file to input string file
 void Parser::setFile(string file){
     
 }
 
-
+//Returns the instruction at an index
 Instruction Parser::getInstruction(double index){
     cout << "GetInstruction: INPUT:  " << index << "    OUTPUT "; instructionList.get((int)index).print();
     return instructionList.get((int)index);
 }
 
+//Returns an instruction from input stringArray
 Instruction Parser::toInstruction(string stringArray[]){
     
     std::transform(stringArray[0].begin(), stringArray[0].end(), stringArray[0].begin(), ::tolower);
@@ -70,6 +74,7 @@ Instruction Parser::toInstruction(string stringArray[]){
 
 }
 
+//Prints all the instructions
 void Parser::printAllInstructions(){
     for(int x = 0; x < instructionList.size(); x ++){
         cout << "Instruction #"<<x << " : "; instructionList.get(x).print();
