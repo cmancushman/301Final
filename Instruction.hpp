@@ -39,6 +39,8 @@ private:
     
 public:
     
+    Instruction();
+    
     /* Constructor with all inputs */
     Instruction(string str1, string str2, string str3, string str4);
     

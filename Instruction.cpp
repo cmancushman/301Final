@@ -27,7 +27,7 @@ Instruction::Instruction(string str1, string str2, string str3, string str4){
         typeOfInstruction = 2;
         std::string s = std::bitset< 16 >( stoi(component4) ).to_string(); // string conversion
         immediate = s;
-        cout << "bit test " << s << endl;
+        //cout << "bit test " << s << endl;
         
     }else if(component1 == "slt"){
         typeOfInstruction = 3;
@@ -39,7 +39,7 @@ Instruction::Instruction(string str1, string str2, string str3, string str4){
         
         immediate = s;
         
-        cout <<"bit test " << s << endl;
+        //cout <<"bit test " << s << endl;
         
         
     }else if(component1 == "sw"){
@@ -48,7 +48,7 @@ Instruction::Instruction(string str1, string str2, string str3, string str4){
         std::string s = std::bitset< 16 >( stoi(component3)  ).to_string(); // string conversion
         immediate = s;
         
-        cout <<"bit test " << s << endl;
+        //cout <<"bit test " << s << endl;
     }else if(component1 == "beq"){
         typeOfInstruction = 6;
         if(component4.find("0x") == std::string::npos){
@@ -62,10 +62,10 @@ Instruction::Instruction(string str1, string str2, string str3, string str4){
         ss >> n;
         bitset<16> b(n);
         // outputs "00000000000000000000000000001010"
-        cout << "Test bits " << b.to_string() << endl;
+        //cout << "Test bits " << b.to_string() << endl;
         immediate = b.to_string();
         SignExtend ext = SignExtend();
-        cout << "Sign extend " << ext.extend(b.to_string()) << endl;
+        //cout << "Sign extend " << ext.extend(b.to_string()) << endl;
         
         
     }else if(component1 == "j"){
@@ -82,13 +82,13 @@ Instruction::Instruction(string str1, string str2, string str3, string str4){
         ss >> n;
         bitset<26> b(n);
         // outputs "00000000000000000000000000001010"
-        cout << "Test bits " << b.to_string() << endl;
+        //cout << "Test bits " << b.to_string() << endl;
         jumpComponent = b.to_string();
         
         
-        cout << "hex:" << component2 << " to int: " << hexToInt(component2) << endl;
+       // cout << "hex:" << component2 << " to int: " << hexToInt(component2) << endl;
         
-        cout << "int:" << hexToInt(component2) << " to hex: " << intToHex(hexToInt(component2)) << endl;
+        //cout << "int:" << hexToInt(component2) << " to hex: " << intToHex(hexToInt(component2)) << endl;
         
         
         
