@@ -6,8 +6,13 @@
 //  Copyright © 2017 Ubord, Inc. All rights reserved.
 //
 
+<<<<<<< HEAD
 #ifndef Processor.hpp
 #define Processor.hpp
+=======
+#ifndef Processor_hpp
+#define Processor_hpp
+>>>>>>> 95c998b18517b30ec1c47f3506eec7f82ca8b0ab
 
 #include <stdio.h>
 #include <iostream>
@@ -16,7 +21,11 @@
 #include "ProgramCounter.hpp"
 #include "DataMemory.hpp"
 #include "ALU.hpp"
+<<<<<<< HEAD
 #include "Multiplexor.hpp"
+=======
+#include "Multiplexer.hpp"
+>>>>>>> 95c998b18517b30ec1c47f3506eec7f82ca8b0ab
 
 class Processor{
 private:
@@ -26,6 +35,7 @@ private:
     Registers registerFile;
     Parser parse;
     ALU registerALU;
+<<<<<<< HEAD
     
 public:
     
@@ -41,9 +51,28 @@ public:
     
     /* Retruns the current address */
     double getAddress();
+=======
+    ProgramCounter programCounter;
+    
+    void fetch();
+    
+    void execute();
+    
+    void writeToMemory();
+    
+    void nextInstruction();
+public:
+    
+    Processor();
+
+>>>>>>> 95c998b18517b30ec1c47f3506eec7f82ca8b0ab
     
 };
 
 
 
+<<<<<<< HEAD
 #endif /* Processor.hpp */
+=======
+#endif /* Processor_hpp */
+>>>>>>> 95c998b18517b30ec1c47f3506eec7f82ca8b0ab

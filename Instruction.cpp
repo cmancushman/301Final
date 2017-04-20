@@ -10,6 +10,9 @@
 #include "SignExtend.hpp"
 int hexToInt(string hexString);
 string intToHex(int integer);
+Instruction::Instruction(){
+    
+}
 Instruction::Instruction(string str1, string str2, string str3, string str4){
     component1 = str1;
     component2 = str2;

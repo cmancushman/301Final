@@ -12,6 +12,7 @@
 //include "Instruction.hpp"
 
 int main(int argc, const char * argv[]) {
+<<<<<<< HEAD
     // insert code here...
     //std::cout << "Hello, World!\n";
     Parser parse = Parser("inst.asm");
@@ -31,7 +32,10 @@ int main(int argc, const char * argv[]) {
     fetch();
     //ALU alu = ALU();
     //parse.getNextInstruction().print();
+=======
+>>>>>>> 95c998b18517b30ec1c47f3506eec7f82ca8b0ab
     
+    Processor processor = Processor();
     
     
     
