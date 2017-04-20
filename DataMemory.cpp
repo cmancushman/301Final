@@ -19,7 +19,7 @@ DataMemory::DataMemory(string file){
 
 }
 
-void DataMemory::setFile(){
+void DataMemory::setFile(string file){
     fstream in;
     in.open(file.c_str());
     
@@ -30,7 +30,7 @@ void DataMemory::setFile(){
         string line;
 
         
-        while(getLine(in, line)){
+        while(getline(in, line)){
             //cout  << line << endl;
             
             
@@ -48,10 +48,10 @@ void DataMemory::setFile(){
             }
             //array[0] is the key
             //array[1] is the object
-            if(array[0].substr(0,2)!="0x"){
+            if(stringArray[0].substr(0,2)!="0x"){
                 stringArray[0] = "0x" + stringArray[0];
             }
-            if(array[1].substr(0,2)!="0x"){
+            if(stringArray[1].substr(0,2)!="0x"){
                 stringArray[1] = "0x" + stringArray[1];
             }
 

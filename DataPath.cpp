@@ -18,6 +18,7 @@ DataPath::DataPath()
     //parse.getInstruction(0);
     parse.printAllInstructions();
     
+    memoryUnit.setFile("DataMemory.asm");
     
 }
 //

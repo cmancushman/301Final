@@ -13,6 +13,7 @@
 #include <map>
 #include <sstream>
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 //This class simulates the Data Memory portion of the processor

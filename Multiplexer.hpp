@@ -19,11 +19,13 @@ class Multiplexer
 private:
     string output;
     
-    string control;
+    bool control;
     
     string input1;
     
     string input2;
+    
+    void execute();
     
 public:
     // Default constructor
