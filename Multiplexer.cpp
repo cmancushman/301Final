@@ -14,20 +14,33 @@ Multiplexer::Multiplexer()
 }
 
 
-string Multiplexer::multiplex(bool control, string input1, string input2)
-{
-    // Prints inputs
-    cout << "Multiplexer INPUT 1: " << input1 << endl;
-    cout << "Multiplexer INPUT 2: " << input2 << endl;
-    cout << "Multiplexer CONTROL: " << control << endl;
+void Multiplexer::setControl(bool newControl){
+    control = newControl;
     
-    // Retruns values based on control and prints outputs
-    if (control == true)
-    {
-        cout << "Multiplexer OUTPUT: " << input1 << endl << endl;
-        return input1;
+    execute();
+}
+
+void Multiplexer::setInput1(string input){
+    input1 = input;
+    
+    execute();
+}
+
+void Multiplexer::setInput2(string input){
+    input2 = input;
+    
+    execute();
+}
+
+string Multiplexer::getOutput(){
+    return output;
+
+}
+
+void Multiplexer::execute(){
+    if(control){
+        output = input1;
+    }else{
+        output = input2;
     }
-    
-    cout << "Multiplexer OUTPUT: " << input2 << endl << endl;
-    return input2;
 }

@@ -10,7 +10,17 @@
 
 DataPath::DataPath()
 {
-    cout << "hello" << endl;
- }
+    registerFile.setRegister(8, "0xffffffff");
+    registerFile.print();
+    registerFile.getRegister(8);
+    
+    parse.setFile("inst.asm");
+    //parse.getInstruction(0);
+    parse.printAllInstructions();
+}
+//
 
-
+void DataPath::fetch(){
+    
+    
+}

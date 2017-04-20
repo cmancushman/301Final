@@ -11,7 +11,7 @@
 
 int main(int argc, const char * argv[]) {
 
-    DataPath data = DataPath();
+    DataPath data;
     return 0;
 }
 //asd

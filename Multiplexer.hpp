@@ -17,6 +17,13 @@ class Multiplexer
 {
     
 private:
+    string output;
+    
+    string control;
+    
+    string input1;
+    
+    string input2;
     
 public:
     // Default constructor
@@ -26,7 +33,15 @@ public:
          Selects an output based on control. If control is true it outputs input1,
          if control is false it outputs input2.
      */
-    string multiplex(bool control, string input1, string input2);
+    void setControl(bool newControl);
+    
+    void setInput1(string input);
+    
+    void setInput2(string input);
+    
+    string getOutput();
+    
+    
 };
 
 #endif /* Multiplexer_hpp */

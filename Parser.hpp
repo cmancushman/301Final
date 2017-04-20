@@ -7,8 +7,8 @@
 //
 //  Reads in the information from the input file
 
-#ifndef Parser_h
-#define Parser_h
+#ifndef Parser_hpp
+#define Parser_hpp
 
 #include <stdio.h>
 #include <fstream>
@@ -26,6 +26,7 @@ private:
     /* List of instructions */
     LinkedList<Instruction>  instructionList;
 
+    string check;
 public:
     /* Default Constructor */
     Parser();
@@ -44,4 +45,4 @@ public:
     
 
 };
-#endif /* Parser_h */
+#endif /* Parser_hpp */

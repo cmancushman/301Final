@@ -10,6 +10,8 @@
 //#include "SignExtend.hpp"
 int hexToInt(string hexString);
 string intToHex(int integer);
+
+
 Instruction::Instruction(){
     
 }
@@ -127,7 +129,6 @@ string Instruction::getComponent4(){
 }
 
 void Instruction::print(){
-    //cout << "Print Separated Instruction:" << endl;
     cout << component1 << " " << component2 << " "  << component3 << " "  << component4 << " "  << endl;
     
 }
