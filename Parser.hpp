@@ -19,19 +19,26 @@ using namespace std;
 class Parser{
     
 private:
+    /* Returns an instruction from input stringArray */
     Instruction toInstruction(string stringArray[]);
+    
+    /* List of instructions */
     LinkedList<Instruction>  instructionList;
 
 public:
+    /* Default Constructor */
     Parser();
     
+    /* Constructor that takes a string fileName */
     Parser(string file);
     
+    /* Sets the file to input string "file" */
     void setFile(string file);
     
-    
+    /* Returns the instruction at index */
     Instruction getInstruction(double index);
     
+    /* Prints all the instructions of the instance */
     void printAllInstructions();
     
 

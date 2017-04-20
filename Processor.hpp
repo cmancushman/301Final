@@ -1,20 +1,31 @@
 //
-//  ProgramCounter.hpp
+//  Processor.hpp
 //  301Final
 //
 //  Created by MacBook Air on 4/13/17.
 //  Copyright © 2017 Ubord, Inc. All rights reserved.
 //
 
-#ifndef ProgramCounter_hpp
-#define ProgramCounter_hpp
+#ifndef Processor.hpp
+#define Processor.hpp
 
 #include <stdio.h>
 #include <iostream>
+#include "Parser.hpp"
+#include "Registers.hpp"
+#include "ProgramCounter.hpp"
+#include "DataMemory.hpp"
+#include "ALU.hpp"
+#include "Multiplexor.hpp"
 
-class ProgramCounter{
+class Processor{
 private:
-    double currentAddress;
+
+    Instruction currentInstruction;
+    DataMemory memoryUnit;
+    Registers registerFile;
+    Parser parse;
+    ALU registerALU;
     
 public:
     
@@ -35,4 +46,4 @@ public:
 
 
 
-#endif /* ProgramCounter_hpp */
+#endif /* Processor.hpp */

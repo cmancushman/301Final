@@ -4,7 +4,7 @@
 //
 //  Created by Alex Christine on 4/18/17.
 //
-//
+// Class creates a 2-to-1 Multiplexer
 
 #ifndef Multiplexer_hpp
 #define Multiplexer_hpp
@@ -19,6 +19,7 @@ class Multiplexer
 private:
     
 public:
+    // Default constructor
     Multiplexer();
     
     /*
