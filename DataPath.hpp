@@ -17,6 +17,7 @@
 #include "ALU.hpp"
 #include "Parser.hpp"
 #include "Multiplexer.hpp"
+#include "SignExtend.hpp"
 using namespace std;
 
 class DataPath{
@@ -29,6 +30,7 @@ public:
     void memory();
     void writeback();
 private:
+    
     ProgramCounter programCounter;
     Parser parse;
     Registers registerFile;
@@ -45,7 +47,7 @@ private:
     Multiplexer memoryOrALUMultiplexer;
     Multiplexer branchOrIncrementMultiplexer;
     Multiplexer jumpOrIncrementMultiplexer;
-    
+    SignExtend signExtend;
     
     
     string currentAddress;
@@ -57,7 +59,6 @@ private:
     string rd;
     string immediate;
     string jumpAmount;
-    
     
     string getBinFromHex(string sHex);
     string getHexFromBin(string sBinary);
