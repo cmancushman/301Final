@@ -12,7 +12,8 @@ string intToHex(int integer);
 int hexToInt(string hexString);
 
 ALU::ALU() {
-
+    //cout << "testing " << getBinFromHex(intToHex(hexToInt(getHexFromBin("00000000000000000000000000000011")))) << endl;
+    
 }
 
 
@@ -69,6 +70,22 @@ void ALU::subtract() {
 
 }
 
+string ALU::getHexFromBin(string sBinary)
+{
+    std::stringstream ss;
+    ss << std::hex << std::stoll(sBinary, NULL, 2);
+    //std::cout <<"hex test " << ss.str() << std::endl;
+    
+    string s =  ss.str();
+    while (s.length() != 8){
+        s = "0" + s;
+    }
+    s = "0x" + s;
+    return s;
+}
+
+
+
 /*
 * Converts a hex string to its integer representation
 */
@@ -84,13 +101,26 @@ int ALU::hexToInt(string hexString) {
 * converts int to a string representation of its hex value
 */
 string ALU::intToHex(int integer) {
-    string hexString;
-    stringstream ss;
-    integer >> ss;
-    ss >> std::hex >> hexString;
-    return hexString;
+    char output[100];
+    sprintf(output, "%08x", integer);
+    string result = output;
+    result = "0x" + result;
+    return result;
 }
 
+string ALU::getBinFromHex(string sHex)
+{
+    string s = sHex;
+    stringstream ss;
+    ss << std::hex << s;
+    unsigned n;
+    ss >> n;
+    bitset<32> b(n);
+    cout << "Test Return Hex " << b.to_string() << endl;
+    
+    return b.to_string();
+    
+}
 
 void ALU::setOperand1(string operand){
 	operand1 = operand;

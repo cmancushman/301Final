@@ -7,33 +7,15 @@
 //
 
 #include <iostream>
-#include "Parser.hpp"
-#include "Registers.hpp"
-#include "ProgramCounter.hpp"
-#include "DataMemory.hpp"
+
+#include "Processor.hpp"
 //include "Instruction.hpp"
-
-void fetch(){
-    
-}
-
-void execute(){
-    
-}
-
-void writeToMemory(){
-    
-}
-
-void nextInstruction(){
-    
-}
 
 int main(int argc, const char * argv[]) {
     // insert code here...
     //std::cout << "Hello, World!\n";
     Parser parse = Parser("inst.asm");
-    parse.printAllInstructions();
+    //parse.printAllInstructions();
     Registers registers = Registers();
     registers.setRegister(8, "0xffffffff");
     //registers.print();
@@ -43,7 +25,11 @@ int main(int argc, const char * argv[]) {
     parse.getInstruction(prgrmCounter.getAddress());
     
     DataMemory data = DataMemory();
-    data.getWord("00000000000000000000000000000001");
+    //data.getWord("00000000000000000000000000000011");
+    
+    
+    fetch();
+    //ALU alu = ALU();
     //parse.getNextInstruction().print();
     
     

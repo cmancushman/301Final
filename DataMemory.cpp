@@ -11,7 +11,7 @@
 
 DataMemory::DataMemory(){
     memoryMap = map<string, string>();
-    memoryMap["0x00000001"] = "0xffffffff";
+    memoryMap["0x00000003"] = "0xffffffff";
     //cout << " Memory map "<< memoryMap["0x00000001"] << endl;
 }
 //This is to read in the file
@@ -59,13 +59,13 @@ string DataMemory::getHexFromBin(string sBinary)
 {
     std::stringstream ss;
     ss << std::hex << std::stoll(sBinary, NULL, 2);
-    std::cout <<"hex test " << ss.str() << std::endl;
+    //std::cout <<"hex test " << ss.str() << std::endl;
     
     string s =  ss.str();
     while (s.length() != 8){
         s = "0" + s;
     }
-
+    s = "0x" + s;
     return s;
 }
 
@@ -75,9 +75,9 @@ string DataMemory::getHexFromBin(string sBinary)
 // this is a map, where the keys are hex numbers (strings) and the values are binary strings
 string DataMemory::getWord(string address){
     string hex = getHexFromBin(address);
-    string searchKey =  hex;
-    cout << " Memory map search test "<< memoryMap["0x00000000"] << endl;
-    cout <<"search key " << searchKey << " " << memoryMap[searchKey] << endl;
+    string searchKey =   hex;
+    //cout << " Memory map search test "<< memoryMap["0x00000000"] << endl;
+    //cout <<"search key " << searchKey << " " << memoryMap[searchKey] << endl;
     string returnWord = getBinFromHex(memoryMap[searchKey]);
     return returnWord;
 }
@@ -90,7 +90,7 @@ string DataMemory::getBinFromHex(string sHex)
     unsigned n;
     ss >> n;
     bitset<32> b(n);
-    cout << "Test Return Hex " << b.to_string() << endl;
+    //cout << "Test Return Hex " << b.to_string() << endl;
     
     return b.to_string();
     

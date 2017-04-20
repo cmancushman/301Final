@@ -34,6 +34,10 @@ private:
 	int hexToInt(string hexString);
 
 	string intToHex(int integer);
+    
+    string getHexFromBin(string sBinary);
+    
+    string getBinFromHex(string sHex);
 
 public:
 
