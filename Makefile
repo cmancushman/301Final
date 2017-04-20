@@ -1,3 +1,3 @@
-main: main.cpp Parser.cpp Registers.cpp DataMemory.cpp ALU.cpp Control.cpp ProgramCounter.cpp Instruction.cpp SignExtend.cpp ShiftLeft.cpp Multiplexer.cpp Processor.cpp Parser.hpp Registers.hpp DataMemory.hpp ALU.hpp Control.hpp ProgramCounter.hpp Instruction.hpp SignExtend.hpp ShiftLeft.hpp Multiplexer.hpp Processor.hpp
+main: main.cpp Processor.cpp Parser.cpp Registers.cpp DataMemory.cpp ALU.cpp Control.cpp ProgramCounter.cpp Instruction.cpp SignExtend.cpp ShiftLeft.cpp Multiplexer.cpp  
 
-	g++ -Wall -o main main.cpp Parser.cpp Registers.cpp DataMemory.cpp ALU.cpp Control.cpp ProgramCounter.cpp Instruction.cpp SignExtend.cpp ShiftLeft.cpp Multiplexer.cpp Processor.cpp
+	g++ -Wall -o main main.cpp Processor.cpp Parser.cpp Registers.cpp DataMemory.cpp ALU.cpp Control.cpp ProgramCounter.cpp Instruction.cpp SignExtend.cpp ShiftLeft.cpp Multiplexer.cpp 

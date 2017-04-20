@@ -37,8 +37,8 @@ Processor::Processor(){
 
 }
 void Processor::fetch(){
-    currentInstruction = parse.getInstruction(programCounter.getAddress());
-    currentInstruction.print();
+   // currentInstruction = parse.getInstruction(programCounter.getAddress());
+   // currentInstruction.print();
 }
 
 void Processor::execute(){
