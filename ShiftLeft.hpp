@@ -5,6 +5,7 @@
 //  Created by MacBook Air on 4/13/17.
 //  Copyright © 2017 Ubord, Inc. All rights reserved.
 //
+//  Creates a shift left 2 object that shifts the binary input left by 2 bits
 
 #ifndef ShiftLeft_hpp
 #define ShiftLeft_hpp

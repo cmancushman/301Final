@@ -14,6 +14,8 @@
 #include <sstream>
 #include <iostream>
 using namespace std;
+
+//This class simulates the Data Memory portion of the processor
 class DataMemory{
 public:
     //Constructor for DataMemory
