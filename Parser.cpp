@@ -10,11 +10,17 @@
 
 //Default constructor
 Parser::Parser(){
-    
 }
 
 //Constructor that intakes a file of strings
 Parser::Parser(string file){
+
+    
+}
+
+//Sets the file to input string file
+void Parser::setFile(string file){
+    check = "asd";
     fstream in;
     in.open(file.c_str());
     
@@ -24,7 +30,7 @@ Parser::Parser(string file){
     }
     else{
         string line;
-
+        
         
         while( getline(in, line)){
             //cout  << line << endl;
@@ -45,16 +51,9 @@ Parser::Parser(string file){
                 }
             }
             instructionList.add(toInstruction(stringArray));
-    
             
         }
     }
-    
-}
-
-//Sets the file to input string file
-void Parser::setFile(string file){
-    
 }
 
 //Returns the instruction at an index
@@ -69,7 +68,6 @@ Instruction Parser::toInstruction(string stringArray[]){
     std::transform(stringArray[0].begin(), stringArray[0].end(), stringArray[0].begin(), ::tolower);
     
     Instruction instr = Instruction(stringArray[0], stringArray[1], stringArray[2], stringArray[3]);
-    //instr.print();
     return instr;
 
 }

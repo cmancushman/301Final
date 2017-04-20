@@ -10,7 +10,7 @@
 
 ShiftLeft::ShiftLeft()
 {
-    
+
 }
 
 string ShiftLeft::shift(string input)

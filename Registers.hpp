@@ -31,7 +31,7 @@ public:
     void setRegister(int index, string value);
     
     //This method gets the value of the index of the register
-    void getRegister(int index);
+    string getRegister(int index);
     
     //This method prints out the register number
     void print();

@@ -7,16 +7,13 @@
 //
 
 #include <iostream>
-
-#include "Processor.hpp"
+#include "DataPath.hpp"
 
 int main(int argc, const char * argv[]) {
 
-    Processor processor = Processor();
-    //asd
-    
-    
+    DataPath data;
     return 0;
 }
+//asd
 
-
+//

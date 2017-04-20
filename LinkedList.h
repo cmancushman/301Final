@@ -168,6 +168,7 @@ public:
         
         
         
+        
         Node* node = head;
         
         for(int x = 0; x < index; x++){
@@ -353,7 +354,6 @@ public:
             
         }
         
-        cout << "got this far" << endl;
         
         Node* node = head;
         
@@ -365,7 +365,6 @@ public:
         }else{
             // if the index isn't 0, iterate to the desired node and set its value to newElement
             for(int x = 0; x < index; x++){
-                cout << "node element " << node->element << endl;
                 node = node->next;
                 
             }

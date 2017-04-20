@@ -26,6 +26,7 @@ private:
     /* List of instructions */
     LinkedList<Instruction>  instructionList;
 
+    string check;
 public:
     /* Default Constructor */
     Parser();
