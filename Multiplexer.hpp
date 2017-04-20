@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <iostream>
+#include "BinaryOperation.hpp"
 
 using namespace std;
 class Multiplexer
