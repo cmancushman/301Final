@@ -113,7 +113,7 @@ void DataPath::decode(){
     
     aluAddBranchAndAddress.execute();
     string temp = aluAddBranchAndAddress.getOutput();
-    branchOrIncrementMultiplexer.setInput1();
+    branchOrIncrementMultiplexer.setInput1(temp);
     
     
     
