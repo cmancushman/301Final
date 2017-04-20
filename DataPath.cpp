@@ -17,6 +17,8 @@ DataPath::DataPath()
     parse.setFile("inst.asm");
     //parse.getInstruction(0);
     parse.printAllInstructions();
+    
+    
 }
 //
 
