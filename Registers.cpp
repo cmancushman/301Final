@@ -10,9 +10,13 @@
 
 //This method is the constructor and puts values in a linked list
 Registers::Registers(){
+    cout <<" WHAT THE FUCK IS GOING ON" << endl;
     wordListCompare1 = LinkedList<string>();
+    
     for(int x = 0; x < 32; x++){
+        
         wordListCompare1.add("0x00000000");
+        cout << "x : " << x << " " << wordListCompare1.getLast() << endl;
     }
     
 }
@@ -24,7 +28,9 @@ Registers::Registers(string file){
 
 //This method sets the value of the index and the value of a string
 void Registers::setRegister(int index, string value){
+    cout << "test begin " << index << " " << value << endl;
     wordListCompare1.set(index, value);
+    cout << "test end" << endl;
 }
 
 //This method gets the value of the index of the register

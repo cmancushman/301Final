@@ -12,24 +12,28 @@
 
 #include <stdio.h>
 #include <iostream>
-#include "Parser.hpp"
+//#include "Parser.hpp"
 #include "Registers.hpp"
-#include "ProgramCounter.hpp"
-#include "DataMemory.hpp"
-#include "ALU.hpp"
-
-#include "Multiplexer.hpp"
+//#include "ProgramCounter.hpp"
+//#include "DataMemory.hpp"
+//#include "ALU.hpp"
+//#include "Multiplexer.hpp"
 
 class Processor{
+    
+public:
+    
+    Processor();//
+
 private:
 
-    Instruction currentInstruction;
-    DataMemory memoryUnit;
+    //Instruction currentInstruction;
+    //DataMemory memoryUnit;
     Registers registerFile;
-    Parser parse;
-    ALU registerALU;
+    //Parser parse;
+    //ALU registerALU;
 
-    ProgramCounter programCounter;
+    //ProgramCounter programCounter;
     
     void fetch();
     
@@ -38,9 +42,7 @@ private:
     void writeToMemory();
     
     void nextInstruction();
-public:
     
-    Processor();
 
     
 };

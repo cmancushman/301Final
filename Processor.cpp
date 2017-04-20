@@ -5,36 +5,40 @@
 //  Created by MacBook Air on 4/13/17.
 //  Copyright © 2017 Ubord, Inc. All rights reserved.
 //
+
 //  Executes the simulation
 
 #include "Processor.hpp"
 
 
 Processor::Processor(){
-    // insert code here...
-    //std::cout << "Hello, World!\n";
-    parse = Parser("inst.asm");
+
+    cout <<" 1" << endl;
+   // parse = Parser("inst.asm");
+
     //parse.printAllInstructions();
-    registerFile = Registers();
-    registerFile.setRegister(8, "0xffffffff");
-    //registers.print();
-    
-    programCounter = ProgramCounter();
+    //registerFile = Registers();
+    //registerFile.print();
+
+    //registerFile.setRegister(8, "0xffffffff");
+    //cout <<" 2" << endl;
+
+    //programCounter = ProgramCounter();
     
     //parse.getInstruction(programCounter.getAddress());
     
-    memoryUnit = DataMemory();
+    //memoryUnit = DataMemory();
     //data.getWord("00000000000000000000000000000011");
     
-    
-    fetch();
+
+    //fetch();
     //ALU alu = ALU();
     //parse.getNextInstruction().print();
 
 }
 void Processor::fetch(){
-    currentInstruction = parse.getInstruction(programCounter.getAddress());
-    currentInstruction.print();
+   // currentInstruction = parse.getInstruction(programCounter.getAddress());
+   // currentInstruction.print();
 }
 
 void Processor::execute(){
