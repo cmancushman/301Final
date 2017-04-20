@@ -12,26 +12,8 @@
 //include "Instruction.hpp"
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    //std::cout << "Hello, World!\n";
-    Parser parse = Parser("inst.asm");
-    //parse.printAllInstructions();
-    Registers registers = Registers();
-    registers.setRegister(8, "0xffffffff");
-    //registers.print();
     
-    ProgramCounter prgrmCounter = ProgramCounter();
-    
-    parse.getInstruction(prgrmCounter.getAddress());
-    
-    DataMemory data = DataMemory();
-    //data.getWord("00000000000000000000000000000011");
-    
-    
-    fetch();
-    //ALU alu = ALU();
-    //parse.getNextInstruction().print();
-    
+    Processor processor = Processor();
     
     
     

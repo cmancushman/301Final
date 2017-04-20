@@ -6,8 +6,8 @@
 //  Copyright © 2017 Ubord, Inc. All rights reserved.
 //
 
-#ifndef Processor.hpp
-#define Processor.hpp
+#ifndef Processor_hpp
+#define Processor_hpp
 
 #include <stdio.h>
 #include <iostream>
@@ -16,7 +16,7 @@
 #include "ProgramCounter.hpp"
 #include "DataMemory.hpp"
 #include "ALU.hpp"
-#include "Multiplexor.hpp"
+#include "Multiplexer.hpp"
 
 class Processor{
 private:
@@ -26,24 +26,22 @@ private:
     Registers registerFile;
     Parser parse;
     ALU registerALU;
+    ProgramCounter programCounter;
     
+    void fetch();
+    
+    void execute();
+    
+    void writeToMemory();
+    
+    void nextInstruction();
 public:
     
-    /* Constructor for program counter */
-    ProgramCounter();
-    
-    
-    /* Jump to a given address */
-    void jump(double amount);
-    
-    /* Increment by 4 */
-    void increment();
-    
-    /* Retruns the current address */
-    double getAddress();
+    Processor();
+
     
 };
 
 
 
-#endif /* Processor.hpp */
+#endif /* Processor_hpp */
