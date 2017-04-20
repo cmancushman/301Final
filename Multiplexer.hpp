@@ -21,9 +21,9 @@ private:
     
     bool control;
     
-    string input1;
+    string input0;
     
-    string input2;
+    string input1;
     
     void execute();
     
@@ -37,9 +37,9 @@ public:
      */
     void setControl(bool newControl);
     
-    void setInput1(string input);
+    void setInput0(string input);
     
-    void setInput2(string input);
+    void setInput1(string input);
     
     string getOutput();
     

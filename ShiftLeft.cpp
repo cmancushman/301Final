@@ -18,6 +18,9 @@ string ShiftLeft::shift(string input)
     cout << "ShiftLeft INPUT: " << input << endl;
     
     // Puts 00 at the end to shift the input left by 2 bits
+    if(input.length() == 32){
+        input.erase(0,2);
+    }
     input += "00";
     
     cout << "ShiftLeft OUTPUT: " << input << endl << endl;

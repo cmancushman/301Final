@@ -21,43 +21,64 @@ Instruction::Instruction(string str1, string str2, string str3, string str4){
     component3 = str3;
     component4 = str4;
     
+    str1.erase(std::remove(str1.begin(), str1.end(), '$'), str1.end());
+    str2.erase(std::remove(str2.begin(), str2.end(), '$'), str2.end());
+    str3.erase(std::remove(str3.begin(), str3.end(), '$'), str3.end());
+    str4.erase(std::remove(str4.begin(), str4.end(), '$'), str4.end());
+
+
+    opcode = str1;
+
+    
     if(component1 == "add"){
-        typeOfInstruction = 0;
+        rd = str2;
+        rs = str3;
+        rt = str4;
     }else if(component1 == "sub"){
-        typeOfInstruction = 1;
+        rd = str2;
+        rs = str3;
+        rt = str4;
     }else if(component1 == "addi"){
-        typeOfInstruction = 2;
-        std::string s = std::bitset< 16 >( stoi(component4) ).to_string(); // string conversion
+        std::string s = std::bitset< 16 >( stoi(str4) ).to_string(); // string conversion
         immediate = s;
+        
+        rs = str3;
+        rt = str2;
         //cout << "bit test " << s << endl;
         
     }else if(component1 == "slt"){
-        typeOfInstruction = 3;
+        
+        rd = str2;
+        rs = str3;
+        rt = str4;
     }else if(component1 == "lw"){
         
-        typeOfInstruction = 4;
         
-        std::string s = std::bitset< 16 >( stoi(component3)  ).to_string(); // string conversion
+        std::string s = std::bitset< 16 >( stoi(str3)  ).to_string(); // string conversion
         
         immediate = s;
+        
+        rt = str2;
+        rs = str4;
         
         //cout <<"bit test " << s << endl;
         
         
     }else if(component1 == "sw"){
-        typeOfInstruction = 5;
         
-        std::string s = std::bitset< 16 >( stoi(component3)  ).to_string(); // string conversion
+        std::string s = std::bitset< 16 >( stoi(str3)  ).to_string(); // string conversion
         immediate = s;
+        
+        rt = str2;
+        rs = str4;
         
         //cout <<"bit test " << s << endl;
     }else if(component1 == "beq"){
-        typeOfInstruction = 6;
-        if(component4.find("0x") == std::string::npos){
-            component4 = "0x" + component4;
+        if(str4.find("0x") == std::string::npos){
+            str4 = "0x" + str4;
         }
         
-        string s = component4;
+        string s = str4;
         stringstream ss;
         ss << hex << s;
         unsigned n;
@@ -69,15 +90,16 @@ Instruction::Instruction(string str1, string str2, string str3, string str4){
         //SignExtend ext = SignExtend();
         //cout << "Sign extend " << ext.extend(b.to_string()) << endl;
         
+        rs = str2;
+        rt = str3;
         
     }else if(component1 == "j"){
-        typeOfInstruction = 7;
         
-        if(component2.find("0x") == std::string::npos){
-            component2 = "0x" + component2;
+        if(str2.find("0x") == std::string::npos){
+            str2 = "0x" + str2;
         }
         
-        string s = component2;
+        string s = str2;
         stringstream ss;
         ss << hex << s;
         unsigned n;
@@ -98,34 +120,38 @@ Instruction::Instruction(string str1, string str2, string str3, string str4){
     
 }
 
-int hexToInt(string hexString){
+int Instruction::hexToInt(string hexString){
     unsigned int x;
     stringstream ss;
     ss << std::hex << hexString;
     ss >> x;
     return x;
 }
-string intToHex(int integer){
+string Instruction::intToHex(int integer){
     char output[100];
     sprintf(output, "%08x", integer);
     string result = output;
     result = "0x" + result;
     return result;
 }
-string Instruction::getComponent1(){
-    return component1;
-}
 
-string Instruction::getComponent2(){
-    return component2;
+string Instruction::getOpcode(){
+    return opcode;
 }
-
-string Instruction::getComponent3(){
-    return component3;
+string Instruction::getRs(){
+    return rs;
 }
-
-string Instruction::getComponent4(){
-    return component4;
+string Instruction::getRd(){
+    return rd;
+}
+string Instruction::getRt(){
+    return rt;
+}
+string Instruction::getJumpAmount(){
+    return jumpComponent;
+}
+string Instruction::getImmediate(){
+    return immediate;
 }
 
 void Instruction::print(){

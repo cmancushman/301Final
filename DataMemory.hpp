@@ -30,13 +30,33 @@ public:
 
     //Declaration for getWord method
     string getWord(string address);
+    
+    void storeWord(string word);
+    
+    void setCurrentAddress(string address);
 
     //Print function
     void print();
 
+    void setShouldWrite(bool writeToMemory);
+    
+    void setShouldRead(bool readFromMemory);
+
+    
+    void saveMemory();
+    
+    string readMemory();
     
 private:
     
+    bool shouldWrite;
+    
+    bool shouldRead;
+
+    
+    string currentAddress;
+    
+    string currentWord;
     //Method that gets hexadecimal string from binary string
     string getHexFromBin(string sBinary);
     

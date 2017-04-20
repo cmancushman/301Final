@@ -6,25 +6,17 @@
 //  Copyright © 2017 Ubord, Inc. All rights reserved.
 //
 
-#include "Control.hpp"
+#include "ALUControl.hpp"
 
-Control::Control(){
+ALUControl::ALUControl(){
     
 }
 
-bool Control::isBranch(){
-    return branch;
+void ALUControl::setALU(ALU *alu){
+    
 }
 
-void Control::setComponents(Registers *reg, DataMemory *mem, ALU *alu, Multiplexer *regMult, Multiplexer *regImm, Multiplexer *memALU, Multiplexer *jumpInc){
-    registerFile = reg;
-    memoryUnit = mem;
-    aluToMemory = alu;
-    registerMultiplexer = regMult;
-    registerOrImmediateMultiplexer = regImm;
-    memoryOrALUMultiplexer = memALU;
-    jumpOrIncrementMultiplexer = jumpInc;
-}
+
 
 void Control::sendSignals(string opcode){
     cout <<"ADJUSTING REGISTER MULTIPLEXER CONTROL" << endl;
