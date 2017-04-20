@@ -4,7 +4,8 @@
 //
 //  Created by Alex Christine on 4/18/17.
 //
-//
+//  Class Creates a signExtender that can be used to turn 16-bit binary inputs to
+//  32-bit binary outputs
 
 #ifndef SignExtend_hpp
 #define SignExtend_hpp

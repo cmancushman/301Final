@@ -22,7 +22,7 @@ private:
 
     
 public:
-    
+    // Default constructor
     ShiftLeft();
     
     /*

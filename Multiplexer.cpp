@@ -16,10 +16,12 @@ Multiplexer::Multiplexer()
 
 string Multiplexer::multiplex(bool control, string input1, string input2)
 {
+    // Prints inputs
     cout << "Multiplexer INPUT 1: " << input1 << endl;
     cout << "Multiplexer INPUT 2: " << input2 << endl;
     cout << "Multiplexer CONTROL: " << control << endl;
     
+    // Retruns values based on control and prints outputs
     if (control == true)
     {
         cout << "Multiplexer OUTPUT: " << input1 << endl << endl;
