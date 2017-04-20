@@ -16,22 +16,28 @@
 using namespace std;
 class DataMemory{
 public:
+    //Constructor for DataMemory
     DataMemory();
     
+    //This method reads in a file
     DataMemory(string file);
 
-
+    //Declaration for getWord method
     string getWord(string address);
 
+    //Print function
     void print();
 
     
 private:
     
+    //Method that gets hexadecimal string from binary string
     string getHexFromBin(string sBinary);
     
+    //Method that gets binary string from hexadecimal string
     string getBinFromHex(string sHex);
     
+    //Declaration of the dictionary map
     map<string, string> memoryMap;
 
 

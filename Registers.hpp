@@ -47,19 +47,24 @@ private:
     string register30;
     string register31;*/
     
+    //This is the declaration of a linked list of strings
     LinkedList<string> wordListCompare1;
     
 
 public:
+    //This is the constructor for the Register() function
     Registers();
 
-
+    //This method reads in a file
     Registers(string file);
     
+    //This method sets the value of the index and the value of a string
     void setRegister(int index, string value);
     
+    //This method gets the value of the index of the register
     void getRegister(int index);
     
+    //This method prints out the register number
     void print();
 
    /* string getRegister0();
