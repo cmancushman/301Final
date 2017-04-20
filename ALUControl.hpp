@@ -10,36 +10,16 @@
 #define Control_hpp
 
 #include <stdio.h>
-#include "Instruction.hpp"
-#include "Registers.hpp"
+
 #include "ALU.hpp"
-#include "DataMemory.hpp"
-#include "Instruction.hpp"
-#include "Multiplexer.hpp"
-#include "ProgramCounter.hpp"
 
 
 class Control{
 private:
     
-    Registers *registerFile;
-    DataMemory *memoryUnit;
-    ALU *aluToMemory;
-    Multiplexer *registerMultiplexer;
-    Multiplexer *registerOrImmediateMultiplexer;
-    Multiplexer *memoryOrALUMultiplexer;
-    //Multiplexer branchOrIncrementMultiplexer;
-    Multiplexer *jumpOrIncrementMultiplexer;
 
-    
-    bool branch;
-    bool jump;
-    bool memToReg;
-    bool memRead;
-    bool memWrite;
-    bool aluSRC;
-    bool regWrite;
-    bool regDst;
+    ALU *aluToMemory;
+
     
     string aluOP;
     

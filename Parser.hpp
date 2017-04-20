@@ -27,6 +27,10 @@ private:
     LinkedList<Instruction>  instructionList;
 
     string check;
+    
+    int hexToInt(string hexString);
+    
+    string getHexFromBin(string sBinary);
 public:
     /* Default Constructor */
     Parser();
@@ -38,7 +42,7 @@ public:
     void setFile(string file);
     
     /* Returns the instruction at index */
-    Instruction getInstruction(double index);
+    Instruction getInstruction(string binaryIndex);
     
     /* Prints all the instructions of the instance */
     void printAllInstructions();

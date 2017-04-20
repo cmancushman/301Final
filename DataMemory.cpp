@@ -58,31 +58,17 @@ void DataMemory::setFile(string file){
                 stringArray[1] = "0x" + stringArray[1];
             }
 
-            cout <<"Process check " << stringArray[0] << " " << stringArray[1] << endl; 
+            //cout <<"Process check " << stringArray[0] << " " << stringArray[1] << endl;
             memoryMap[stringArray[0]] = stringArray[1];
     
             
         }
     }
 
-    cout << "Memory map test " << memoryMap["0x44578224"] << endl;
+    //cout << "Memory map test " << memoryMap["0x44578224"] << endl;
 }
 
-//This method is for converting binary string to hexadecmial values
-//It receives a binary string and returns a hexadecimal string
-string DataMemory::getHexFromBin(string sBinary)
-{
-    std::stringstream ss;
-    ss << std::hex << std::stoll(sBinary, NULL, 2);
-    //std::cout <<"hex test " << ss.str() << std::endl;
-    
-    string s =  ss.str();
-    while (s.length() != 8){
-        s = "0" + s;
-    }
-    s = "0x" + s;
-    return s;
-}
+
 
 
 
@@ -113,7 +99,54 @@ string DataMemory::getBinFromHex(string sHex)
     
 }
 
+//This method is for converting binary string to hexadecmial values
+//It receives a binary string and returns a hexadecimal string
+string DataMemory::getHexFromBin(string sBinary)
+{
+    std::stringstream ss;
+    ss << std::hex << std::stoll(sBinary, NULL, 2);
+    //std::cout <<"hex test " << ss.str() << std::endl;
+    
+    string s =  ss.str();
+    while (s.length() != 8){
+        s = "0" + s;
+    }
+    s = "0x" + s;
+    return s;
+}
 
+
+void DataMemory::setShouldWrite(bool writeToMemory){
+    cout << "DATA MEMORY CAN BE OVERWRITTEN?: (1 yes, 0 no): " << writeToMemory << endl;
+    shouldWrite = writeToMemory;
+}
+
+void DataMemory::setShouldRead(bool readFromMemory){
+    cout << "DATA MEMORY CAN BE READ?: (1 yes, 0 no): " << readFromMemory << endl;
+    shouldRead = readFromMemory;
+}
+
+void DataMemory::storeWord(string word){
+    currentWord = getHexFromBin(word);
+}
+
+void DataMemory::setCurrentAddress(string address){
+    currentAddress = getHexFromBin(address);
+}
+
+
+void DataMemory::saveMemory(){
+    if(shouldWrite){
+        memoryMap[currentAddress] = currentWord;
+    }
+}
+string DataMemory::readMemory(){
+    if(shouldRead){
+        cout << "MEMORY READ: " << getBinFromHex(memoryMap[currentAddress]) << endl;
+        return getBinFromHex(memoryMap[currentAddress]);
+    }
+    return "";
+}
 //This method prints
 void DataMemory::print(){
     //wordListCompare1 = std::map<key, value> map;<string>();

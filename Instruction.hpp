@@ -20,25 +20,34 @@ class Instruction{
     
 private:
     
-    // Specifies J, R, or I-Type
-    int typeOfInstruction;
+
     
     // Op-field: add, jump, etc.
-    string component1;
+    string opcode;
     
     /*
         compenents hold additional operands for instruction including
         memory addresses, register names, etc.
     */
+    string rs;
+    string rt;
+    string rd;
+    
+    string component1;
     string component2;
     string component3;
     string component4;
+
     
     // Immediate field if applicable
     string immediate;
     
     // Jump component if applicable
     string jumpComponent;
+    
+    int hexToInt(string hexString);
+    
+    string intToHex(int integer);
     
 public:
     
@@ -47,20 +56,20 @@ public:
     /* Constructor with all inputs */
     Instruction(string str1, string str2, string str3, string str4);
     
-    /* Returns instruction type */
-    string getType();
+    /* Returns opcode for instruction */
+    string getOpcode();
     
     /* returns component1 */
-    string getComponent1();
+    string getRs();
     
     /* Returns component2 */
-    string getComponent2();
+    string getRd();
     
     /* Returns component3 */
-    string getComponent3();
+    string getRt();
     
-    /* Returns component4 */
-    string getComponent4();
+    /* Returns jump amount*/
+    string getJumpAmount();
     
     /* Returns immediate field */
     string getImmediate();

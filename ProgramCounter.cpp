@@ -12,17 +12,14 @@
 
 
 ProgramCounter::ProgramCounter(){
-    currentAddress = 0;
+    currentAddress = "00000000000000000000000000000000";
 }
 
-void ProgramCounter::increment(){
-    currentAddress +=4;
+void ProgramCounter::setAddress(string address){
+    currentAddress = address;
 }
 
-void ProgramCounter::jump(double amount){
-    currentAddress += amount;
-}
-
-double ProgramCounter::getAddress(){
+string ProgramCounter::getAddress(){
     return currentAddress;
 }
+

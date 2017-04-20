@@ -13,9 +13,10 @@
 #include <stdio.h>
 #include <iostream>
 
+using namespace std;
 class ProgramCounter{
 private:
-    double currentAddress;
+    string currentAddress;
     
 public:
     
@@ -23,14 +24,10 @@ public:
     ProgramCounter();
     
     
-    /* Jump to a given address */
-    void jump(double amount);
-    
-    /* Increment by 4 */
-    void increment();
+    void setAddress(string address);
     
     /* Retruns the current address */
-    double getAddress();
+    string getAddress();
     
 };
 
