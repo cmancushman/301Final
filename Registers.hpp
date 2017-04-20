@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "LinkedList.h"
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 class Registers{

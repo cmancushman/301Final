@@ -24,10 +24,9 @@ void Registers::init(){
 }
 //Im assuming this method will read in a file of strings
 Registers::Registers(string file){
-
-   /* //need to add memoryMap to this class
-    //need to alter anything to account for greater number of lines in file?
     
+    cout << "Registers INPUT 1: " << file << endl;
+
     fstream in;
     in.open(file.c_str());
     
@@ -72,10 +71,7 @@ Registers::Registers(string file){
         }
     }
 
-<<<<<<< HEAD
-    cout << "Memory map test " << memoryMap["0x44578224"] << endl;*/
-=======
->>>>>>> 2e745bf0ed56a870ff0b4ce2cbc2adfcdfdf950f
+
 }
 
 //This method sets the value of the index and the value of a string
