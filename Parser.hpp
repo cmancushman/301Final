@@ -5,6 +5,7 @@
 //  Created by MacBook Air on 4/12/17.
 //  Copyright © 2017 Ubord, Inc. All rights reserved.
 //
+//  Reads in the information from the input file
 
 #ifndef Parser_hpp
 #define Parser_hpp
