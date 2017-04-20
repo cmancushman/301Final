@@ -14,13 +14,14 @@ Processor::Processor(){
     //std::cout << "Hello, World!\n";
     cout <<" 1" << endl;
     parse = Parser("inst.asm");
-    cout <<" 2" << endl;
 
     //parse.printAllInstructions();
     registerFile = Registers();
+    
     registerFile.setRegister(8, "0xffffffff");
     //registers.print();
-    
+    cout <<" 2" << endl;
+
     programCounter = ProgramCounter();
     
     //parse.getInstruction(programCounter.getAddress());

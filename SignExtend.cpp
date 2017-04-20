@@ -17,12 +17,17 @@ string SignExtend::extend(string input)
 {
     cout << "SignExtend INPUT: " << input << endl;
 
-    if (input.substr(0,1) == "0"){
-        while(input.length() != 32){
+    if (input.substr(0,1) == "0")
+    {
+        while(input.length() != 32)
+        {
             input = "0" + input;
         }
-    }else{
-        while(input.length() != 32){
+    }
+    else
+    {
+        while(input.length() != 32)
+        {
             input = "1" + input;
         }
     }

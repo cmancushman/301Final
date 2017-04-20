@@ -24,7 +24,9 @@ Registers::Registers(string file){
 
 //This method sets the value of the index and the value of a string
 void Registers::setRegister(int index, string value){
+    cout << "test begin " << index << " " << value << endl;
     wordListCompare1.set(index, value);
+    cout << "test end" << endl;
 }
 
 //This method gets the value of the index of the register
