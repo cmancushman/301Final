@@ -8,13 +8,13 @@
 
 #include "DataMemory.hpp"
 
-
+//This is the constructor for DataMemory
 DataMemory::DataMemory(){
     memoryMap = map<string, string>();
-    memoryMap["0x00000001"] = "0xffffffff";
+    memoryMap["0x00000003"] = "0xffffffff";
     //cout << " Memory map "<< memoryMap["0x00000001"] << endl;
 }
-//This is to read in the file
+//This method reads in a file of strings
 DataMemory::DataMemory(string file){
     /*cout << "GetInstruction: INPUT:  " << binary strings << "    OUTPUT " << binary strings;
      fstream in;
@@ -53,35 +53,38 @@ DataMemory::DataMemory(string file){
 }
 
 
-//Step 1: convert binary string into hex
+
 //This method is for converting binary string to hexadecmial values
+//It receives a binary string and returns a hexadecimal string
 string DataMemory::getHexFromBin(string sBinary)
 {
     std::stringstream ss;
     ss << std::hex << std::stoll(sBinary, NULL, 2);
-    std::cout <<"hex test " << ss.str() << std::endl;
+    //std::cout <<"hex test " << ss.str() << std::endl;
     
     string s =  ss.str();
     while (s.length() != 8){
         s = "0" + s;
     }
-
+    s = "0x" + s;
     return s;
 }
 
-//Step 2: Make a dictionary where the hex is the key, then your dictionary does objectForKey(“ff0d0d0d”) and gets that object
-//which should be a hex.
 
-// this is a map, where the keys are hex numbers (strings) and the values are binary strings
+
+//This method uses dictionary pairing in order to get an object that is associated with a key
+// It receives a string address in the form of a binary string, converts it t hex, finds the key, and converts it back to binary
 string DataMemory::getWord(string address){
     string hex = getHexFromBin(address);
-    string searchKey =  hex;
-    cout << " Memory map search test "<< memoryMap["0x00000000"] << endl;
-    cout <<"search key " << searchKey << " " << memoryMap[searchKey] << endl;
+    string searchKey =   hex;
+    //cout << " Memory map search test "<< memoryMap["0x00000000"] << endl;
+    //cout <<"search key " << searchKey << " " << memoryMap[searchKey] << endl;
     string returnWord = getBinFromHex(memoryMap[searchKey]);
     return returnWord;
 }
-//Step 3: Convert the hex to a 32 bit binary string
+
+//This method is for converting hexadecmial string to binary values
+//It receives a hexadecimal string and returns a binary string
 string DataMemory::getBinFromHex(string sHex)
 {
     string s = sHex;
@@ -90,13 +93,14 @@ string DataMemory::getBinFromHex(string sHex)
     unsigned n;
     ss >> n;
     bitset<32> b(n);
-    cout << "Test Return Hex " << b.to_string() << endl;
+    //cout << "Test Return Hex " << b.to_string() << endl;
     
     return b.to_string();
     
 }
 
-//Step 4: Output the binary string
+
+//This method prints
 void DataMemory::print(){
     //wordListCompare1 = std::map<key, value> map;<string>();
     //for(int x = 0; x < 32; x++){

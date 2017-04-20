@@ -33,7 +33,15 @@ private:
 
 	int hexToInt(string hexString);	//converts hex string to its int representation
 
+<<<<<<< HEAD
 	string intToHex(int integer);	//converts int to its hex string representation
+=======
+	string intToHex(int integer);
+    
+    string getHexFromBin(string sBinary);
+    
+    string getBinFromHex(string sHex);
+>>>>>>> c89008d8d9c444cadde4de3e229f4eaef9677643
 
 public:
 

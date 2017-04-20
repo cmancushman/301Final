@@ -13,7 +13,8 @@
 * Default constructor
 */
 ALU::ALU() {
-
+    //cout << "testing " << getBinFromHex(intToHex(hexToInt(getHexFromBin("00000000000000000000000000000011")))) << endl;
+    
 }
 
 /*
@@ -74,6 +75,22 @@ void ALU::subtract() {
 
 }
 
+string ALU::getHexFromBin(string sBinary)
+{
+    std::stringstream ss;
+    ss << std::hex << std::stoll(sBinary, NULL, 2);
+    //std::cout <<"hex test " << ss.str() << std::endl;
+    
+    string s =  ss.str();
+    while (s.length() != 8){
+        s = "0" + s;
+    }
+    s = "0x" + s;
+    return s;
+}
+
+
+
 /*
 * Takes a hex string as a parameter and returns its integer representation
 */
@@ -89,16 +106,33 @@ int ALU::hexToInt(string hexString) {
 * Takes an int as a parameter and returns its hex representation as a string
 */
 string ALU::intToHex(int integer) {
-    string hexString;
-    stringstream ss;
-    integer >> ss;
-    ss >> std::hex >> hexString;
-    return hexString;
+    char output[100];
+    sprintf(output, "%08x", integer);
+    string result = output;
+    result = "0x" + result;
+    return result;
 }
 
+<<<<<<< HEAD
+string ALU::getBinFromHex(string sHex)
+{
+    string s = sHex;
+    stringstream ss;
+    ss << std::hex << s;
+    unsigned n;
+    ss >> n;
+    bitset<32> b(n);
+    cout << "Test Return Hex " << b.to_string() << endl;
+    
+    return b.to_string();
+    
+}
+
+=======
 /*
 * Sets the operand1 instance variable equal to the passed string
 */
+>>>>>>> 57067c5ed5f762bdfd3d92eceada0951a5cd449b
 void ALU::setOperand1(string operand){
 	operand1 = operand;
 }
