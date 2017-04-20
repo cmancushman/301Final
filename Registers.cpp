@@ -38,36 +38,37 @@ Registers::Registers(string file){
         while(getline(in, line)){
             //cout  << line << endl;
             
-            
+            //replace the colon in input file with a space
             std::replace( line.begin(), line.end(), ':', ' ');
             
-            
-            string stringArray[10];
+            //string array holds register number and accompanying 8-bit hex number
+            string stringArray[2];
             int counter = 0;
             for (short i = 0; i<line.length(); i++){
                 if (line[i] == ' '){
                     counter++;
+                    //move to next index in array to hold hex number
                 }else{
                     stringArray[counter] += line[i];
+                    //array[0] contains register number
+                    //array[1] contains hex value
                 }
             }
-            //array[0] is the key
+            //array[0] is the register
             //array[1] is the object
-            if(stringArray[0].substr(0,2)!="0x"){
-                stringArray[0] = "0x" + stringArray[0];
-            }
+
+            //make all hex numbers uniform - add 0x to all
             if(stringArray[1].substr(0,2)!="0x"){
                 stringArray[1] = "0x" + stringArray[1];
             }
 
             cout <<"Process check " << stringArray[0] << " " << stringArray[1] << endl; 
-            memoryMap[stringArray[0]] = stringArray[1];
-    
+            //set LinkedList, pass register as index and hex string as element
+            wordListCompare1.set(stoi(stringArray[0]),stringArray[1]);
             
         }
     }
 
-    cout << "Memory map test " << memoryMap["0x44578224"] << endl;
 }
 
 //This method sets the value of the index and the value of a string
