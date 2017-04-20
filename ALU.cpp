@@ -28,7 +28,7 @@ void ALU::execute() {
     
     if (operation == 0){
         cout << "ALU OPERATION: compare equal" << endl;
-        compare();
+        compareEqual();
     }
     
     
@@ -43,12 +43,17 @@ void ALU::execute() {
         
         subtract();
     }
+    else if (operation == 3){
+        cout << "ALU OPERATION: compare less than" << endl;
+        
+        compareLessThan();
+    }
 }
 
 /*
  * Compares the two operands, returns true if the same and false if different
  */
-void ALU::compare() {
+void ALU::compareEqual() {
     
     if (operand1.compare(operand2) != 0) {
         //strings are different
@@ -59,6 +64,23 @@ void ALU::compare() {
     else {
         cout << "The strings are the same" << endl;
         comparisonResult = true;
+    }
+}
+
+/*
+ * Compares the two operands, returns true if the first is smaller than the other
+ */
+void ALU::compareLessThan() {
+    
+    if (hexToInt(getHexFromBin(operand1)) < hexToInt(getHexFromBin(operand2))) {
+        //strings are different
+        cout << "Operand 1 is smaller" << endl;
+        comparisonResult = true;
+    }
+    
+    else {
+        cout << "Operand 1 is not smaller" << endl;
+        comparisonResult = false;
     }
 }
 
@@ -147,6 +169,7 @@ string ALU::getBinFromHex(string sHex)
  * Sets the operand1 instance variable equal to the passed string
  */
 void ALU::setOperand1(string operand){
+    cout << "ALU: SETTING OPERAND1 TO " << operand << endl;
     operand1 = operand;
 }
 
@@ -154,6 +177,8 @@ void ALU::setOperand1(string operand){
  * Sets the operand2 instance variable equal to the passed string
  */
 void ALU::setOperand2(string operand){
+    cout << "ALU: SETTING OPERAND2 TO " << operand << endl;
+
     operand2 = operand;
     
 }
@@ -162,6 +187,7 @@ void ALU::setOperand2(string operand){
  * Sets the operation instance variable equal to the passed int
  */
 void ALU::setOperation(int operationInput){
+    cout << "ALU: SETTING OPERATION TO " << operationInput << endl;
     operation = operationInput;
 }
 

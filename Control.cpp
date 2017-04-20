@@ -24,6 +24,9 @@ void Control::setComponents(Registers *reg, DataMemory *mem, ALU *alu, Multiplex
     registerOrImmediateMultiplexer = regImm;
     memoryOrALUMultiplexer = memALU;
     jumpOrIncrementMultiplexer = jumpInc;
+    
+    
+    aluControl.setALU(aluToMemory);
 }
 
 void Control::sendSignals(string opcode){
@@ -33,7 +36,7 @@ void Control::sendSignals(string opcode){
     cout << endl;
     
     cout <<"ADJUSTING JUMP MULTIPLEXER CONTROL" << endl;
-    jump = (opcode == "jump");
+    jump = (opcode == "j");
     jumpOrIncrementMultiplexer->setControl(jump);
     cout << endl;
     
@@ -62,6 +65,17 @@ void Control::sendSignals(string opcode){
     registerFile->setWrite(regWrite);
     cout << endl;
     
+    if(opcode == "beq"){
+        aluControl.sendSignals("00");
+    }else if(opcode == "add" || opcode == "addi" || opcode == "lw" || opcode == "sw"){
+        aluControl.sendSignals("01");
+    }else if(opcode == "sub"){
+        aluControl.sendSignals("10");
+    }else if(opcode == "slt"){
+        aluControl.sendSignals("11");
+    }
+
+
 }
 
 

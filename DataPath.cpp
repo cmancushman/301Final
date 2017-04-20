@@ -16,7 +16,8 @@ DataPath::DataPath()
     registerFile.setWrite(true);
     registerFile.write();
     registerFile.print();
-    registerFile.getRegister(8);
+    registerFile.setReadRegister1("8");
+    registerFile.getReadRegister1();
     
     parse.setFile("inst.asm");
     //parse.getInstruction(0);
@@ -45,13 +46,18 @@ void DataPath::fetch(){
     aluAddPCand4.setOperand2("00000000000000000000000000000100");
     aluAddPCand4.execute();
     currentAddress = aluAddPCand4.getOutput();
+    
     cout<< endl;
     
+
     
     
     cout << "address for instruction: " << getHexFromBin(currentAddress) << endl << endl;
     
-    
+    cout << "SETTING THE MULTIPLEXER FOR BRANCH VS CURRENT ADDRESS" << endl;
+    branchOrIncrementMultiplexer.setInput0(currentAddress);
+    cout << endl;
+
     
     opcode = currentInstruction.getOpcode();
     rs = currentInstruction.getRs();
@@ -62,6 +68,12 @@ void DataPath::fetch(){
 }
 
 void DataPath::decode(){
+    
+    cout << "ADJUSTING READ REGISTERS" << endl;
+    registerFile.setReadRegister1(rs);
+    registerFile.setReadRegister2(rt);
+
+    cout << endl;
     
     
     cout <<"ADJUSTING REGISTER MULTIPLEXER INPUTS" << endl;
@@ -74,6 +86,9 @@ void DataPath::decode(){
 
     
     jumpAmount = shiftJump.shift(jumpAmount);
+    cout << "merging: first four bits of current address: " <<currentAddress.substr(0,4) << "  with shifted jump 28 bits: " <<jumpAmount<< " new current address: " << currentAddress.substr(0,4) + jumpAmount <<  endl;
+    jumpAmount = currentAddress.substr(0,4) + jumpAmount;
+    jumpOrIncrementMultiplexer.setInput1(jumpAmount);
     
     
 }

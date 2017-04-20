@@ -32,7 +32,8 @@ private:
 	string operand2; 		//hex string to be operated on
 	string output;			//hex string representing the output of the ALU
 	bool comparisonResult;	//boolean result of the comparison between the two operands
-	void compare();			//Compares the two operands, returns true if the same and false if different
+	void compareEqual();			//Compares the two operands, returns true if the same and false if different
+    void compareLessThan();			//Compares the two operands, returns true if operand1 is smaller than operand 2
 	void add();				//Adds the two operands and returns the result
 	void subtract();		//Subtracts the two operands and returns the result
 

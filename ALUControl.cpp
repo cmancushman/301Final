@@ -13,49 +13,22 @@ ALUControl::ALUControl(){
 }
 
 void ALUControl::setALU(ALU *alu){
-    
+    aluToMemory = alu;
 }
 
 
 
-void Control::sendSignals(string opcode){
-    cout <<"ADJUSTING REGISTER MULTIPLEXER CONTROL" << endl;
-    regDst = (opcode == "add" || opcode == "sub" || opcode == "addi" || opcode == "slt");
-    registerMultiplexer->setControl(regDst);
-    cout << endl;
-    
-    cout <<"ADJUSTING JUMP MULTIPLEXER CONTROL" << endl;
-    jump = (opcode == "jump");
-    jumpOrIncrementMultiplexer->setControl(jump);
-    cout << endl;
-    
-    cout <<"ADJUSTING MEMORY READ" << endl;
-    memRead = (opcode == "lw");
-    memoryUnit->setShouldRead(memRead);
-    cout << endl;
-    
-    cout <<"ADJUSTING MEMORY WRITE" << endl;
-    memWrite = (opcode == "sw");
-    memoryUnit->setShouldWrite(memWrite);
-    cout << endl;
-    
-    cout <<"ADJUSTING MEMORY VS ALU MULTIPLEXER" << endl;
-    memToReg = (opcode == "lw");
-    memoryOrALUMultiplexer->setControl(memToReg);
-    cout << endl;
-    
-    cout <<"ADJUSTING REGISTER VS IMMEDIATE MULTIPLEXER" << endl;
-    aluSRC = (opcode == "addi" || opcode == "lw" || opcode == "sw");
-    registerOrImmediateMultiplexer->setControl(aluSRC);
-    cout << endl;
-    
-    cout <<"ADJUSTING REGISTER WRITE" << endl;
-    regWrite = (opcode == "add" || opcode == "addi" || opcode == "lw" || opcode == "slt");
-    registerFile->setWrite(regWrite);
-    cout << endl;
-    
+void ALUControl::sendSignals(string opcode){
+    if(opcode == "00"){
+        aluToMemory->setOperation(0);
+    }else if(opcode == "01"){
+        aluToMemory->setOperation(1);
+    }else if(opcode == "10"){
+        aluToMemory->setOperation(2);
+    }else{
+        aluToMemory->setOperation(3);
+    }
 }
-
 
 
 

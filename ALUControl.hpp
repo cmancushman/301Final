@@ -6,15 +6,15 @@
 //  Copyright © 2017 Ubord, Inc. All rights reserved.
 //
 
-#ifndef Control_hpp
-#define Control_hpp
+#ifndef ALUControl_hpp
+#define ALUControl_hpp
 
 #include <stdio.h>
 
 #include "ALU.hpp"
 
-
-class Control{
+using namespace std;
+class ALUControl{
 private:
     
 
@@ -24,17 +24,14 @@ private:
     string aluOP;
     
     
-    Instruction instruction;
-    
 public:
     
-    Control();
-    
-    bool isBranch();
+    ALUControl();
     
     //void set
-    void setComponents(Registers *reg, DataMemory *mem, ALU *alu, Multiplexer *regMult, Multiplexer *regImm, Multiplexer *memALU, Multiplexer *jumpInc);
-    void sendSignals(string opCode);
+    void setALU(ALU *alu);
+    
+    void sendSignals(string opcode);
     
 };
-#endif /* Control_hpp */
+#endif /* ALUControl_hpp */

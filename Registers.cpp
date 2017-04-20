@@ -25,7 +25,7 @@ void Registers::init(){
 //Im assuming this method will read in a file of strings
 Registers::Registers(string file){
 
-    //need to add memoryMap to this class
+   /* //need to add memoryMap to this class
     //need to alter anything to account for greater number of lines in file?
     
     fstream in;
@@ -70,13 +70,13 @@ Registers::Registers(string file){
         }
     }
 
-    cout << "Memory map test " << memoryMap["0x44578224"] << endl;
+    cout << "Memory map test " << memoryMap["0x44578224"] << endl;*/
 }
 
 //This method sets the value of the index and the value of a string
 void Registers::setWriteIndex(string value){
     cout << "setWriteIndex INPUT: " << "  value " << value << endl;
-    writeIndex = std::stoi(value);
+    writeIndex = value;
 }
 
 void Registers::setWriteValue(string value){
@@ -89,20 +89,42 @@ void Registers::setWrite(bool write){
     shouldWrite = write;
 }
 
+//This method sets the value of the readRegister1
+void Registers::setReadRegister1(string registerNumber){
+    cout << "setReadRegister1 INPUT: " << "index: " << registerNumber << endl;
+    readRegister1 = registerNumber;
+}
+
+//This method sets the value of the readRegister2
+void Registers::setReadRegister2(string registerNumber){
+    cout << "setReadRegister2 INPUT: " << "index: " << registerNumber << endl;
+    readRegister2 = registerNumber;
+}
+
 void Registers::write(){
     cout << "writing " << getHexFromBin(writeValue) << " to register $" <<  writeIndex << endl;
 
     if(shouldWrite){
-        wordListCompare1.set(writeIndex, writeValue);
+        wordListCompare1.set(stoi(writeIndex), writeValue);
     }
 }
-//This method gets the value of the index of the register
-string Registers::getRegister(int index){
-    cout << "getRegister INPUT: " << "index: " << index << endl;
-    string result = wordListCompare1.get(index);
-    cout << "getRegister OUTPUT: " <<  getHexFromBin(result) << endl;
+//This method gets the value of the readRegister1
+string Registers::getReadRegister1(){
+    cout << "getReadRegister1 INPUT: " << "index: " << readRegister1 << endl;
+    string result = wordListCompare1.get(stoi(readRegister1));
+    cout << "getReadRegister1 OUTPUT: " <<  getHexFromBin(result) << endl;
     return result;
 }
+
+//This method gets the value of the readRegister2
+string Registers::getReadRegister2(){
+    cout << "getReadRegister2 INPUT: " << "index: " << readRegister2 << endl;
+    string result = wordListCompare1.get(stoi(readRegister2));
+    cout << "getReadRegister2 OUTPUT: " <<  getHexFromBin(result) << endl;
+    return result;
+}
+
+
 
 //This method prints out the register number
 void Registers::print(){

@@ -17,7 +17,7 @@
 #include "Instruction.hpp"
 #include "Multiplexer.hpp"
 #include "ProgramCounter.hpp"
-
+#include "ALUControl.hpp"
 
 class Control{
 private:
@@ -25,6 +25,7 @@ private:
     Registers *registerFile;
     DataMemory *memoryUnit;
     ALU *aluToMemory;
+    ALUControl aluControl;
     Multiplexer *registerMultiplexer;
     Multiplexer *registerOrImmediateMultiplexer;
     Multiplexer *memoryOrALUMultiplexer;
