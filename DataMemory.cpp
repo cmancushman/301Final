@@ -8,13 +8,13 @@
 
 #include "DataMemory.hpp"
 
-
+//This is the constructor for DataMemory
 DataMemory::DataMemory(){
     memoryMap = map<string, string>();
     memoryMap["0x00000001"] = "0xffffffff";
     //cout << " Memory map "<< memoryMap["0x00000001"] << endl;
 }
-//This is to read in the file
+//This method reads in a file of strings
 DataMemory::DataMemory(string file){
     /*cout << "GetInstruction: INPUT:  " << binary strings << "    OUTPUT " << binary strings;
      fstream in;
@@ -53,8 +53,9 @@ DataMemory::DataMemory(string file){
 }
 
 
-//Step 1: convert binary string into hex
+
 //This method is for converting binary string to hexadecmial values
+//It receives a binary string and returns a hexadecimal string
 string DataMemory::getHexFromBin(string sBinary)
 {
     std::stringstream ss;
@@ -69,10 +70,10 @@ string DataMemory::getHexFromBin(string sBinary)
     return s;
 }
 
-//Step 2: Make a dictionary where the hex is the key, then your dictionary does objectForKey(“ff0d0d0d”) and gets that object
-//which should be a hex.
 
-// this is a map, where the keys are hex numbers (strings) and the values are binary strings
+
+//This method uses dictionary pairing in order to get an object that is associated with a key
+// It receives a string address in the form of a binary string, converts it t hex, finds the key, and converts it back to binary
 string DataMemory::getWord(string address){
     string hex = getHexFromBin(address);
     string searchKey =  hex;
@@ -81,7 +82,9 @@ string DataMemory::getWord(string address){
     string returnWord = getBinFromHex(memoryMap[searchKey]);
     return returnWord;
 }
-//Step 3: Convert the hex to a 32 bit binary string
+
+//This method is for converting hexadecmial string to binary values
+//It receives a hexadecimal string and returns a binary string
 string DataMemory::getBinFromHex(string sHex)
 {
     string s = sHex;
@@ -96,7 +99,8 @@ string DataMemory::getBinFromHex(string sHex)
     
 }
 
-//Step 4: Output the binary string
+
+//This method prints
 void DataMemory::print(){
     //wordListCompare1 = std::map<key, value> map;<string>();
     //for(int x = 0; x < 32; x++){
