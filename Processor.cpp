@@ -10,17 +10,16 @@
 
 
 Processor::Processor(){
-    // insert code here...
-    //std::cout << "Hello, World!\n";
+
     cout <<" 1" << endl;
     parse = Parser("inst.asm");
 
     //parse.printAllInstructions();
-    registerFile = Registers();
-    
-    registerFile.setRegister(8, "0xffffffff");
-    //registers.print();
-    cout <<" 2" << endl;
+    //registerFile = Registers();
+    //registerFile.print();
+
+    //registerFile.setRegister(8, "0xffffffff");
+    //cout <<" 2" << endl;
 
     programCounter = ProgramCounter();
     
@@ -30,7 +29,7 @@ Processor::Processor(){
     //data.getWord("00000000000000000000000000000011");
     
 
-    fetch();
+    //fetch();
     //ALU alu = ALU();
     //parse.getNextInstruction().print();
 

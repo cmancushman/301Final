@@ -10,9 +10,13 @@
 
 //This method is the constructor and puts values in a linked list
 Registers::Registers(){
+    
     wordListCompare1 = LinkedList<string>();
+    
     for(int x = 0; x < 32; x++){
+        
         wordListCompare1.add("0x00000000");
+        cout << "x : " << x << " " << wordListCompare1.getLast() << endl;
     }
     
 }
