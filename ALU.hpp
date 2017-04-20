@@ -2,6 +2,14 @@
 //  ALU.hpp
 //  301Final
 //
+// This class functions as the Arithmetic Logic Unit of a processor. The values of
+// the instance variables 'operation', 'operand1', and 'operand2' are set through
+// their respective set methods. The execute method directs the program to the 
+// correct arithmetic operation depending on the value of the 'operation' instance
+// variable. The compare method returns true or false depending on the equivalency
+// of the operands. The add and subtract methods return the sum or difference of
+// the two operands in the form of a 32-bit hexadecimal string.
+//
 //  Created by MacBook Air on 4/13/17.
 //  Copyright © 2017 Ubord, Inc. All rights reserved.
 //
@@ -33,15 +41,13 @@ private:
 
 	int hexToInt(string hexString);	//converts hex string to its int representation
 
-<<<<<<< HEAD
+
 	string intToHex(int integer);	//converts int to its hex string representation
-=======
-	string intToHex(int integer);
     
-    string getHexFromBin(string sBinary);
+    string getHexFromBin(string sBinary);	//converts binary string to its hex string representation
     
-    string getBinFromHex(string sHex);
->>>>>>> c89008d8d9c444cadde4de3e229f4eaef9677643
+    string getBinFromHex(string sHex);		//converts hex string to its binary string representation
+
 
 public:
 

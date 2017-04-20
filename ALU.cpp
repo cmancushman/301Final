@@ -23,6 +23,10 @@ ALU::ALU() {
 */
 void ALU::execute() {
 
+    cout << "ALU INPUT 1: " << operand1 << endl;
+    cout << "ALU INPUT 2: " << operand2 << endl;
+    cout << "ALU OPERATION: " << operation << endl;
+
 	if (operation == 0) compare();
 
 	else if (operation == 1) add();
@@ -72,9 +76,11 @@ void ALU::subtract() {
 	int result = temp1 + temp2;
 
 	output = intToHex(result);
-
 }
 
+/*
+* Takes a binary string and returns its hex string representation
+*/
 string ALU::getHexFromBin(string sBinary)
 {
     std::stringstream ss;
@@ -88,8 +94,6 @@ string ALU::getHexFromBin(string sBinary)
     s = "0x" + s;
     return s;
 }
-
-
 
 /*
 * Takes a hex string as a parameter and returns its integer representation
@@ -113,6 +117,9 @@ string ALU::intToHex(int integer) {
     return result;
 }
 
+/*
+* Takes a hex string and returns its binary string representation
+*/
 string ALU::getBinFromHex(string sHex)
 {
     string s = sHex;
