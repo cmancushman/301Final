@@ -20,6 +20,8 @@ void ProgramCounter::setAddress(string address){
 }
 
 string ProgramCounter::getAddress(){
+    cout << "Parser getAddress OUTPUT: " << currentAddress << endl;
+    
     return currentAddress;
 }
 
