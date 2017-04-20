@@ -72,6 +72,11 @@ Registers::Registers(string file){
     }
 
 
+<<<<<<< HEAD
+=======
+    cout << "Memory map test " << memoryMap["0x44578224"] << endl;*/
+
+>>>>>>> 7ef1503aee31a5e8c9c7213c56e8cebbf418e282
 }
 
 //This method sets the value of the index and the value of a string

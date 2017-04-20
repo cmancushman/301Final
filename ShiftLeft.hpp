@@ -14,6 +14,8 @@
 #include <iostream>
 #include <sstream>
 
+#include "BinaryOperation.hpp"
+
 using namespace std;
 
 class ShiftLeft

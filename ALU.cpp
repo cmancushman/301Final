@@ -169,7 +169,7 @@ string ALU::getBinFromHex(string sHex)
  * Sets the operand1 instance variable equal to the passed string
  */
 void ALU::setOperand1(string operand){
-    cout << "ALU: SETTING OPERAND1 TO " << operand << endl;
+    cout << "ALU: SETTING OPERAND1 TO " << getHexFromBin(operand) << endl;
     operand1 = operand;
 }
 
@@ -177,7 +177,7 @@ void ALU::setOperand1(string operand){
  * Sets the operand2 instance variable equal to the passed string
  */
 void ALU::setOperand2(string operand){
-    cout << "ALU: SETTING OPERAND2 TO " << operand << endl;
+    cout << "ALU: SETTING OPERAND2 TO " << getHexFromBin(operand) << endl;
 
     operand2 = operand;
     
@@ -187,7 +187,7 @@ void ALU::setOperand2(string operand){
  * Sets the operation instance variable equal to the passed int
  */
 void ALU::setOperation(int operationInput){
-    cout << "ALU: SETTING OPERATION TO " << operationInput << endl;
+    cout << "ALU: SETTING OPERATION TO " << intToHex(operationInput) << endl;
     operation = operationInput;
 }
 

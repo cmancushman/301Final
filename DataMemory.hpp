@@ -38,13 +38,16 @@ public:
     //Print function
     void print();
 
+    //This method intakes a boolen called writeToMemory and determines whether or not it can be overwritten
     void setShouldWrite(bool writeToMemory);
     
+    //This method intakes a boolen called readFromMemory and determines whether or not it can be read
     void setShouldRead(bool readFromMemory);
 
-    
+    //This method saves the memory address by setting the currentWord hex number to the address of the memory map
     void saveMemory();
     
+    //This method reads the memory address by returning the hex value assocaiated with the memory map key and outputting that hex string
     string readMemory();
     
 private:
