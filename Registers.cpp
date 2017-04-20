@@ -10,7 +10,7 @@
 
 //This method is the constructor and puts values in a linked list
 Registers::Registers(){
-    
+    cout <<" WHAT THE FUCK IS GOING ON" << endl;
     wordListCompare1 = LinkedList<string>();
     
     for(int x = 0; x < 32; x++){

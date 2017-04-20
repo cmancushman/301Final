@@ -11,6 +11,7 @@
 
 
 ProgramCounter::ProgramCounter(){
+    std::cout << "asd" << std::endl;
     currentAddress = 0;
 }
 

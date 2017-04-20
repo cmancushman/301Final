@@ -17,10 +17,14 @@
 #include "ProgramCounter.hpp"
 #include "DataMemory.hpp"
 #include "ALU.hpp"
-
 #include "Multiplexer.hpp"
 
 class Processor{
+    
+public:
+    
+    Processor();//
+
 private:
 
     Instruction currentInstruction;
@@ -38,9 +42,7 @@ private:
     void writeToMemory();
     
     void nextInstruction();
-public:
     
-    Processor();
 
     
 };

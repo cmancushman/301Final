@@ -10,15 +10,12 @@
 #define ALU_hpp
 
 #include <stdio.h>
-#include "Instruction.hpp"
-#include "Registers.hpp"
-#include "ALU.hpp"
-#include "DataMemory.hpp"
-#include "Instruction.hpp"
+
 #include <iostream>
 #include <string>
+#include <sstream>
 
-
+using namespace std;
 class ALU {
 
 private:

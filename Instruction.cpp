@@ -7,7 +7,7 @@
 //
 
 #include "Instruction.hpp"
-#include "SignExtend.hpp"
+//#include "SignExtend.hpp"
 int hexToInt(string hexString);
 string intToHex(int integer);
 Instruction::Instruction(){
@@ -64,7 +64,7 @@ Instruction::Instruction(string str1, string str2, string str3, string str4){
         // outputs "00000000000000000000000000001010"
         //cout << "Test bits " << b.to_string() << endl;
         immediate = b.to_string();
-        SignExtend ext = SignExtend();
+        //SignExtend ext = SignExtend();
         //cout << "Sign extend " << ext.extend(b.to_string()) << endl;
         
         

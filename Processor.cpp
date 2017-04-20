@@ -5,14 +5,14 @@
 //  Created by MacBook Air on 4/13/17.
 //  Copyright © 2017 Ubord, Inc. All rights reserved.
 //
-
+////
 #include "Processor.hpp"
 
 
 Processor::Processor(){
 
     cout <<" 1" << endl;
-    parse = Parser("inst.asm");
+   // parse = Parser("inst.asm");
 
     //parse.printAllInstructions();
     //registerFile = Registers();
@@ -21,11 +21,11 @@ Processor::Processor(){
     //registerFile.setRegister(8, "0xffffffff");
     //cout <<" 2" << endl;
 
-    programCounter = ProgramCounter();
+    //programCounter = ProgramCounter();
     
     //parse.getInstruction(programCounter.getAddress());
     
-    memoryUnit = DataMemory();
+    //memoryUnit = DataMemory();
     //data.getWord("00000000000000000000000000000011");
     
 
