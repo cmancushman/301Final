@@ -26,6 +26,8 @@ DataPath::DataPath()
     memoryUnit.setFile("DataMemory.asm");
     
     aluAddPCand4.setOperation(1);
+    aluAddBranchAndAddress.setOperation(1);
+
 
     control.setComponents(&registerFile,&memoryUnit,&aluToMemory,&registerMultiplexer,&registerOrImmediateMultiplexer,&memoryOrALUMultiplexer,&jumpOrIncrementMultiplexer);
     
@@ -54,6 +56,10 @@ void DataPath::fetch(){
     
     cout << "address for instruction: " << getHexFromBin(currentAddress) << endl << endl;
     
+    cout << "SETTING THE OPERAND1 IN BRANCH AND CURRENT ADDRESS ALU" << endl;
+    aluAddBranchAndAddress.setOperand1(currentAddress);
+    cout << endl;
+    
     cout << "SETTING THE MULTIPLEXER FOR BRANCH VS CURRENT ADDRESS" << endl;
     branchOrIncrementMultiplexer.setInput0(currentAddress);
     cout << endl;
@@ -81,6 +87,9 @@ void DataPath::decode(){
     registerMultiplexer.setInput1(currentInstruction.getRd());
     cout << endl;
     
+    cout <<"SETTING WRITE REGISTER" << endl;
+    registerFile.setWriteIndex(registerMultiplexer.getOutput());
+    cout << endl;
     
     control.sendSignals(opcode);
 
@@ -89,6 +98,26 @@ void DataPath::decode(){
     cout << "merging: first four bits of current address: " <<currentAddress.substr(0,4) << "  with shifted jump 28 bits: " <<jumpAmount<< " new current address: " << currentAddress.substr(0,4) + jumpAmount <<  endl;
     jumpAmount = currentAddress.substr(0,4) + jumpAmount;
     jumpOrIncrementMultiplexer.setInput1(jumpAmount);
+    
+    cout <<"SIGN EXTENDING IMMEDIATE" << endl;
+    immediate = signExtend.extend(immediate);
+    
+    cout <<"ADJUSTING ALU SOURCE MULTIPLEXER INPUT1" << endl;
+    registerOrImmediateMultiplexer.setInput1(immediate);
+    
+    immediate = shiftBranch.shift(immediate);
+    
+    cout << "SETTING THE OPERAND2 IN BRANCH AND CURRENT ADDRESS ALU" << endl;
+    aluAddBranchAndAddress.setOperand2(immediate);
+    cout << endl;
+    
+    aluAddBranchAndAddress.execute();
+    string temp = aluAddBranchAndAddress.getOutput();
+    branchOrIncrementMultiplexer.setInput1();
+    
+    
+    
+    
     
     
 }
