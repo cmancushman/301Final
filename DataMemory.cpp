@@ -33,23 +33,26 @@ void DataMemory::setFile(string file){
         while(getline(in, line)){
             //cout  << line << endl;
             
-            
+            //replace the colon in input file with a space
             std::replace( line.begin(), line.end(), ':', ' ');
             
-            
+            //string array holds address and data value, both hex strings
             string stringArray[10];
             int counter = 0;
             for (short i = 0; i<line.length(); i++){
                 if (line[i] == ' '){
                     counter++;
+                    //move to next index in array to hold data value
                 }else{
                     stringArray[counter] += line[i];
                 }
             }
-            //array[0] is the key
-            //array[1] is the object
+            //array[0] is the key/address
+            //array[1] is the object/data value
+
+            //make all hex numbers uniform - add 0x to all
             if(stringArray[0].substr(0,2)!="0x"){
-                stringArray[0] = "0x" + stringArray[0];
+               stringArray[0] = "0x" + stringArray[0];
             }
             if(stringArray[1].substr(0,2)!="0x"){
                 stringArray[1] = "0x" + stringArray[1];
