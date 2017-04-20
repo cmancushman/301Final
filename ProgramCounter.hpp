@@ -28,6 +28,7 @@ public:
     /* Increment by 4 */
     void increment();
     
+    /* Retruns the current address */
     double getAddress();
     
 };
