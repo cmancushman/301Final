@@ -48,7 +48,7 @@ public:
 	void setOperation(int operationInput);
 
 	string getOutput();
-
+	
 	bool getComparisonResult();
 
 };

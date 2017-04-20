@@ -15,8 +15,8 @@ ALU::ALU() {
 
 }
 
-
 void ALU::execute() {
+
 	if (operation == 0) compare();
 
 	else if (operation == 1) add();
@@ -70,7 +70,7 @@ void ALU::subtract() {
 }
 
 /*
-* Converts a hex string to its integer representation
+* Takes a hex string as a parameter and returns its integer representation
 */
 int ALU::hexToInt(string hexString) {
     unsigned int x;
@@ -81,7 +81,7 @@ int ALU::hexToInt(string hexString) {
 }
 
 /*
-* converts int to a string representation of its hex value
+* Takes an int as a parameter and returns its hex representation as a string
 */
 string ALU::intToHex(int integer) {
     string hexString;
@@ -91,24 +91,38 @@ string ALU::intToHex(int integer) {
     return hexString;
 }
 
-
+/*
+* Sets the operand1 instance variable equal to the passed string
+*/
 void ALU::setOperand1(string operand){
 	operand1 = operand;
 }
 
+/*
+* Sets the operand2 instance variable equal to the passed string
+*/
 void ALU::setOperand2(string operand){
 	operand2 = operand;
 
 }
 
+/*
+* Sets the operation instance variable equal to the passed int
+*/
 void ALU::setOperation(int operationInput){
 	operation = operationInput;
 }
 
+/*
+* Returns the output instance variable. This will be a 32 bit hex string
+*/
 string ALU::getOutput(){
 	return output;
 }
 
+/*
+* Returns the result of the compare() method, which will be either true or false
+*/
 bool ALU::getComparisonResult(){
 	return comparisonResult;
 }
