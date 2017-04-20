@@ -7,8 +7,8 @@
 //
 //  Reads in the information from the input file
 
-#ifndef Parser_hpp
-#define Parser_hpp
+#ifndef Parser_h
+#define Parser_h
 
 #include <stdio.h>
 #include <fstream>
@@ -44,4 +44,4 @@ public:
     
 
 };
-#endif /* Parser_hpp */
+#endif /* Parser_h */
