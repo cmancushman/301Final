@@ -8,15 +8,24 @@
 
 #include "ALU.hpp"
 
-string intToHex(int integer);
-int hexToInt(string hexString);
 
+/*
+* Default constructor
+*/
 ALU::ALU() {
     //cout << "testing " << getBinFromHex(intToHex(hexToInt(getHexFromBin("00000000000000000000000000000011")))) << endl;
     
 }
 
+/*
+* Calls either the compare(), add(), or subtract() function depending on the value
+* of the operation instance variable
+*/
 void ALU::execute() {
+
+    cout << "ALU INPUT 1: " << operand1 << endl;
+    cout << "ALU INPUT 2: " << operand2 << endl;
+    cout << "ALU OPERATION: " << operation << endl;
 
 	if (operation == 0) compare();
 
@@ -26,7 +35,7 @@ void ALU::execute() {
 }
 
 /*
-* Compares the two operands, returns 0 if the same and 1 if different
+* Compares the two operands, returns true if the same and false if different
 */
 void ALU::compare() {
 
@@ -67,9 +76,11 @@ void ALU::subtract() {
 	int result = temp1 + temp2;
 
 	output = intToHex(result);
-
 }
 
+/*
+* Takes a binary string and returns its hex string representation
+*/
 string ALU::getHexFromBin(string sBinary)
 {
     std::stringstream ss;
@@ -83,8 +94,6 @@ string ALU::getHexFromBin(string sBinary)
     s = "0x" + s;
     return s;
 }
-
-
 
 /*
 * Takes a hex string as a parameter and returns its integer representation
@@ -108,6 +117,9 @@ string ALU::intToHex(int integer) {
     return result;
 }
 
+/*
+* Takes a hex string and returns its binary string representation
+*/
 string ALU::getBinFromHex(string sHex)
 {
     string s = sHex;
