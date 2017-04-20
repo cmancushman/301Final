@@ -20,6 +20,8 @@ DataMemory::DataMemory(string file){
 }
 
 void DataMemory::setFile(string file){
+
+
     fstream in;
     in.open(file.c_str());
     
@@ -75,12 +77,16 @@ void DataMemory::setFile(string file){
 //This method uses dictionary pairing in order to get an object that is associated with a key
 // It receives a string address in the form of a binary string, converts it t hex, finds the key, and converts it back to binary
 string DataMemory::getWord(string address){
+    
     string hex = getHexFromBin(address);
+    cout << "INPUT: " << hex << endl;
     string searchKey =   hex;
     //cout << " Memory map search test "<< memoryMap["0x00000000"] << endl;
     //cout <<"search key " << searchKey << " " << memoryMap[searchKey] << endl;
     string returnWord = getBinFromHex(memoryMap[searchKey]);
     return returnWord;
+
+    cout << "OUTPUT: " << hex << endl;
 }
 
 //This method is for converting hexadecmial string to binary values
@@ -115,31 +121,36 @@ string DataMemory::getHexFromBin(string sBinary)
     return s;
 }
 
-
+//This method intakes a boolen called writeToMemory and determines whether or not it can be overwritten
 void DataMemory::setShouldWrite(bool writeToMemory){
     cout << "DATA MEMORY CAN BE OVERWRITTEN?: (1 yes, 0 no): " << writeToMemory << endl;
     shouldWrite = writeToMemory;
 }
 
+//This method intakes a boolen called readFromMemory and determines whether or not it can be read
 void DataMemory::setShouldRead(bool readFromMemory){
     cout << "DATA MEMORY CAN BE READ?: (1 yes, 0 no): " << readFromMemory << endl;
     shouldRead = readFromMemory;
 }
 
+//This method intakes a string called word and sets the currentWord variable equal to a hexadecimal number
 void DataMemory::storeWord(string word){
     currentWord = getHexFromBin(word);
 }
 
+//This method intakes a string called address and sets the currentAddress variable equal to a hexadecimal number
 void DataMemory::setCurrentAddress(string address){
     currentAddress = getHexFromBin(address);
 }
 
-
+//This method saves the memory address by setting the currentWord hex number to the address of the memory map
 void DataMemory::saveMemory(){
     if(shouldWrite){
         memoryMap[currentAddress] = currentWord;
     }
 }
+
+//This method reads the memory address by returning the hex value assocaiated with the memory map key and outputting that hex string
 string DataMemory::readMemory(){
     if(shouldRead){
         cout << "MEMORY READ: " << getBinFromHex(memoryMap[currentAddress]) << endl;
