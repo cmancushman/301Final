@@ -113,7 +113,6 @@ string ALU::intToHex(int integer) {
     return result;
 }
 
-<<<<<<< HEAD
 string ALU::getBinFromHex(string sHex)
 {
     string s = sHex;
@@ -128,11 +127,9 @@ string ALU::getBinFromHex(string sHex)
     
 }
 
-=======
 /*
 * Sets the operand1 instance variable equal to the passed string
 */
->>>>>>> 57067c5ed5f762bdfd3d92eceada0951a5cd449b
 void ALU::setOperand1(string operand){
 	operand1 = operand;
 }
