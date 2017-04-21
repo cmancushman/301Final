@@ -37,8 +37,9 @@ void Parser::setFile(string file){
             
             line.erase(std::remove(line.begin(), line.end(), ','), line.end());
             
+            //replace all parentheses with a space
             std::replace( line.begin(), line.end(), '(', ' ');
-            
+            //replace all parentheses with a space
             std::replace( line.begin(), line.end(), ')', ' ');
             
             string stringArray[10];
@@ -60,7 +61,7 @@ void Parser::setFile(string file){
 Instruction Parser::getInstruction(string binaryIndex){
     int index = hexToInt(getHexFromBin(binaryIndex));
     index = index/4;
-    cout << "GetInstruction: INPUT:  " << index << "    OUTPUT "; instructionList.get(index).print();
+    if (debug) cout << "GetInstruction: INPUT:  " << index << "    OUTPUT "; instructionList.get(index).print();
     return instructionList.get(index);
 }
 

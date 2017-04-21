@@ -20,11 +20,16 @@ void ProgramCounter::setAddress(string address){
 }
 
 string ProgramCounter::getAddress(){
+<<<<<<< HEAD
     if (debug)
     {
         cout << "Parser getAddress OUTPUT: " << binaryOperation.getHexFromBin(currentAddress) << endl
             << endl;
     }
+=======
+    if (debug) cout << "Parser getAddress OUTPUT: " << binaryOperation.getHexFromBin(currentAddress)
+     << endl;
+>>>>>>> 2cebb9321ded04ec3046f257f367fc6121d01396
     
     return currentAddress;
 }
