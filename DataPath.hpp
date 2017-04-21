@@ -26,13 +26,15 @@ public:
     
     // Default Constructor
     DataPath();
-    
     // The following methods execute the 5 stages of our pipelined processor
     void fetch();
     void decode();
     void execute();
     void memory();
     void writeback();
+    
+    /* Sets debug to true or false controlling print statements */
+    void setDebug(bool debug);
 private:
     
     ProgramCounter programCounter;
@@ -71,6 +73,8 @@ private:
     //This method is for converting binary string to hexadecmial values
     //It receives a binary string and returns a hexadecimal string
     string getHexFromBin(string sBinary);
+    
+    bool degug;
     
 };
 

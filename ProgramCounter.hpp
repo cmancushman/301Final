@@ -19,6 +19,8 @@ class ProgramCounter{
 private:
     string currentAddress;
     BinaryOperation binaryOperation;
+    bool debug;
+    
 public:
     
     /* Constructor for program counter */
@@ -30,6 +32,14 @@ public:
     /* Retruns the current address */
     string getAddress();
     
+<<<<<<< HEAD
+    /* Converts hex to binary string*/
+    string getBinFromHex(string sHex);
+    
+=======
+    /* Sets debug to true or false controlling print statements */
+    void setDebug(bool debug);
+>>>>>>> f0b9ae2f1dfc5530345335fc9e8deafd0f247f40
 };
 
 
