@@ -12,7 +12,7 @@
 
 #include <stdio.h>
 #include <iostream>
-#include <fstream>
+//#include <fstream>
 
 #include "BinaryOperation.hpp"
 
@@ -46,7 +46,7 @@ public:
     void setToFile(bool val);
     
     /* Sets the location of the ostream that will be written to */
-    void setOfStream(ofstream& out);
+    //void setOfStream(ofstream& out);
 };
 
 

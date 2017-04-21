@@ -54,10 +54,10 @@ DataPath::DataPath()
     
     control.setComponents(&registerFile,&memoryUnit,&aluToMemory,&registerMultiplexer,&registerOrImmediateMultiplexer,&memoryOrALUMultiplexer,&jumpOrIncrementMultiplexer);
     
-    cout << "size of list " <<parse.getNumberOfInstructions();
     while(true){
-        if(parse.weAreDone( programCounter.getAddress()) )
+        if(parse.weAreDone( programCounter.getAddress()) ){
             break;
+        }
         fetch();
         decode();
         execute();
@@ -77,7 +77,10 @@ DataPath::DataPath()
         cout << endl;
         
     }
+    cout << endl << endl;
+    cout << "WE DID IT! END OF FILE!!!" << endl;
 }
+
 
 void DataPath::fetch(){
     
@@ -179,7 +182,6 @@ void DataPath::decode(){
     
     if (debug)
         cout <<"ADJUSTING ALU SOURCE MULTIPLEXER INPUT1" << endl << endl;
-    
     registerOrImmediateMultiplexer.setInput1(immediate);
     
     
@@ -248,7 +250,9 @@ void DataPath::memory(){
 void DataPath::writeback(){
     registerFile.write();
     programCounter.setAddress(jumpOrIncrementMultiplexer.getOutput());
-    cout <<"Next Instruction to run: ";parse.getInstruction(programCounter.getAddress()).print();
+    if(!parse.weAreDone( programCounter.getAddress())){
+        cout <<"Next Instruction to run: ";parse.getInstruction(programCounter.getAddress()).print();
+    }
     cout << endl;
     
 }

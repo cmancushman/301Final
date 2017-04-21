@@ -112,25 +112,6 @@ void Control::setDebug(bool value){
 }
 
 
-//This method is for converting binary string to hexadecmial values
-//It receives a binary string and returns a hexadecimal string
-string Control::getHexFromBin(string sBinary)
-{
-    if(sBinary != ""){
-        std::stringstream ss;
-        ss << std::hex << std::stoll(sBinary, NULL, 2);
-        //std::cout <<"hex test " << ss.str() << std::endl;
-        
-        string s =  ss.str();
-        while (s.length() != 8){
-            s = "0" + s;
-        }
-        s = "0x" + s;
-        return s;
-    }else{
-        return "0x";
-    }
-}
 
 //add  - destination is rd
 //addi - rt

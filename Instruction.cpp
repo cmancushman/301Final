@@ -31,6 +31,8 @@ Instruction::Instruction(string str1, string str2, string str3, string str4){
 
     opcode = str1;
 
+    jumpComponent = "00000000000000000000000000";
+    immediate = "0000000000000000";
     //This if statement runs if the instruction is "add" and sets rd, rs, and rt to str2, str3, and str4 respectively
     if(component1 == "add"){
         rd = std::bitset< 5 >( stoi(str2)  ).to_string();
