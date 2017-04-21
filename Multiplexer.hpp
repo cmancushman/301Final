@@ -30,6 +30,8 @@ private:
     
 public:
     // Default constructor
+    BinaryOperation binaryOperation;
+    
     Multiplexer();
     
     /*

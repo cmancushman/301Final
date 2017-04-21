@@ -23,7 +23,7 @@ class ShiftLeft
     
 private:
 
-    
+    BinaryOperation binaryOperation;
 public:
     // Default constructor
     ShiftLeft();

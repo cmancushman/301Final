@@ -15,7 +15,7 @@ SignExtend::SignExtend()
 
 string SignExtend::extend(string input)
 {
-    cout << "SignExtend INPUT: " << BinaryOperation.getHexFromBin(input) << endl;
+    cout << "SignExtend INPUT: " << binaryOperation.getHexFromBin(input) << endl;
 
     if (input.substr(0,1) == "0")
     {
@@ -32,7 +32,7 @@ string SignExtend::extend(string input)
         }
     }
     
-    cout << "SignExtend OUTPUT: " << BinaryOperation.getHexFromBin(input) << endl << endl;
+    cout << "SignExtend OUTPUT: " << binaryOperation.getHexFromBin(input) << endl << endl;
     
     return input;
 }

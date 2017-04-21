@@ -17,7 +17,7 @@ string ShiftLeft::shift(string input)
 {
     string printed = "00" + input;
 
-    cout << "ShiftLeft INPUT: " << BinaryOperation.getHexFromBin(printed) << endl;
+    cout << "ShiftLeft INPUT: " << binaryOperation.getHexFromBin(printed) << endl;
     
     // Puts 00 at the end to shift the input left by 2 bits
     if(input.length() == 32){
@@ -25,7 +25,7 @@ string ShiftLeft::shift(string input)
     }
     input += "00";
     
-    cout << "ShiftLeft OUTPUT: " << BinaryOperation.getHexFromBin(input) << endl << endl;
+    cout << "ShiftLeft OUTPUT: " << binaryOperation.getHexFromBin(input) << endl << endl;
     
     return input;
 }
