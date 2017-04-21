@@ -20,6 +20,8 @@ using namespace std;
 class Parser{
     
 private:
+    
+    
     /* Returns an instruction from input stringArray */
     Instruction toInstruction(string stringArray[]);
     
@@ -36,6 +38,8 @@ private:
     
     bool debug;
 public:
+    bool debug;
+    
     /* Default Constructor */
     Parser();
     
@@ -50,9 +54,9 @@ public:
     
     /* Prints all the instructions of the instance */
     void printAllInstructions();
+
     
     void setDebug(bool value);
-    
 
 };
 #endif /* Parser_hpp */
