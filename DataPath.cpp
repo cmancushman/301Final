@@ -36,6 +36,8 @@ DataPath::DataPath()
     fetch();
     decode();
     execute();
+    memory();
+    writeback();
 }
 
 void DataPath::fetch(){
@@ -141,10 +143,15 @@ void DataPath::execute(){
     cout <<"SETTING EXECUTING MEMORY ALU" << endl;
     aluToMemory.execute();
     
-    cout <<"SETTING EXECUTING MEMORY ALU" << endl;
+    cout <<"SETTING BRANCH OR INCREMENTED ADDRESS MULTIPLEXER CONTROL " << endl;
+    branchOrIncrementMultiplexer.setControl(control.isBranch() && aluToMemory.getComparisonResult());
+    
+    cout <<"SETTING JUMP OR INCREMENTED ADDRESS INPUT0" << endl;
+    jumpOrIncrementMultiplexer.setInput0(branchOrIncrementMultiplexer.getOutput());
+    
 
-    
-    
+}
+void DataPath::memory(){
     cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
     string temp = aluToMemory.getOutput();
     memoryUnit.setCurrentAddress(temp);
@@ -152,12 +159,16 @@ void DataPath::execute(){
     memoryUnit.storeWord(temp);
     memoryUnit.saveMemory();
     
-    cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
+    cout <<"SETTING MEMORY OR ALU MULTIPLEXER AS WELL AS WRITE DATA" << endl;
     memoryOrALUMultiplexer.setInput1(memoryUnit.readMemory());
     memoryOrALUMultiplexer.setInput0(aluToMemory.getOutput());
-
+    registerFile.setWriteValue(memoryOrALUMultiplexer.getOutput());
     
-    
+}
+void DataPath::writeback(){
+    registerFile.write();
+    programCounter.setAddress(jumpOrIncrementMultiplexer.getOutput());
+    parse.getInstruction(programCounter.getAddress()).print();
 
 }
 string DataPath::getBinFromHex(string sHex)

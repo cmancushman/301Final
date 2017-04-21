@@ -30,6 +30,9 @@ public:
     /* Retruns the current address */
     string getAddress();
     
+    /* Converts hex to binary string*/
+    string getBinFromHex(string sHex);
+    
 };
 
 

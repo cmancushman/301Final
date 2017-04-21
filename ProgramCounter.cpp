@@ -12,10 +12,11 @@
 
 
 ProgramCounter::ProgramCounter(){
-    currentAddress = "00000000000000000000000000000000";
+    currentAddress = getBinFromHex("0x00040000");
 }
 
 void ProgramCounter::setAddress(string address){
+    cout << "SETTING PROGRAM COUNTER ADDRESS " << address << endl;
     currentAddress = address;
 }
 
@@ -26,3 +27,16 @@ string ProgramCounter::getAddress(){
     return currentAddress;
 }
 
+string ProgramCounter::getBinFromHex(string sHex)
+{
+    string s = sHex;
+    stringstream ss;
+    ss << std::hex << s;
+    unsigned n;
+    ss >> n;
+    bitset<32> b(n);
+    //cout << "Test Return Hex " << b.to_string() << endl;
+    
+    return b.to_string();
+    
+}
