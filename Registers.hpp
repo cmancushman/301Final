@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "LinkedList.h"
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 class Registers{
@@ -41,6 +42,9 @@ public:
 
     //This method reads in a file
     Registers(string file);
+
+    //Reads in a file and assigns registers
+    void setFile(string file);
     
     //This method sets the value of the index and the value of a string
     void setWriteIndex(string value);

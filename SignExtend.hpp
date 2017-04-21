@@ -20,6 +20,7 @@ class SignExtend
 {
     
 private:
+    BinaryOperation binaryOperation;
     
 public:
     // Constructor
