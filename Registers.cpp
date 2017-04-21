@@ -287,8 +287,5 @@ void Registers::setToFile(bool val)
     toFile = val;
 }
 
-/*void Registers::setOfStream(ofstream& out)
-{
-    ofile = out;
-}*/
+
 
