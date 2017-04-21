@@ -21,12 +21,21 @@ void ProgramCounter::setAddress(string address){
 }
 
 string ProgramCounter::getAddress(){
-    cout << "Parser getAddress OUTPUT: " << binaryOperation.getHexFromBin(currentAddress) << endl
-        << endl;
+<<<<<<< HEAD
+    if (debug)
+    {
+        cout << "Parser getAddress OUTPUT: " << binaryOperation.getHexFromBin(currentAddress) << endl
+            << endl;
+    }
+=======
+    if (debug) cout << "Parser getAddress OUTPUT: " << binaryOperation.getHexFromBin(currentAddress)
+     << endl;
+>>>>>>> 2cebb9321ded04ec3046f257f367fc6121d01396
     
     return currentAddress;
 }
 
+<<<<<<< HEAD
 string ProgramCounter::getBinFromHex(string sHex)
 {
     string s = sHex;
@@ -39,4 +48,9 @@ string ProgramCounter::getBinFromHex(string sHex)
     
     return b.to_string();
     
+=======
+void ProgramCounter::setDebug(bool value)
+{
+    debug = value;
+>>>>>>> f0b9ae2f1dfc5530345335fc9e8deafd0f247f40
 }

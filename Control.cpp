@@ -30,37 +30,37 @@ void Control::setComponents(Registers *reg, DataMemory *mem, ALU *alu, Multiplex
 }
 
 void Control::sendSignals(string opcode){
-    cout <<"ADJUSTING REGISTER MULTIPLEXER CONTROL" << endl;
+    if (debug) cout <<"ADJUSTING REGISTER MULTIPLEXER CONTROL" << endl;
     regDst = (opcode == "add" || opcode == "sub" || opcode == "addi" || opcode == "slt");
     registerMultiplexer->setControl(regDst);
     cout << endl;
     
-    cout <<"ADJUSTING JUMP MULTIPLEXER CONTROL" << endl;
+    if (debug) cout <<"ADJUSTING JUMP MULTIPLEXER CONTROL" << endl;
     jump = (opcode == "j");
     jumpOrIncrementMultiplexer->setControl(jump);
     cout << endl;
     
-    cout <<"ADJUSTING MEMORY READ" << endl;
+    if (debug) cout <<"ADJUSTING MEMORY READ" << endl;
     memRead = (opcode == "lw");
     memoryUnit->setShouldRead(memRead);
     cout << endl;
     
-    cout <<"ADJUSTING MEMORY WRITE" << endl;
+    if (debug) cout <<"ADJUSTING MEMORY WRITE" << endl;
     memWrite = (opcode == "sw");
     memoryUnit->setShouldWrite(memWrite);
     cout << endl;
     
-    cout <<"ADJUSTING MEMORY VS ALU MULTIPLEXER" << endl;
+    if (debug) cout <<"ADJUSTING MEMORY VS ALU MULTIPLEXER" << endl;
     memToReg = (opcode == "lw");
     memoryOrALUMultiplexer->setControl(memToReg);
     cout << endl;
     
-    cout <<"ADJUSTING REGISTER VS IMMEDIATE MULTIPLEXER" << endl;
+    if (debug) cout <<"ADJUSTING REGISTER VS IMMEDIATE MULTIPLEXER" << endl;
     aluSRC = (opcode == "addi" || opcode == "lw" || opcode == "sw");
     registerOrImmediateMultiplexer->setControl(aluSRC);
     cout << endl;
     
-    cout <<"ADJUSTING REGISTER WRITE" << endl;
+    if (debug) cout <<"ADJUSTING REGISTER WRITE" << endl;
     regWrite = (opcode == "add" || opcode == "addi" || opcode == "lw" || opcode == "slt");
     registerFile->setWrite(regWrite);
     cout << endl;

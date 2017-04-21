@@ -28,6 +28,8 @@ private:
     
     void execute();
     
+    bool debug;
+    
 public:
     // Default constructor
     BinaryOperation binaryOperation;
@@ -46,7 +48,8 @@ public:
     
     string getOutput();
     
-    
+    /* Sets debug to true or false controlling print statements */
+    void setDebug(bool debug);
 };
 
 #endif /* Multiplexer_hpp */

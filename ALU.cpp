@@ -23,28 +23,30 @@ ALU::ALU() {
  */
 void ALU::execute() {
     
-    cout << "ALU INPUT 1: " << getHexFromBin(operand1) << endl;
-    cout << "ALU INPUT 2: " << getHexFromBin(operand2) << endl;
+    if (debug) {
+        cout << "ALU INPUT 1: " << getHexFromBin(operand1) << endl;
+        cout << "ALU INPUT 2: " << getHexFromBin(operand2) << endl;
+    }
     
     if (operation == 0){
-        cout << "ALU OPERATION: compare equal" << endl;
+        if (debug) cout << "ALU OPERATION: compare equal" << endl;
         compareEqual();
     }
     
     
     else if (operation == 1){
-        cout << "ALU OPERATION: add" << endl;
+        if (debug) cout << "ALU OPERATION: add" << endl;
         
         add();
     }
     
     else if (operation == 2){
-        cout << "ALU OPERATION: subtract" << endl;
+        if (debug) cout << "ALU OPERATION: subtract" << endl;
         
         subtract();
     }
     else if (operation == 3){
-        cout << "ALU OPERATION: compare less than" << endl;
+        if (debug) cout << "ALU OPERATION: compare less than" << endl;
         
         compareLessThan();
     }
@@ -57,12 +59,12 @@ void ALU::compareEqual() {
     
     if (operand1.compare(operand2) != 0) {
         //strings are different
-        cout << "The strings are not the same" << endl;
+        if (debug) cout << "The strings are not the same" << endl;
         comparisonResult = false;
     }
     
     else {
-        cout << "The strings are the same" << endl;
+        if (debug) cout << "The strings are the same" << endl;
         comparisonResult = true;
     }
 }
@@ -74,12 +76,12 @@ void ALU::compareLessThan() {
     
     if (hexToInt(getHexFromBin(operand1)) < hexToInt(getHexFromBin(operand2))) {
         //strings are different
-        cout << "Operand 1 is smaller" << endl;
+        if (debug) cout << "Operand 1 is smaller" << endl;
         comparisonResult = true;
     }
     
     else {
-        cout << "Operand 1 is not smaller" << endl;
+        if (debug) cout << "Operand 1 is not smaller" << endl;
         comparisonResult = false;
     }
 }
@@ -95,6 +97,8 @@ void ALU::add() {
     int result = temp1 + temp2;
     
     output = getBinFromHex(intToHex(result));
+
+    if (debug) cout << "The sum is: " << output << endl;
     
 }
 
@@ -109,6 +113,8 @@ void ALU::subtract() {
     int result = temp1 + temp2;
     
     output = getBinFromHex(intToHex(result));
+
+    if (debug) cout << "The difference is: " << output << endl;
 }
 
 /*
@@ -119,8 +125,7 @@ string ALU::getHexFromBin(string sBinary)
     if(sBinary != ""){
     std::stringstream ss;
     ss << std::hex << std::stoll(sBinary, NULL, 2);
-    //std::cout <<"hex test " << ss.str() << std::endl;
-    
+
     string s =  ss.str();
     while (s.length() != 8){
         s = "0" + s;
@@ -173,7 +178,7 @@ string ALU::getBinFromHex(string sHex)
  * Sets the operand1 instance variable equal to the passed string
  */
 void ALU::setOperand1(string operand){
-    cout << "ALU: SETTING OPERAND1 TO " << getHexFromBin(operand) << endl;
+    if (debug) cout << "ALU: SETTING OPERAND1 TO " << getHexFromBin(operand) << endl;
     operand1 = operand;
 }
 
@@ -181,7 +186,7 @@ void ALU::setOperand1(string operand){
  * Sets the operand2 instance variable equal to the passed string
  */
 void ALU::setOperand2(string operand){
-    cout << "ALU: SETTING OPERAND2 TO " << getHexFromBin(operand) << endl;
+    if (debug) cout << "ALU: SETTING OPERAND2 TO " << getHexFromBin(operand) << endl;
 
     operand2 = operand;
     
@@ -191,7 +196,7 @@ void ALU::setOperand2(string operand){
  * Sets the operation instance variable equal to the passed int
  */
 void ALU::setOperation(int operationInput){
-    cout << "ALU: SETTING OPERATION TO " << intToHex(operationInput) << endl;
+    if (debug) cout << "ALU: SETTING OPERATION TO " << intToHex(operationInput) << endl;
     operation = operationInput;
 }
 
@@ -199,7 +204,7 @@ void ALU::setOperation(int operationInput){
  * Returns the output instance variable. This will be a 32 bit hex string
  */
 string ALU::getOutput(){
-    cout << "ALU OUTPUT: " << getHexFromBin(output) << endl;
+    if (debug) cout << "ALU OUTPUT: " << getHexFromBin(output) << endl;
 
     return output;
 }
@@ -208,7 +213,15 @@ string ALU::getOutput(){
  * Returns the result of the compare() method, which will be either true or false
  */
 bool ALU::getComparisonResult(){
+    if (debug) cout << "The comparison result is " << comparisonResult << endl;
     return comparisonResult;
+}
+
+/*
+* Sets the debug instance variable to true
+*/
+void Registers::setDebug() {
+    debug = true;
 }
 
 
