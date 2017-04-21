@@ -59,7 +59,7 @@ void ShiftLeft::setToFile(bool val)
     toFile = val;
 }
 
-void ShiftLeft::setOStream(ostream *out)
+void ShiftLeft::setOfStream(ofstream& out)
 {
     ofile = out;
 }

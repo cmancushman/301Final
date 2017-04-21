@@ -286,8 +286,8 @@ void Registers::setToFile(bool val)
     toFile = val;
 }
 
-void Registers::setOStream(ostream *out)
+void Registers::setOfStream(ofstream& out)
 {
-    ofile = file;
+    ofile = out;
 }
 

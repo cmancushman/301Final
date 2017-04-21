@@ -58,7 +58,7 @@ void SignExtend::setToFile(bool val)
     toFile = val;
 }
 
-void SignExtend::setOStream(ostream *out)
+void SignExtend::setOfStream(ofstream& out)
 {
     ofile = out;
 }

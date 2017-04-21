@@ -11,6 +11,8 @@
 
 #include <stdio.h>
 #include <iostream>
+#include <fstream>
+
 #include "BinaryOperation.hpp"
 
 using namespace std;
@@ -30,7 +32,7 @@ private:
     
     bool debug;
     bool toFile;
-    ostream *ofile;
+    ofstream ofile;
     
 public:
     // Default constructor
@@ -57,7 +59,7 @@ public:
     void setToFile(bool val);
     
     /* Sets the location of the ostream that will be written to */
-    void setOStream(ostream *out);
+    void setOfStream(ofstream& out);
 };
 
 #endif /* Multiplexer_hpp */

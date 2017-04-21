@@ -89,7 +89,7 @@ void ProgramCounter::setToFile(bool val)
     toFile = val;
 }
 
-void ProgramCounter::setOStream(ostream *out)
+void ProgramCounter::setOfStream(ofstream& out)
 {
     ofile = out;
 }

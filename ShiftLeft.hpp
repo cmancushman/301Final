@@ -26,7 +26,7 @@ private:
     BinaryOperation binaryOperation;
     bool debug;
     bool toFile;
-    ostream *ofile;
+    ofstream ofile;
     
 public:
     // Default constructor
@@ -46,7 +46,7 @@ public:
     void setToFile(bool val);
     
     /* Sets the location of the ostream that will be written to */
-    void setOStream(ostream *out);
+    void setOfStream(ofstream& out);
 };
 
 #endif /* ShiftLeft_hpp */

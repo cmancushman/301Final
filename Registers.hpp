@@ -52,7 +52,7 @@ private:
     bool debug;
     
     bool toFile;
-    ostream *ofile;
+    ofstream ofile;
 
 public:
     //This is the constructor for the Register() function
@@ -102,7 +102,7 @@ public:
     void setToFile(bool val);
     
     /* Sets the location of the ostream that will be written to */
-    void setOStream(ostream *out);
+    void setOfStream(ofstream& out);
 
 };
 #endif /* Registers_hpp */

@@ -54,9 +54,15 @@ public:
     
     void setDebug(bool value);
 
-    void DataMemory::toOstream(*file);
+    void setOfStream(ofstream& out);
+    
+    void setToFile(bool val);
     
 private:
+    
+    ofstream ofile;
+    
+    bool tofile;
     
     bool shouldWrite;
     
