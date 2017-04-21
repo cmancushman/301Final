@@ -24,6 +24,8 @@ class ShiftLeft
 private:
 
     BinaryOperation binaryOperation;
+    bool debug;
+    
 public:
     // Default constructor
     ShiftLeft();
@@ -34,6 +36,9 @@ public:
         bits. The method returns the modifed 28-bit binary string.
     */
     string shift(string input);
+    
+    /* Sets debug to true or false controlling print statements */
+    void setDebug(bool debug);
 };
 
 #endif /* ShiftLeft_hpp */

@@ -116,6 +116,7 @@ void ALU::subtract() {
  */
 string ALU::getHexFromBin(string sBinary)
 {
+    if(sBinary != ""){
     std::stringstream ss;
     ss << std::hex << std::stoll(sBinary, NULL, 2);
     //std::cout <<"hex test " << ss.str() << std::endl;
@@ -126,6 +127,9 @@ string ALU::getHexFromBin(string sBinary)
     }
     s = "0x" + s;
     return s;
+    }else{
+        return "0x";
+    }
 }
 
 /*

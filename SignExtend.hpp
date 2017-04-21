@@ -21,6 +21,7 @@ class SignExtend
     
 private:
     BinaryOperation binaryOperation;
+    bool debug;
     
 public:
     // Constructor
@@ -32,5 +33,8 @@ public:
         32-bit binary string. Returns the 32-bit equivalent string.
     */
     string extend(string input);
+    
+    /* Sets debug to true or false controlling print statements */
+    void setDebug(bool debug);
 };
 #endif /* SignExtend_hpp */
