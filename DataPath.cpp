@@ -55,7 +55,8 @@ DataPath::DataPath()
     control.setComponents(&registerFile,&memoryUnit,&aluToMemory,&registerMultiplexer,&registerOrImmediateMultiplexer,&memoryOrALUMultiplexer,&jumpOrIncrementMultiplexer);
     
     cout << "size of list " <<parse.getNumberOfInstructions();
-    //for(int x = 1; x < parse.getNumberOfInstructions(); x++){
+    while(true){
+        if(parse.weAreDone( programCounter.getAddress()) )
     fetch();
     decode();
     execute();
@@ -74,7 +75,7 @@ DataPath::DataPath()
     memoryUnit.print();
     cout << endl;
         
-    //}
+    }
 }
 
 void DataPath::fetch(){
@@ -217,11 +218,6 @@ void DataPath::execute(){
     
     branchOrIncrementMultiplexer.setControl(control.isBranch() && aluToMemory.getComparisonResult());
     
-    
-    if (debug)
-        cout <<"SETTING EXECUTING MEMORY ALU" << endl;
-    
-    branchOrIncrementMultiplexer.setControl(control.isBranch() && aluToMemory.getComparisonResult());
     if(debug)
         cout <<"SETTING JUMP OR INCREMENTED ADDRESS INPUT0" << endl;
     jumpOrIncrementMultiplexer.setInput0(branchOrIncrementMultiplexer.getOutput());

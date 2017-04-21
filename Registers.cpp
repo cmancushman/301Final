@@ -131,13 +131,13 @@ void Registers::write(){
 
     int overwriteIndex;
     if(writeIndex != ""){
-        overwriteIndex = stoi(writeIndex);
+        overwriteIndex = hexToInt(getHexFromBin(writeIndex));
     }else{
         overwriteIndex = 0;
     }
     if(shouldWrite){
         if(debug){
-        cout << "WRITING " << getHexFromBin(writeValue) << " TO REGISTER $" <<  writeIndex << endl;
+        cout << "WRITING " << getHexFromBin(writeValue) << " TO REGISTER $" <<  hexToInt(getHexFromBin(writeIndex)) << endl;
         }
         registerMap[overwriteIndex] = writeValue;
     }else{
