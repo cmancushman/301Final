@@ -30,7 +30,7 @@ Registers::Registers(string file){
 }
 
 void Registers::setFile(string file){
-     cout << "Registers INPUT 1: " << file << endl;
+     if (debug) cout << "Registers INPUT 1: " << file << endl;
 
     fstream in;
     in.open(file.c_str());
@@ -80,37 +80,37 @@ void Registers::setFile(string file){
 
 //This method sets the value of the index and the value of a string
 void Registers::setWriteIndex(string value){
-    cout << "setWriteIndex INPUT: " << "  value " << value << endl;
+    if (debug) cout << "setWriteIndex INPUT: " << "  value " << value << endl;
     writeIndex = value;
 }
 
 //This method sets the write value of the register by intaking a string called value and setting it equal to a value called writeValue
 void Registers::setWriteValue(string value){
-    cout << "setWriteValue INPUT: " << "  value " << value << endl;
+    if (debug) cout << "setWriteValue INPUT: " << "  value " << value << endl;
     writeValue = value;
 }
 
 //This method intakes a boolean value called write and sets it equal to the value shouldWrite after determining if register memory can be overwritten
 void Registers::setWrite(bool write){
-    cout << "REGISTER MEMORY CAN BE OVERWRITTEN?: (1 yes, 0 no): " << write << endl;
+    if (debug) cout << "REGISTER MEMORY CAN BE OVERWRITTEN?: (1 yes, 0 no): " << write << endl;
     shouldWrite = write;
 }
 
 //This method sets the value of the readRegister1
 void Registers::setReadRegister1(string registerNumber){
-    cout << "setReadRegister1 INPUT: " << "index: " << registerNumber << endl;
+    if (debug) cout << "setReadRegister1 INPUT: " << "index: " << registerNumber << endl;
     readRegister1 = registerNumber;
 }
 
 //This method sets the value of the readRegister2
 void Registers::setReadRegister2(string registerNumber){
-    cout << "setReadRegister2 INPUT: " << "index: " << registerNumber << endl;
+    if (debug) cout << "setReadRegister2 INPUT: " << "index: " << registerNumber << endl;
     readRegister2 = registerNumber;
 }
 
 //This method gets a hex value from a binary string, and if it should write, it sets the values of the index and the writeValue
 void Registers::write(){
-    cout << "writing " << getHexFromBin(writeValue) << " to register $" <<  writeIndex << endl;
+    if (debug) cout << "writing " << getHexFromBin(writeValue) << " to register $" <<  writeIndex << endl;
 
     int overwriteIndex;
     if(writeIndex != ""){
@@ -131,9 +131,9 @@ string Registers::getReadRegister1(){
     }else{
         searchInt = 0;
     }
-    cout << "getReadRegister1 INPUT: " << "index: " << readRegister1 << endl;
+    if (debug) cout << "getReadRegister1 INPUT: " << "index: " << readRegister1 << endl;
     string result = wordListCompare1.get(searchInt);
-    cout << "getReadRegister1 OUTPUT: " <<  getHexFromBin(result) << endl;
+    if (debug) cout << "getReadRegister1 OUTPUT: " <<  getHexFromBin(result) << endl;
     return result;
 }
 
@@ -145,9 +145,9 @@ string Registers::getReadRegister2(){
     }else{
         searchInt = 0;
     }
-    cout << "getReadRegister2 INPUT: " << "index: " << readRegister2 << endl;
+    if (debug) cout << "getReadRegister2 INPUT: " << "index: " << readRegister2 << endl;
     string result = wordListCompare1.get(searchInt);
-    cout << "getReadRegister2 OUTPUT: " <<  getHexFromBin(result) << endl;
+    if (debug) cout << "getReadRegister2 OUTPUT: " <<  getHexFromBin(result) << endl;
     return result;
 }
 
@@ -170,7 +170,6 @@ string Registers::getBinFromHex(string sHex)
     unsigned n;
     ss >> n;
     bitset<32> b(n);
-    //cout << "Test Return Hex " << b.to_string() << endl;
     
     return b.to_string();
     
@@ -182,7 +181,6 @@ string Registers::getHexFromBin(string sBinary)
 {
     std::stringstream ss;
     ss << std::hex << std::stoll(sBinary, NULL, 2);
-    //std::cout <<"hex test " << ss.str() << std::endl;
     
     string s =  ss.str();
     while (s.length() != 8){
@@ -191,3 +189,13 @@ string Registers::getHexFromBin(string sBinary)
     s = "0x" + s;
     return s;
 }
+
+/*
+* Sets the debug instance variable to true
+*/
+void Registers::setDebug() {
+    debug = true;
+}
+
+
+

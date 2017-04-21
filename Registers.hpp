@@ -43,6 +43,9 @@ private:
     //Declaration of a string called readRegister2
     string readRegister2;
 
+    //variable that determines whether or no debugger is on
+    bool debug;
+
 public:
     //This is the constructor for the Register() function
     Registers();
@@ -83,6 +86,7 @@ public:
 
     void init();
     
+    void setDebug();
     
     
 

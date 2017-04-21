@@ -37,8 +37,9 @@ void Parser::setFile(string file){
             
             line.erase(std::remove(line.begin(), line.end(), ','), line.end());
             
+            //replace all parentheses with a space
             std::replace( line.begin(), line.end(), '(', ' ');
-            
+            //replace all parentheses with a space
             std::replace( line.begin(), line.end(), ')', ' ');
             
             string stringArray[10];
