@@ -225,9 +225,10 @@ string DataMemory::readMemory(){
 }
 //This method prints
 void DataMemory::print(){
-    for (const auto &p : memoryMap) {
-        std::cout << "memoryMap[" << p.first << "] = " << p.second << '\n';
-    }
+    //wordListCompare1 = std::map<key, value> map;<string>();
+    //for(int x = 0; x < 32; x++){
+    //  cout<<"Binary #"<< x << " : " << wordListCompare1.get(x) << endl;
+    //}
 }
 
 //This is for the debugger, intakes a boolean value

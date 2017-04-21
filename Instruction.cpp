@@ -33,16 +33,16 @@ Instruction::Instruction(string str1, string str2, string str3, string str4){
 
     //This if statement runs if the instruction is "add" and sets rd, rs, and rt to str2, str3, and str4 respectively
     if(component1 == "add"){
-        rd = std::bitset< 5 >( stoi(str2)  ).to_string();
-        rs = std::bitset< 5 >( stoi(str3)  ).to_string();
-        rt = std::bitset< 5 >( stoi(str4)  ).to_string();
+        rd = str2;
+        rs = str3;
+        rt = str4;
     }
 
     //This if statement runs if the instruction is "sub" and sets rd, rs, and rt to str2, str3, and str4 respectively
     else if(component1 == "sub"){
-        rd = std::bitset< 5 >( stoi(str2)  ).to_string();
-        rs = std::bitset< 5 >( stoi(str3)  ).to_string();
-        rt = std::bitset< 5 >( stoi(str4)  ).to_string();
+        rd = str2;
+        rs = str3;
+        rt = str4;
     }
 
     //This if statement runs if the instruction is "addi" and sets immediate, rs, and rt to s, str3, and str2 respectively
@@ -50,8 +50,8 @@ Instruction::Instruction(string str1, string str2, string str3, string str4){
         std::string s = std::bitset< 16 >( stoi(str4) ).to_string(); // string conversion
         immediate = s;
         
-        rs = std::bitset< 5 >( stoi(str3)  ).to_string();
-        rt = std::bitset< 5 >( stoi(str2)  ).to_string();
+        rs = str3;
+        rt = str2;
         //cout << "bit test " << s << endl;
         
     }
@@ -59,9 +59,9 @@ Instruction::Instruction(string str1, string str2, string str3, string str4){
     //This if statement runs if the instruction is "slt" and sets rd, rs, and rt to str2, str3, and str4 respectively
     else if(component1 == "slt"){
         
-        rd = std::bitset< 5 >( stoi(str2)  ).to_string();
-        rs = std::bitset< 5 >( stoi(str3)  ).to_string();
-        rt = std::bitset< 5 >( stoi(str4)  ).to_string();
+        rd = str2;
+        rs = str3;
+        rt = str4;
     }
 
     //This if statement runs if the instruction is "lw" and sets rd, rs, and rt to str2, str3, and str4 respectively
@@ -72,8 +72,8 @@ Instruction::Instruction(string str1, string str2, string str3, string str4){
         
         immediate = s;
         
-        rt = std::bitset< 5 >( stoi(str2)  ).to_string();
-        rs = std::bitset< 5 >( stoi(str4)  ).to_string();
+        rt = str2;
+        rs = str4;
         
         //cout <<"bit test " << s << endl;
         
@@ -86,8 +86,8 @@ Instruction::Instruction(string str1, string str2, string str3, string str4){
         std::string s = std::bitset< 16 >( stoi(str3)  ).to_string(); // string conversion
         immediate = s;
         
-        rt = std::bitset< 5 >( stoi(str2)  ).to_string();
-        rs = std::bitset< 5 >( stoi(str4)  ).to_string();
+        rt = str2;
+        rs = str4;
         
         //cout <<"bit test " << s << endl;
     }
@@ -111,8 +111,8 @@ Instruction::Instruction(string str1, string str2, string str3, string str4){
         //SignExtend ext = SignExtend();
         //cout << "Sign extend " << ext.extend(b.to_string()) << endl;
         
-        rt = std::bitset< 5 >( stoi(str2)  ).to_string();
-        rs = std::bitset< 5 >( stoi(str3)  ).to_string();
+        rs = str2;
+        rt = str3;
         
     }
 
