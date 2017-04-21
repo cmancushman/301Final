@@ -24,6 +24,9 @@ private:
 public:
     BinaryOperation();
     
+    /*
+     * Returns a hexadecimal string representation of the binary input string.
+     */
     string getHexFromBin(string sBinary);
     
     /*
@@ -31,6 +34,10 @@ public:
      */
     int hexToInt(string hexString);
     
+    /*
+     * Converts the int integer to hex and returns a string representation of 
+     * the hexadecimal value
+     */
     string intToHex(int integer);
 };
 

@@ -51,10 +51,16 @@ public:
     
     Control();
     
+    // Checks if the instruction is a branch
     bool isBranch();
     
-    //void set
+    // Sets the components of the processor
     void setComponents(Registers *reg, DataMemory *mem, ALU *alu, Multiplexer *regMult, Multiplexer *regImm, Multiplexer *memALU, Multiplexer *jumpInc);
+    
+    /*
+     * Sends control signals to each processor component in accordance to what is required by
+     * the opcode
+     */
     void sendSignals(string opCode);
     
 };

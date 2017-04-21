@@ -23,8 +23,11 @@ using namespace std;
 
 class DataPath{
 public:
+    
+    // Default Constructor
     DataPath();
     
+    // The following methods execute the 5 stages of our pipelined processor
     void fetch();
     void decode();
     void execute();

@@ -24,7 +24,7 @@ public:
     /* Constructor for program counter */
     ProgramCounter();
     
-    
+    /* Sets the programCounters address to the input address */
     void setAddress(string address);
     
     /* Retruns the current address */
