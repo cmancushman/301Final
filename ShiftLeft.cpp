@@ -61,5 +61,5 @@ void ShiftLeft::setToFile(bool val)
 
 void ShiftLeft::setOStream(ostream *out)
 {
-    ofile = file;
+    ofile = out;
 }

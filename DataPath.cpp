@@ -57,23 +57,24 @@ DataPath::DataPath()
     cout << "size of list " <<parse.getNumberOfInstructions();
     while(true){
         if(parse.weAreDone( programCounter.getAddress()) )
-    fetch();
-    decode();
-    execute();
-    memory();
-    writeback();
-    
-    cout<< "*****CURRENT REGISTERS*****" <<endl;
-    registerFile.print();
-    cout << endl;
-    
-    cout<< "*****CURRENT INSTRUCTIONS*****" <<endl;
-    parse.printAllInstructions();
-    cout << endl;
-    
-    cout<< "*****CURRENT DATA MEMORY*****" <<endl;
-    memoryUnit.print();
-    cout << endl;
+            break;
+        fetch();
+        decode();
+        execute();
+        memory();
+        writeback();
+        
+        cout<< "*****CURRENT REGISTERS*****" <<endl;
+        registerFile.print();
+        cout << endl;
+        
+        cout<< "*****CURRENT INSTRUCTIONS*****" <<endl;
+        parse.printAllInstructions();
+        cout << endl;
+        
+        cout<< "*****CURRENT DATA MEMORY*****" <<endl;
+        memoryUnit.print();
+        cout << endl;
         
     }
 }
@@ -125,7 +126,7 @@ void DataPath::fetch(){
 
 void DataPath::decode(){
     control.sendSignals(opcode);
-
+    
     if (debug)
         cout << "ADJUSTING READ REGISTERS" << endl << endl;
     

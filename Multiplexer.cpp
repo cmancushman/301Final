@@ -86,5 +86,5 @@ void Multiplexer::setToFile(bool val)
 
 void Multiplexer::setOStream(ostream *out)
 {
-    ofile = file;
+    ofile = out;
 }

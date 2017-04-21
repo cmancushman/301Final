@@ -59,6 +59,8 @@ public:
     void setDebug(bool value);
     
     int getNumberOfInstructions();
+    
+    bool weAreDone(string address);
 
 };
 #endif /* Parser_hpp */

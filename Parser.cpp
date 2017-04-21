@@ -135,3 +135,10 @@ void Parser::setDebug(bool value){
 int Parser::getNumberOfInstructions(){
     return instructionList.size();
 }
+
+bool Parser::weAreDone(string address){
+    if((hexToInt(getHexFromBin(address)) - 262144)/4 >= instructionList.size()){
+        return true;
+    }
+    return false;
+}
