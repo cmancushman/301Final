@@ -33,7 +33,7 @@ void Control::setComponents(Registers *reg, DataMemory *mem, ALU *alu, Multiplex
 //Sends control signals to each processor component in accordance to what is required by the opcode
 void Control::sendSignals(string opcode){
     if (debug) cout <<"ADJUSTING REGISTER MULTIPLEXER CONTROL" << endl;
-    regDst = (opcode == "add" || opcode == "sub" || opcode == "addi" || opcode == "slt");
+    regDst = (opcode == "add" || opcode == "sub" || opcode == "slt");
     registerMultiplexer->setControl(regDst);
     cout << endl;
     
@@ -63,7 +63,7 @@ void Control::sendSignals(string opcode){
     cout << endl;
     
     if (debug) cout <<"ADJUSTING REGISTER WRITE" << endl;
-    regWrite = (opcode == "add" || opcode == "addi" || opcode == "lw" || opcode == "slt");
+    regWrite = (opcode == "add" || opcode == "addi" || opcode == "lw" || opcode == "slt" || opcode == "sub");
     registerFile->setWrite(regWrite);
     cout << endl;
     
