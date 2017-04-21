@@ -14,6 +14,7 @@ Registers::Registers(){
     
 }
 
+//This method pads the string values in the linked list with zeros
 void Registers::init(){
     wordListCompare1 = LinkedList<string>();
     
@@ -22,6 +23,7 @@ void Registers::init(){
         wordListCompare1.add("00000000000000000000000000000000");
     }
 }
+
 //Im assuming this method will read in a file of strings
 Registers::Registers(string file){
 
@@ -83,11 +85,13 @@ void Registers::setWriteIndex(string value){
     writeIndex = value;
 }
 
+//This method sets the write value of the register by intaking a string called value and setting it equal to a value called writeValue
 void Registers::setWriteValue(string value){
     cout << "setWriteValue INPUT: " << "  value " << value << endl;
     writeValue = value;
 }
 
+//This method intakes a boolean value called write and sets it equal to the value shouldWrite after determining if register memory can be overwritten
 void Registers::setWrite(bool write){
     cout << "REGISTER MEMORY CAN BE OVERWRITTEN?: (1 yes, 0 no): " << write << endl;
     shouldWrite = write;
@@ -105,6 +109,7 @@ void Registers::setReadRegister2(string registerNumber){
     readRegister2 = registerNumber;
 }
 
+//This method gets a hex value from a binary string, and if it should write, it sets the values of the index and the writeValue
 void Registers::write(){
     cout << "writing " << getHexFromBin(writeValue) << " to register $" <<  writeIndex << endl;
 
@@ -112,6 +117,7 @@ void Registers::write(){
         wordListCompare1.set(stoi(writeIndex), writeValue);
     }
 }
+
 //This method gets the value of the readRegister1
 string Registers::getReadRegister1(){
     cout << "getReadRegister1 INPUT: " << "index: " << readRegister1 << endl;
