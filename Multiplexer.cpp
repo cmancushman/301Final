@@ -15,7 +15,8 @@ Multiplexer::Multiplexer()
 
 
 void Multiplexer::setControl(bool newControl){
-    cout << "SETTING MULTIPLEXER CONTROL TO "<< newControl << endl;
+    if (debug)
+        cout << "SETTING MULTIPLEXER CONTROL TO "<< newControl << endl;
 
     control = newControl;
     
@@ -23,21 +24,27 @@ void Multiplexer::setControl(bool newControl){
 }
 
 void Multiplexer::setInput0(string input){
-    cout << "SETTING MULTIPLEXER INPUT0: "<< binaryOperation.getHexFromBin(input) << endl;
+    if (debug)
+        cout << "SETTING MULTIPLEXER INPUT0: "<< binaryOperation.getHexFromBin(input) << endl;
+    
     input0 = input;
     
     execute();
 }
 
 void Multiplexer::setInput1(string input){
-    cout << "SETTING MULTIPLEXER INPUT1: "<< binaryOperation.getHexFromBin(input) << endl;
+    if (debug)
+        cout << "SETTING MULTIPLEXER INPUT1: "<< binaryOperation.getHexFromBin(input) << endl;
+    
     input1 = input;
     
     execute();
 }
 
 string Multiplexer::getOutput(){
-    cout << "MULTIPLEXER OUTPUT: "<< binaryOperation.getHexFromBin(output) << endl;
+    if (debug)
+        cout << "MULTIPLEXER OUTPUT: "<< binaryOperation.getHexFromBin(output) << endl;
+    
     return output;
 
 }
@@ -48,4 +55,9 @@ void Multiplexer::execute(){
     }else{
         output = input1;
     }
+}
+
+void Multiplexer::setDebug(bool value)
+{
+    debug = value;
 }
