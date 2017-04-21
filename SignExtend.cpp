@@ -19,6 +19,9 @@ string SignExtend::extend(string input)
 {
     if (debug)
         cout << "SignExtend INPUT: " << binaryOperation.getHexFromBin(input) << endl;
+    
+    if (toFile)
+        ofile << "SignExtend INPUT: " << binaryOperation.getHexFromBin(input) << endl;
 
     if (input.substr(0,1) == "0")
     {
@@ -38,6 +41,9 @@ string SignExtend::extend(string input)
     if (debug)
         cout << "SignExtend OUTPUT: " << binaryOperation.getHexFromBin(input) << endl << endl;
     
+    if (toFile)
+        ofile << "SignExtend OUTPUT: " << binaryOperation.getHexFromBin(input) << endl << endl;
+    
     return input;
 }
 
@@ -47,3 +53,12 @@ void SignExtend::setDebug(bool value)
     debug = value;
 }
 
+void SignExtend::setToFile(bool val)
+{
+    toFile = val;
+}
+
+void SignExtend::setOStream(ostream *out)
+{
+    ofile = file;
+}
