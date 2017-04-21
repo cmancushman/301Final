@@ -220,9 +220,8 @@ void DataMemory::setToFile(val){
     toFile = val;
 }
 
-<<<<<<< HEAD
 //This is for the writing to a file, it intakes an ostream
-void DataMemory::setOstream(ostream &out){
-    ofile = &out;
+void DataMemory::setOstream(ostream out){
+    ofile = out;
 }
 
