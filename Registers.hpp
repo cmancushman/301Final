@@ -38,8 +38,10 @@ private:
     //This method takes in a binary string, converts the binary to hexadecimal, and outputs a string of hex numbers
     string getBinFromHex(string sHex);
     
+    //This method intakes a hexadecimal string and returns an integer
     int hexToInt(string hexString);
     
+    //This method intakes an integer and returns a hexadecimal string
     string intToHex(int integer);
     
     //Declaration of a string called readRegister1
@@ -52,7 +54,7 @@ private:
     bool debug;
     
     bool toFile;
-    ofstream ofile;
+    //ofstream ofile;
 
 public:
     //This is the constructor for the Register() function
@@ -102,7 +104,7 @@ public:
     void setToFile(bool val);
     
     /* Sets the location of the ostream that will be written to */
-    void setOfStream(ofstream& out);
+    //void setOfStream(ofstream& out);
 
 };
 #endif /* Registers_hpp */

@@ -46,7 +46,7 @@ public:
     void setToFile(bool val);
     
     /* Sets the location of the ostream that will be written to */
-    void setOfStream(ofstream& out);
+    //void setOfStream(ofstream& out);
 };
 
 #endif /* ShiftLeft_hpp */

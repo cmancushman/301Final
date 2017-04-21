@@ -98,7 +98,7 @@ void ALU::add() {
     
     output = getBinFromHex(intToHex(result));
 
-    if (debug) cout << "The sum is: " << output << endl;
+    if (debug) cout << "The sum is: " << getHexFromBin(output) << endl;
     
 }
 

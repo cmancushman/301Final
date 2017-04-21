@@ -21,8 +21,8 @@ void ProgramCounter::setAddress(string address){
     if(debug)
         cout << "SETTING PROGRAM COUNTER ADDRESS " << binaryOperation.getHexFromBin(address) << endl;
     
-    if(toFile)
-        ofile << "SETTING PROGRAM COUNTER ADDRESS " << binaryOperation.getHexFromBin(address) << endl;
+    if(toFile);
+        //ofile << "SETTING PROGRAM COUNTER ADDRESS " << binaryOperation.getHexFromBin(address) << endl;
     
     currentAddress = address;
 }
@@ -38,30 +38,29 @@ string ProgramCounter::getAddress(){
     
     if (toFile)
     {
-        ofile << "Parser getAddress OUTPUT: " << binaryOperation.getHexFromBin(currentAddress) << endl
-        << endl;
+        //ofile << "Parser getAddress OUTPUT: " << binaryOperation.getHexFromBin(currentAddress) << endl << endl;
     }
 
     
     if (debug)
         cout << "Parser getAddress OUTPUT: " << binaryOperation.getHexFromBin(currentAddress) << endl;
     
-    if (toFile)
-        ofile << "Parser getAddress OUTPUT: " << binaryOperation.getHexFromBin(currentAddress) << endl;
+    if (toFile);
+        //ofile << "Parser getAddress OUTPUT: " << binaryOperation.getHexFromBin(currentAddress) << endl;
 
     
     if (debug)
         cout << "Parser getAddress OUTPUT: " << binaryOperation.getHexFromBin(currentAddress) << endl;
     
-    if (toFile)
-        ofile << "Parser getAddress OUTPUT: " << binaryOperation.getHexFromBin(currentAddress) << endl;
+    if (toFile);
+        //ofile << "Parser getAddress OUTPUT: " << binaryOperation.getHexFromBin(currentAddress) << endl;
     
     
     if (debug)
         cout << "Parser getAddress OUTPUT: " << binaryOperation.getHexFromBin(currentAddress) << endl;
 
-    if (toFile)
-        ofile << "Parser getAddress OUTPUT: " << binaryOperation.getHexFromBin(currentAddress) << endl;
+    if (toFile);
+        //ofile << "Parser getAddress OUTPUT: " << binaryOperation.getHexFromBin(currentAddress) << endl;
 
     return currentAddress;
 }
@@ -89,7 +88,7 @@ void ProgramCounter::setToFile(bool val)
     toFile = val;
 }
 
-void ProgramCounter::setOfStream(ofstream& out)
+/*void ProgramCounter::setOfStream(ofstream& out)
 {
     ofile = out;
-}
+}*/

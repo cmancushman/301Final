@@ -7,9 +7,7 @@
 //
 
 #include "Parser.hpp"
-
 bool BothAreSpaces(char lhs, char rhs);
-
 
 //Default constructor
 Parser::Parser(){
@@ -39,10 +37,9 @@ void Parser::setFile(string file){
         
         while( getline(in, line)){
             //cout  << line << endl;
-            
             std::string::iterator new_end = std::unique(line.begin(), line.end(), BothAreSpaces);
             line.erase(new_end, line.end());
-            
+
             line.erase(std::remove(line.begin(), line.end(), ','), line.end());
             
             //replace all parentheses with a space
@@ -142,3 +139,4 @@ bool Parser::weAreDone(string address){
     }
     return false;
 }
+

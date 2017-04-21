@@ -11,6 +11,7 @@
 DataPath::DataPath()
 {
     configure("input_configuration.txt");
+    
     registerFile.init();
     registerFile.setFile(registerFileInput);
     cout<< "*****CURRENT REGISTERS*****" <<endl;
@@ -19,6 +20,7 @@ DataPath::DataPath()
     
     //set debug values for all classes
     /****/
+    debug = true;
     programCounter.setDebug(debug);
     parse.setDebug(debug);
     registerFile.setDebug(debug);
@@ -42,22 +44,20 @@ DataPath::DataPath()
     cout<< "*****CURRENT INSTRUCTIONS*****" <<endl;
     parse.printAllInstructions();
     cout << endl;
-    
     memoryUnit.setFile(memoryContentsInput);
-    cout<< "*****CURRENT DATA MEMORY*****" <<endl;
-    memoryUnit.print();
-    cout << endl;
     
     aluAddPCand4.setOperation(1);
     aluAddBranchAndAddress.setOperation(1);
     
     
     control.setComponents(&registerFile,&memoryUnit,&aluToMemory,&registerMultiplexer,&registerOrImmediateMultiplexer,&memoryOrALUMultiplexer,&jumpOrIncrementMultiplexer);
-    
-    cout << "size of list " <<parse.getNumberOfInstructions();
+    debug = true;
+    cout << "debug mode is : " << debug << endl;
+    int x;
     while(true){
-        if(parse.weAreDone( programCounter.getAddress()) )
+        if(parse.weAreDone( programCounter.getAddress()) ){
             break;
+        }
         fetch();
         decode();
         execute();
@@ -74,17 +74,24 @@ DataPath::DataPath()
         
         cout<< "*****CURRENT DATA MEMORY*****" <<endl;
         memoryUnit.print();
-        cout << endl;
-        
+        /*cout << endl;
+        if(batch){
+            std::cin >> x;
+        }*/
     }
+    cout << endl << endl;
+    cout << "WE DID IT! END OF FILE!!!" << endl;
+
 }
+
 
 void DataPath::fetch(){
     
     
     currentInstruction = parse.getInstruction(programCounter.getAddress());
+    if (debug)
+        cout << "Current instruction to run: "; currentInstruction.print(); cout << endl;
     
-    cout << "Current instruction to run: "; currentInstruction.print(); cout << endl;
     
     
     if (debug)
@@ -126,6 +133,7 @@ void DataPath::fetch(){
 
 void DataPath::decode(){
     control.sendSignals(opcode);
+
     
     if (debug)
         cout << "ADJUSTING READ REGISTERS" << endl << endl;
@@ -147,6 +155,7 @@ void DataPath::decode(){
     registerFile.setWriteIndex(registerMultiplexer.getOutput());
     
     
+    control.sendSignals(opcode);
     
     if (debug)
         cout << endl;
@@ -179,7 +188,6 @@ void DataPath::decode(){
     
     if (debug)
         cout <<"ADJUSTING ALU SOURCE MULTIPLEXER INPUT1" << endl << endl;
-    
     registerOrImmediateMultiplexer.setInput1(immediate);
     
     
@@ -248,8 +256,11 @@ void DataPath::memory(){
 void DataPath::writeback(){
     registerFile.write();
     programCounter.setAddress(jumpOrIncrementMultiplexer.getOutput());
-    cout <<"Next Instruction to run: ";parse.getInstruction(programCounter.getAddress()).print();
+    if(!parse.weAreDone( programCounter.getAddress())){
+        cout <<"Next Instruction to run: ";parse.getInstruction(programCounter.getAddress()).print();
+    }
     cout << endl;
+
     
 }
 

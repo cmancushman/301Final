@@ -11,7 +11,6 @@
 //This is the constructor for DataMemory
 DataMemory::DataMemory(){
     memoryMap = map<string, string>();
-    memoryMap["0x00000003"] = "0xffffffff";
     //cout << " Memory map "<< memoryMap["0x00000001"] << endl;
 }
 //This constructor reads in a file of strings
@@ -130,13 +129,9 @@ string DataMemory::getHexFromBin(string sBinary)
 void DataMemory::setShouldWrite(bool writeToMemory){
     if(debug)
         cout << "DATA MEMORY CAN BE OVERWRITTEN?: (1 yes, 0 no): " << writeToMemory << endl;
-<<<<<<< HEAD
-    if(tofile)
-        ofile << "DATA MEMORY CAN BE OVERWRITTEN?: (1 yes, 0 no): " << writeToMemory << endl;
-=======
-    if(toFile)
-        &ofile << "DATA MEMORY CAN BE OVERWRITTEN?: (1 yes, 0 no): " << writeToMemory << endl;
->>>>>>> 23ca18a918bdd5b3c6b45bef2151b665a82cb212
+    if(tofile);
+        //ofile << "DATA MEMORY CAN BE OVERWRITTEN?: (1 yes, 0 no): " << writeToMemory << endl;
+
     shouldWrite = writeToMemory;
 }
 
@@ -144,13 +139,10 @@ void DataMemory::setShouldWrite(bool writeToMemory){
 void DataMemory::setShouldRead(bool readFromMemory){
     if(debug)
         cout << "DATA MEMORY CAN BE READ?: (1 yes, 0 no): " << readFromMemory << endl;
-<<<<<<< HEAD
-    if(tofile)
-        ofile << "DATA MEMORY CAN BE READ?: (1 yes, 0 no): " << readFromMemory << endl;
-=======
-    if(toFile)
-        &ofile << "DATA MEMORY CAN BE READ?: (1 yes, 0 no): " << readFromMemory << endl;
->>>>>>> 23ca18a918bdd5b3c6b45bef2151b665a82cb212
+
+    if(tofile);
+        //ofile << "DATA MEMORY CAN BE READ?: (1 yes, 0 no): " << readFromMemory << endl;
+
     shouldRead = readFromMemory;
 }
 
@@ -158,8 +150,10 @@ void DataMemory::setShouldRead(bool readFromMemory){
 void DataMemory::storeWord(string word){
     if(debug)
         cout << "DATA MEMORY SET WRITE DATA: " << word << endl;
-    if(toFile)
-        &ofile << "DATA MEMORY SET WRITE DATA: " << word << endl;
+    
+    if(tofile);
+        //ofile << "DATA MEMORY SET WRITE DATA: " << word << endl;
+
     if(word == ""){
         currentWord = "0x";
     }else{
@@ -172,8 +166,9 @@ void DataMemory::storeWord(string word){
 void DataMemory::setCurrentAddress(string address){
     if(debug)
         cout << "DATA MEMORY SET ADDRESS: " << address << endl;
-    if(toFile)
-        &ofile << "DATA MEMORY SET ADDRESS: " << address << endl;
+    if(tofile);
+        //ofile << "DATA MEMORY SET ADDRESS: " << address << endl;
+
     if(address == ""){
         currentWord = "0x";
     }else{
@@ -186,8 +181,8 @@ void DataMemory::saveMemory(){
     if(shouldWrite){
         if(debug)
             cout << "DATA MEMORY SAVING:  " << currentWord << "  AT ADDRESS  " << currentAddress << endl;
-        if(toFile)
-            &ofile << "DATA MEMORY SAVING:  " << currentWord << "  AT ADDRESS  " << currentAddress << endl;
+        if(tofile);
+            //ofile << "DATA MEMORY SAVING:  " << currentWord << "  AT ADDRESS  " << currentAddress << endl;
         memoryMap[currentAddress] = currentWord;
     }else{
         if(debug)
@@ -200,25 +195,19 @@ string DataMemory::readMemory(){
     if(shouldRead){
         if(debug)
             cout << "MEMORY READ: " << getBinFromHex(memoryMap[currentAddress]) << endl;
-<<<<<<< HEAD
-        if(tofile)
-            ofile << "MEMORY READ: " << getBinFromHex(memoryMap[currentAddress]) << endl;
-=======
-        if(toFile)
-            &out << "MEMORY READ: " << getBinFromHex(memoryMap[currentAddress]) << endl;
->>>>>>> 23ca18a918bdd5b3c6b45bef2151b665a82cb212
+        if(tofile);
+            //ofile << "MEMORY READ: " << getBinFromHex(memoryMap[currentAddress]) << endl;
+
 
         return getBinFromHex(memoryMap[currentAddress]);
     }else{
         if(debug)
             cout << "MEMORY READ NOT ENABLED " <<  endl;
-<<<<<<< HEAD
-        if(tofile)
-            ofile << "MEMORY READ NOT ENABLED " <<  endl;
-=======
-        if(toFile)
-            &out << "MEMORY READ NOT ENABLED " <<  endl;
->>>>>>> 23ca18a918bdd5b3c6b45bef2151b665a82cb212
+
+        if(tofile);
+            //ofile << "MEMORY READ NOT ENABLED " <<  endl;
+
+
 
     }
     return "";
@@ -227,30 +216,19 @@ string DataMemory::readMemory(){
 void DataMemory::print(){
     for (const auto &p : memoryMap) {
         std::cout << "memoryMap[" << p.first << "] = " << p.second << '\n';
-    }
+     }
 }
 
-//This is for the debugger, intakes a boolean value
+
 void DataMemory::setDebug(bool value){
     debug = value;
 }
 
-<<<<<<< HEAD
 void DataMemory::setToFile(bool val){
     tofile = val;
 }
 
-void DataMemory::setOfStream(ofstream& out){
+/*void DataMemory::setOfStream(ofstream& out){
     ofile = out;
-=======
-//This is for writing to a file, intaking a value
-void DataMemory::setToFile(val){
-    toFile = val;
 }
-
-//This is for the writing to a file, it intakes an ostream
-void DataMemory::setOstream(ostream out){
-    ofile = &out;
->>>>>>> 23ca18a918bdd5b3c6b45bef2151b665a82cb212
-}
-
+*/
