@@ -74,7 +74,7 @@ private:
     //It receives a binary string and returns a hexadecimal string
     string getHexFromBin(string sBinary);
     
-    bool degug;
+    bool debug;
     
 };
 

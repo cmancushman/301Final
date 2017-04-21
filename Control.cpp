@@ -84,7 +84,9 @@ void Control::sendSignals(string opcode){
 
 }
 
-
+void Control::setDebug(bool value){
+    debug = value;
+}
 
 
 

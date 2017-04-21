@@ -33,6 +33,8 @@ private:
     
     //This method intakes a string of binaries, converts it to a hexadecimal number, and outputs the string of hex numbers
     string getHexFromBin(string sBinary);
+    
+    bool debug;
 public:
     /* Default Constructor */
     Parser();
@@ -48,6 +50,8 @@ public:
     
     /* Prints all the instructions of the instance */
     void printAllInstructions();
+    
+    void setDebug(bool value);
     
 
 };

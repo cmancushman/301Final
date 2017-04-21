@@ -220,8 +220,7 @@ bool ALU::getComparisonResult(){
 /*
 * Sets the debug instance variable to true
 */
-void Registers::setDebug() {
-    debug = true;
+void ALU::setDebug(bool value) {
+    debug = value;
 }
-
 
