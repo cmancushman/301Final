@@ -60,5 +60,5 @@ void SignExtend::setToFile(bool val)
 
 void SignExtend::setOStream(ostream *out)
 {
-    ofile = file;
+    ofile = out;
 }

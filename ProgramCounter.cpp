@@ -91,5 +91,5 @@ void ProgramCounter::setToFile(bool val)
 
 void ProgramCounter::setOStream(ostream *out)
 {
-    ofile = file;
+    ofile = out;
 }

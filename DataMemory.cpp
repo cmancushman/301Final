@@ -214,6 +214,6 @@ void DataMemory::setToFile(val){
 }
 
 void DataMemory::setOstrream(ostream *out){
-    ofile = file;
+    ofile = out;
 }
 
