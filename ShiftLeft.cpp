@@ -8,11 +8,15 @@
 
 #include "ShiftLeft.hpp"
 
+// Default constructor
 ShiftLeft::ShiftLeft()
 {
 
 }
 
+//Method takes in a 26-bit string that represents a binary number.
+//The method shifts the binary number left by 2 and adds 2 additional
+//bits. The method returns the modifed 28-bit binary string.
 string ShiftLeft::shift(string input)
 {
     if (debug)
@@ -33,6 +37,7 @@ string ShiftLeft::shift(string input)
     return input;
 }
 
+//Sets debug to true or false controlling print statements
 void ShiftLeft::setDebug(bool value)
 {
     debug = value;

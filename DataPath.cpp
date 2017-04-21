@@ -168,6 +168,7 @@ void DataPath::decode(){
     
 }
 
+
 void DataPath::execute(){
     
     if (debug)
@@ -176,30 +177,45 @@ void DataPath::execute(){
     aluToMemory.execute();
     
     cout <<"SETTING BRANCH OR INCREMENTED ADDRESS MULTIPLEXER CONTROL " << endl;
-<<<<<<< HEAD
+    branchOrIncrementMultiplexer.setControl(control.isBranch() && aluToMemory.getComparisonResult());
+
+    if (debug)
+        cout <<"SETTING EXECUTING MEMORY ALU" << endl;
+
+    
+    cout <<"SETTING JUMP OR INCREMENTED ADDRESS INPUT0" << endl;
+    jumpOrIncrementMultiplexer.setInput0(branchOrIncrementMultiplexer.getOutput());
+    
+
+    cout <<"SETTING BRANCH OR INCREMENTED ADDRESS MULTIPLEXER CONTROL " << endl;
+
     branchOrIncrementMultiplexer.setControl(control.isBranch() && aluToMemory.getComparisonResult());    
 
 
     if (debug)
         cout <<"SETTING EXECUTING MEMORY ALU" << endl;
-=======
+
     branchOrIncrementMultiplexer.setControl(control.isBranch() && aluToMemory.getComparisonResult());
->>>>>>> 387abec01adead96e677f707726be1ee24e8e8ce
 
     cout <<"SETTING JUMP OR INCREMENTED ADDRESS INPUT0" << endl;
     jumpOrIncrementMultiplexer.setInput0(branchOrIncrementMultiplexer.getOutput());
     
-
 }
 void DataPath::memory(){
-<<<<<<< HEAD
 
     if (debug)
         cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
 
     cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
-=======
->>>>>>> 387abec01adead96e677f707726be1ee24e8e8ce
+
+    if (debug)
+        cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
+
+    cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
+
+    if (debug)
+        cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
+    
 
     if (debug)
         cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
@@ -210,11 +226,17 @@ void DataPath::memory(){
     memoryUnit.storeWord(temp);
     memoryUnit.saveMemory();
     
-<<<<<<< HEAD
     cout <<"SETTING MEMORY OR ALU MULTIPLEXER AS WELL AS WRITE DATA" << endl;
-=======
 
->>>>>>> 387abec01adead96e677f707726be1ee24e8e8ce
+
+    cout <<"SETTING MEMORY OR ALU MULTIPLEXER AS WELL AS WRITE DATA" << endl;
+
+    if (debug)
+        cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
+    
+
+    cout <<"SETTING MEMORY OR ALU MULTIPLEXER AS WELL AS WRITE DATA" << endl;
+
 
     if (debug)
         cout <<"SETTING MEMORY OR ALU MULTIPLEXER AS WELL AS WRITE DATA" << endl;
@@ -230,6 +252,9 @@ void DataPath::writeback(){
     parse.getInstruction(programCounter.getAddress()).print();
 
 }
+
+//This method is for converting a hexadecimal string to a string of binary values
+//It receives a binary string and returns a hexadecimal string
 string DataPath::getBinFromHex(string sHex)
 {
     string s = sHex;

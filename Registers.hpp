@@ -84,8 +84,10 @@ public:
     //This method prints out the register number
     void print();
 
+    //This method pads the string values in the linked list with zeros
     void init();
     
+    //Sets the debug instance variable to true
     void setDebug();
     
     
