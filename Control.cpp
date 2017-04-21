@@ -16,6 +16,7 @@ bool Control::isBranch(){
     return branch;
 }
 
+//This method sets the components of the registers, data memory, and multiplexor
 void Control::setComponents(Registers *reg, DataMemory *mem, ALU *alu, Multiplexer *regMult, Multiplexer *regImm, Multiplexer *memALU, Multiplexer *jumpInc){
     registerFile = reg;
     memoryUnit = mem;
@@ -29,6 +30,7 @@ void Control::setComponents(Registers *reg, DataMemory *mem, ALU *alu, Multiplex
     aluControl.setALU(aluToMemory);
 }
 
+//Sends control signals to each processor component in accordance to what is required by the opcode
 void Control::sendSignals(string opcode){
     if (debug) cout <<"ADJUSTING REGISTER MULTIPLEXER CONTROL" << endl;
     regDst = (opcode == "add" || opcode == "sub" || opcode == "addi" || opcode == "slt");
@@ -65,6 +67,10 @@ void Control::sendSignals(string opcode){
     registerFile->setWrite(regWrite);
     cout << endl;
     
+    branch = (opcode == "beq");
+    
+    
+    
     if(opcode == "beq"){
         aluControl.sendSignals("00");
     }else if(opcode == "add" || opcode == "addi" || opcode == "lw" || opcode == "sw"){
@@ -78,7 +84,9 @@ void Control::sendSignals(string opcode){
 
 }
 
-
+void Control::setDebug(bool value){
+    debug = value;
+}
 
 
 

@@ -46,7 +46,7 @@ private:
     
     string getBinFromHex(string sHex);		//converts hex string to its binary string representation
 
-
+    bool debug;
 public:
 
 	//Default constructor
@@ -71,6 +71,7 @@ public:
 	//returns boolean result of compare() method
 	bool getComparisonResult();
 
+    void setDebug(bool value);
 };
 
 #endif /* ALU_hpp */

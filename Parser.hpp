@@ -30,9 +30,13 @@ private:
 
     string check;
     
+    //This method intakes a string of hexadecimal and converts it to an integer and outputs it
     int hexToInt(string hexString);
     
+    //This method intakes a string of binaries, converts it to a hexadecimal number, and outputs the string of hex numbers
     string getHexFromBin(string sBinary);
+    
+    bool debug;
 public:
     bool debug;
     
@@ -50,5 +54,9 @@ public:
     
     /* Prints all the instructions of the instance */
     void printAllInstructions();
+
+    
+    void setDebug(bool value);
+
 };
 #endif /* Parser_hpp */

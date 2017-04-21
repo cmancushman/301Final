@@ -8,11 +8,13 @@
 
 #include "SignExtend.hpp"
 
+// Constructor
 SignExtend::SignExtend()
 {
     
 }
 
+//Method takes in an input string that is a representation of a 16-bit binary string and translates it into an equivalent 32-bit binary string. Returns the 32-bit equivalent string.
 string SignExtend::extend(string input)
 {
     if (debug)
@@ -39,6 +41,7 @@ string SignExtend::extend(string input)
     return input;
 }
 
+//Sets debug to true or false controlling print statements
 void SignExtend::setDebug(bool value)
 {
     debug = value;

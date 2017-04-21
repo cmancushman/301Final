@@ -26,7 +26,6 @@ public:
     
     // Default Constructor
     DataPath();
-    
     // The following methods execute the 5 stages of our pipelined processor
     void fetch();
     void decode();
@@ -78,9 +77,15 @@ private:
     string immediate;
     string jumpAmount;
     
+    //This method is for converting a hexadecimal string to a string of binary values
+    //It receives a binary string and returns a hexadecimal string
     string getBinFromHex(string sHex);
+
+    //This method is for converting binary string to hexadecmial values
+    //It receives a binary string and returns a hexadecimal string
     string getHexFromBin(string sBinary);
     
+    bool debug;
 };
 
 

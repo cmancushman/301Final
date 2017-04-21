@@ -32,6 +32,9 @@ public:
     /* Retruns the current address */
     string getAddress();
     
+    /* Converts hex to binary string*/
+    string getBinFromHex(string sHex);
+    
     /* Sets debug to true or false controlling print statements */
     void setDebug(bool debug);
 };

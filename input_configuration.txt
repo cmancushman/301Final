@@ -1,0 +1,8 @@
+program_input=inst.asm
+memory_contents_input=DataMemory.asm
+register_file_input=Registers.asm
+output_mode=batch
+debug_mode=true
+print_memory_contents=true
+write_to_file=true
+output_file=output.txt

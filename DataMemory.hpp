@@ -31,8 +31,10 @@ public:
     //Declaration for getWord method
     string getWord(string address);
     
+    //This method intakes a string called word and sets the currentWord variable equal to a hexadecimal number
     void storeWord(string word);
     
+    //This method intakes a string called address and sets the currentAddress variable equal to a hexadecimal number
     void setCurrentAddress(string address);
 
     //Print function
@@ -56,10 +58,12 @@ private:
     
     bool shouldRead;
 
-    
+    //a string called currentAddress
     string currentAddress;
     
+    //a string called currentWord
     string currentWord;
+
     //Method that gets hexadecimal string from binary string
     string getHexFromBin(string sBinary);
     

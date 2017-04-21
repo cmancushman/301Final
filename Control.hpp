@@ -47,6 +47,8 @@ private:
     
     Instruction instruction;
     
+    bool debug;
+    
 public:
     
     Control();
@@ -63,5 +65,6 @@ public:
      */
     void sendSignals(string opCode);
     
+    void setDebug(bool value);
 };
 #endif /* Control_hpp */
