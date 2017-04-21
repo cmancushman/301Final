@@ -42,7 +42,7 @@ void Multiplexer::setInput0(string input){
 //This method intakes a string called input, converts it to a hexadecimal number, and sets it equal to input1
 void Multiplexer::setInput1(string input){
     if (debug)
-        cout << "SETTING MULTIPLEXER INPUT1: "<< input << " " << endl;
+        cout << "SETTING MULTIPLEXER INPUT1: "<< binaryOperation.getHexFromBin(input) << " " << endl;
     
     if (toFile);
         //ofile << "SETTING MULTIPLEXER INPUT1: "<< binaryOperation.getHexFromBin(input) << endl;

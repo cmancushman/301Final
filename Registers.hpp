@@ -38,6 +38,12 @@ private:
     //This method takes in a binary string, converts the binary to hexadecimal, and outputs a string of hex numbers
     string getBinFromHex(string sHex);
     
+    //This method intakes a hexadecimal string and returns an integer
+    int hexToInt(string hexString);
+    
+    //This method intakes an integer and returns a hexadecimal string
+    string intToHex(int integer);
+    
     //Declaration of a string called readRegister1
     string readRegister1;
     

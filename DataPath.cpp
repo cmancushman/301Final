@@ -11,6 +11,7 @@
 DataPath::DataPath()
 {
     configure("input_configuration.txt");
+    
     registerFile.init();
     registerFile.setFile(registerFileInput);
     cout<< "*****CURRENT REGISTERS*****" <<endl;
@@ -19,6 +20,7 @@ DataPath::DataPath()
     
     //set debug values for all classes
     /****/
+    debug = true;
     programCounter.setDebug(debug);
     parse.setDebug(debug);
     registerFile.setDebug(debug);
@@ -49,12 +51,9 @@ DataPath::DataPath()
     
     
     control.setComponents(&registerFile,&memoryUnit,&aluToMemory,&registerMultiplexer,&registerOrImmediateMultiplexer,&memoryOrALUMultiplexer,&jumpOrIncrementMultiplexer);
-    
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-    cout << "size of list " <<parse.getNumberOfInstructions();
->>>>>>> 76330b0dc6d6e9f934465b12fbcebce94f752c2b
+    debug = true;
+    cout << "debug mode is : " << debug << endl;
+    int x;
     while(true){
         if(parse.weAreDone( programCounter.getAddress()) ){
             break;
@@ -75,30 +74,14 @@ DataPath::DataPath()
         
         cout<< "*****CURRENT DATA MEMORY*****" <<endl;
         memoryUnit.print();
-        cout << endl;
-        
+        /*cout << endl;
+        if(batch){
+            std::cin >> x;
+        }*/
     }
-<<<<<<< HEAD
     cout << endl << endl;
     cout << "WE DID IT! END OF FILE!!!" << endl;
-=======
-=======
-    
-    fetch();
-    decode();
-    execute();
-    memory();
-    writeback();
-    
-    cout<< "*****CURRENT REGISTERS*****" <<endl;
-    registerFile.print();
-    cout << endl;
-    
-    cout<< "*****CURRENT INSTRUCTIONS*****" <<endl;
-    parse.printAllInstructions();
-    cout << endl;
->>>>>>> parent of a3705bc... asd
->>>>>>> 76330b0dc6d6e9f934465b12fbcebce94f752c2b
+
 }
 
 
@@ -149,10 +132,8 @@ void DataPath::fetch(){
 }
 
 void DataPath::decode(){
-<<<<<<< HEAD
     control.sendSignals(opcode);
-=======
->>>>>>> parent of a3705bc... asd
+
     
     if (debug)
         cout << "ADJUSTING READ REGISTERS" << endl << endl;
@@ -275,14 +256,11 @@ void DataPath::memory(){
 void DataPath::writeback(){
     registerFile.write();
     programCounter.setAddress(jumpOrIncrementMultiplexer.getOutput());
-<<<<<<< HEAD
     if(!parse.weAreDone( programCounter.getAddress())){
         cout <<"Next Instruction to run: ";parse.getInstruction(programCounter.getAddress()).print();
     }
     cout << endl;
-=======
-    parse.getInstruction(programCounter.getAddress()).print();
->>>>>>> 76330b0dc6d6e9f934465b12fbcebce94f752c2b
+
     
 }
 

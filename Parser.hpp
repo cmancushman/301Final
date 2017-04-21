@@ -56,13 +56,11 @@ public:
 
     
     void setDebug(bool value);
-<<<<<<< HEAD
     
     int getNumberOfInstructions();
     
     bool weAreDone(string address);
-=======
->>>>>>> parent of a3705bc... asd
+
 
 };
 #endif /* Parser_hpp */
