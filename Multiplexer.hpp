@@ -29,6 +29,8 @@ private:
     void execute();
     
     bool debug;
+    bool toFile;
+    ostream *ofile;
     
 public:
     // Default constructor
@@ -50,6 +52,12 @@ public:
     
     /* Sets debug to true or false controlling print statements */
     void setDebug(bool debug);
+    
+    /* Sets toFile to true or false determining if a file is written to */
+    void setToFile(bool val);
+    
+    /* Sets the location of the ostream that will be written to */
+    void setOStream(ostream *out);
 };
 
 #endif /* Multiplexer_hpp */

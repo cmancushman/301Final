@@ -25,6 +25,14 @@ string ShiftLeft::shift(string input)
 
         cout << "ShiftLeft INPUT: " << binaryOperation.getHexFromBin(printed) << endl;
     }
+    
+    if (toFile)
+    {
+        string printed = "00" + input;
+        
+        ofile << "ShiftLeft INPUT: " << binaryOperation.getHexFromBin(printed) << endl;
+    }
+    
     // Puts 00 at the end to shift the input left by 2 bits
     if(input.length() == 32){
         input.erase(0,2);
@@ -34,6 +42,9 @@ string ShiftLeft::shift(string input)
     if (debug)
         cout << "ShiftLeft OUTPUT: " << binaryOperation.getHexFromBin(input) << endl << endl;
     
+    if (toFile)
+        ofile << "ShiftLeft OUTPUT: " << binaryOperation.getHexFromBin(input) << endl << endl;
+    
     return input;
 }
 
@@ -41,4 +52,14 @@ string ShiftLeft::shift(string input)
 void ShiftLeft::setDebug(bool value)
 {
     debug = value;
+}
+
+void ShiftLeft::setToFile(bool val)
+{
+    toFile = val;
+}
+
+void ShiftLeft::setOStream(ostream *out)
+{
+    ofile = file;
 }
