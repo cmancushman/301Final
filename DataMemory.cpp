@@ -128,19 +128,22 @@ string DataMemory::getHexFromBin(string sBinary)
 
 //This method intakes a boolen called writeToMemory and determines whether or not it can be overwritten
 void DataMemory::setShouldWrite(bool writeToMemory){
-    cout << "DATA MEMORY CAN BE OVERWRITTEN?: (1 yes, 0 no): " << writeToMemory << endl;
+    if(debug)
+        cout << "DATA MEMORY CAN BE OVERWRITTEN?: (1 yes, 0 no): " << writeToMemory << endl;
     shouldWrite = writeToMemory;
 }
 
 //This method intakes a boolen called readFromMemory and determines whether or not it can be read
 void DataMemory::setShouldRead(bool readFromMemory){
-    cout << "DATA MEMORY CAN BE READ?: (1 yes, 0 no): " << readFromMemory << endl;
+    if(debug)
+        cout << "DATA MEMORY CAN BE READ?: (1 yes, 0 no): " << readFromMemory << endl;
     shouldRead = readFromMemory;
 }
 
 //This method intakes a string called word and sets the currentWord variable equal to a hexadecimal number
 void DataMemory::storeWord(string word){
-    cout << "DATA MEMORY SET WRITE DATA: " << word << endl;
+    if(debug)
+        cout << "DATA MEMORY SET WRITE DATA: " << word << endl;
     if(word == ""){
         currentWord = "0x";
     }else{
@@ -151,7 +154,8 @@ void DataMemory::storeWord(string word){
 
 //This method intakes a string called address and sets the currentAddress variable equal to a hexadecimal number
 void DataMemory::setCurrentAddress(string address){
-    cout << "DATA MEMORY SET ADDRESS: " << address << endl;
+    if(debug)
+        cout << "DATA MEMORY SET ADDRESS: " << address << endl;
     if(address == ""){
         currentWord = "0x";
     }else{
@@ -162,20 +166,24 @@ void DataMemory::setCurrentAddress(string address){
 //This method saves the memory address by setting the currentWord hex number to the address of the memory map
 void DataMemory::saveMemory(){
     if(shouldWrite){
-        cout << "DATA MEMORY SAVING:  " << currentWord << "  AT ADDRESS  " << currentAddress << endl;
+        if(debug)
+            cout << "DATA MEMORY SAVING:  " << currentWord << "  AT ADDRESS  " << currentAddress << endl;
         memoryMap[currentAddress] = currentWord;
     }else{
-        cout << "DATA MEMORY OVERWRITE NOT ENABLED" << endl;
+        if(debug)
+            cout << "DATA MEMORY OVERWRITE NOT ENABLED" << endl;
     }
 }
 
 //This method reads the memory address by returning the hex value assocaiated with the memory map key and outputting that hex string
 string DataMemory::readMemory(){
     if(shouldRead){
-        cout << "MEMORY READ: " << getBinFromHex(memoryMap[currentAddress]) << endl;
+        if(debug)
+            cout << "MEMORY READ: " << getBinFromHex(memoryMap[currentAddress]) << endl;
         return getBinFromHex(memoryMap[currentAddress]);
     }else{
-        cout << "MEMORY READ NOT ENABLED " <<  endl;
+        if(debug)
+            cout << "MEMORY READ NOT ENABLED " <<  endl;
     }
     return "";
 }

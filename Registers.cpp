@@ -205,8 +205,8 @@ string Registers::getHexFromBin(string sBinary)
 /*
 * Sets the debug instance variable to true
 */
-void Registers::setDebug() {
-    debug = true;
+void Registers::setDebug(bool value) {
+    debug = value;
 }
 
 
