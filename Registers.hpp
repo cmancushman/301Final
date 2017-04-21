@@ -22,18 +22,25 @@ private:
     //This is the declaration of a linked list of strings
     LinkedList<string> wordListCompare1;
     
+    //Declaration of a string called writeIndex
     string writeIndex;
     
+    //Declaration of a string called writeValue
     string writeValue;
     
+    //Declaration of a boolean called shouldWrite
     bool shouldWrite;
     
+    //This method takes in a binary string, converts the binary to hexadecimal, and outputs a string of hex numbers
     string getHexFromBin(string sBinary);
     
+    //This method takes in a binary string, converts the binary to hexadecimal, and outputs a string of hex numbers
     string getBinFromHex(string sHex);
     
+    //Declaration of a string called readRegister1
     string readRegister1;
     
+    //Declaration of a string called readRegister2
     string readRegister2;
 
 public:
@@ -65,9 +72,10 @@ public:
     void setReadRegister2(string registerNumber);
     
     
-    
+    //This method intakes a boolean value called write and sets it equal to the value shouldWrite after determining if register memory can be overwritten
     void setWrite(bool write);
     
+    //This method gets a hex value from a binary string, and if it should write, it sets the values of the index and the writeValue
     void write();
     
     //This method prints out the register number
