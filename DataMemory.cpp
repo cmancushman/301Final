@@ -16,12 +16,12 @@ DataMemory::DataMemory(){
 }
 //This constructor reads in a file of strings
 DataMemory::DataMemory(string file){
-
+    
 }
 
 void DataMemory::setFile(string file){
-
-
+    
+    
     fstream in;
     in.open(file.c_str());
     
@@ -30,7 +30,7 @@ void DataMemory::setFile(string file){
     }
     else{
         string line;
-
+        
         
         while(getline(in, line)){
             //cout  << line << endl;
@@ -51,22 +51,22 @@ void DataMemory::setFile(string file){
             }
             //array[0] is the key/address
             //array[1] is the object/data value
-
+            
             //make all hex numbers uniform - add 0x to all
             if(stringArray[0].substr(0,2)!="0x"){
-               stringArray[0] = "0x" + stringArray[0];
+                stringArray[0] = "0x" + stringArray[0];
             }
             if(stringArray[1].substr(0,2)!="0x"){
                 stringArray[1] = "0x" + stringArray[1];
             }
-
+            
             //cout <<"Process check " << stringArray[0] << " " << stringArray[1] << endl;
             memoryMap[stringArray[0]] = stringArray[1];
-    
+            
             
         }
     }
-
+    
     //cout << "Memory map test " << memoryMap["0x44578224"] << endl;
 }
 
@@ -85,7 +85,7 @@ string DataMemory::getWord(string address){
     //cout <<"search key " << searchKey << " " << memoryMap[searchKey] << endl;
     string returnWord = getBinFromHex(memoryMap[searchKey]);
     return returnWord;
-
+    
     cout << "OUTPUT: " << hex << endl;
 }
 
@@ -109,16 +109,20 @@ string DataMemory::getBinFromHex(string sHex)
 //It receives a binary string and returns a hexadecimal string
 string DataMemory::getHexFromBin(string sBinary)
 {
-    std::stringstream ss;
-    ss << std::hex << std::stoll(sBinary, NULL, 2);
-    //std::cout <<"hex test " << ss.str() << std::endl;
-    
-    string s =  ss.str();
-    while (s.length() != 8){
-        s = "0" + s;
+    if(sBinary != ""){
+        std::stringstream ss;
+        ss << std::hex << std::stoll(sBinary, NULL, 2);
+        //std::cout <<"hex test " << ss.str() << std::endl;
+        
+        string s =  ss.str();
+        while (s.length() != 8){
+            s = "0" + s;
+        }
+        s = "0x" + s;
+        return s;
+    }else{
+        return "0x";
     }
-    s = "0x" + s;
-    return s;
 }
 
 //This method intakes a boolen called writeToMemory and determines whether or not it can be overwritten
@@ -135,18 +139,32 @@ void DataMemory::setShouldRead(bool readFromMemory){
 
 //This method intakes a string called word and sets the currentWord variable equal to a hexadecimal number
 void DataMemory::storeWord(string word){
-    currentWord = getHexFromBin(word);
+    cout << "DATA MEMORY SET WRITE DATA: " << word << endl;
+    if(word == ""){
+        currentWord = "0x";
+    }else{
+        currentWord = getHexFromBin(word);
+        
+    }
 }
 
 //This method intakes a string called address and sets the currentAddress variable equal to a hexadecimal number
 void DataMemory::setCurrentAddress(string address){
-    currentAddress = getHexFromBin(address);
+    cout << "DATA MEMORY SET ADDRESS: " << address << endl;
+    if(address == ""){
+        currentWord = "0x";
+    }else{
+        currentAddress = getHexFromBin(address);
+    }
 }
 
 //This method saves the memory address by setting the currentWord hex number to the address of the memory map
 void DataMemory::saveMemory(){
     if(shouldWrite){
+        cout << "DATA MEMORY SAVING:  " << currentWord << "  AT ADDRESS  " << currentAddress << endl;
         memoryMap[currentAddress] = currentWord;
+    }else{
+        cout << "DATA MEMORY OVERWRITE NOT ENABLED" << endl;
     }
 }
 
@@ -155,6 +173,8 @@ string DataMemory::readMemory(){
     if(shouldRead){
         cout << "MEMORY READ: " << getBinFromHex(memoryMap[currentAddress]) << endl;
         return getBinFromHex(memoryMap[currentAddress]);
+    }else{
+        cout << "MEMORY READ NOT ENABLED " <<  endl;
     }
     return "";
 }
@@ -162,7 +182,7 @@ string DataMemory::readMemory(){
 void DataMemory::print(){
     //wordListCompare1 = std::map<key, value> map;<string>();
     //for(int x = 0; x < 32; x++){
-      //  cout<<"Binary #"<< x << " : " << wordListCompare1.get(x) << endl;
+    //  cout<<"Binary #"<< x << " : " << wordListCompare1.get(x) << endl;
     //}
 }
 

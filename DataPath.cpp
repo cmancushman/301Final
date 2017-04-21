@@ -35,6 +35,7 @@ DataPath::DataPath()
     
     fetch();
     decode();
+    execute();
 }
 
 void DataPath::fetch(){
@@ -136,6 +137,29 @@ void DataPath::decode(){
     
 }
 
+void DataPath::execute(){
+    cout <<"SETTING EXECUTING MEMORY ALU" << endl;
+    aluToMemory.execute();
+    
+    cout <<"SETTING EXECUTING MEMORY ALU" << endl;
+
+    
+    
+    cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
+    string temp = aluToMemory.getOutput();
+    memoryUnit.setCurrentAddress(temp);
+    temp = registerFile.getReadRegister2();
+    memoryUnit.storeWord(temp);
+    memoryUnit.saveMemory();
+    
+    cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
+    memoryOrALUMultiplexer.setInput1(memoryUnit.readMemory());
+    memoryOrALUMultiplexer.setInput0(aluToMemory.getOutput());
+
+    
+    
+
+}
 string DataPath::getBinFromHex(string sHex)
 {
     string s = sHex;

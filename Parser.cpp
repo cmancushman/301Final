@@ -59,6 +59,7 @@ void Parser::setFile(string file){
 //Returns the instruction at an index
 Instruction Parser::getInstruction(string binaryIndex){
     int index = hexToInt(getHexFromBin(binaryIndex));
+    index = index/4;
     cout << "GetInstruction: INPUT:  " << index << "    OUTPUT "; instructionList.get(index).print();
     return instructionList.get(index);
 }
@@ -85,6 +86,7 @@ void Parser::printAllInstructions(){
  */
 string Parser::getHexFromBin(string sBinary)
 {
+    if(sBinary != ""){
     std::stringstream ss;
     ss << std::hex << std::stoll(sBinary, NULL, 2);
     //std::cout <<"hex test " << ss.str() << std::endl;
@@ -95,6 +97,9 @@ string Parser::getHexFromBin(string sBinary)
     }
     s = "0x" + s;
     return s;
+    }else{
+        return "0x";
+    }
 }
 
 /*
