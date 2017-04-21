@@ -52,6 +52,8 @@ public:
     //This method reads the memory address by returning the hex value assocaiated with the memory map key and outputting that hex string
     string readMemory();
     
+    void setDebug(bool value);
+    
 private:
     
     bool shouldWrite;
@@ -72,6 +74,8 @@ private:
     
     //Declaration of the dictionary map
     map<string, string> memoryMap;
+    
+    bool debug;
 
 
 };
