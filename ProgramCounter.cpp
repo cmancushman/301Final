@@ -28,31 +28,16 @@ string ProgramCounter::getAddress(){
         cout << "Parser getAddress OUTPUT: " << binaryOperation.getHexFromBin(currentAddress) << endl
             << endl;
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    if (debug) cout << "Parser getAddress OUTPUT: " << binaryOperation.getHexFromBin(currentAddress)
-     << endl;
->>>>>>> 2cebb9321ded04ec3046f257f367fc6121d01396
-=======
 
-<<<<<<< HEAD
+    if (debug) cout << "Parser getAddress OUTPUT: " << binaryOperation.getHexFromBin(currentAddress)
+     << endl;
+
     if (debug) cout << "Parser getAddress OUTPUT: " << binaryOperation.getHexFromBin(currentAddress)
      << endl;
     
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     if (debug) cout << "Parser getAddress OUTPUT: " << binaryOperation.getHexFromBin(currentAddress)
      << endl;
->>>>>>> c2e45607c5dfcb563d18e4a84d503466310ed74d
-    
->>>>>>> c2e45607c5dfcb563d18e4a84d503466310ed74d
-=======
->>>>>>> 9db97d8ba24fb96a60bc18548d26eac4269c2dc3
-=======
->>>>>>> 2b49359dc14acf92151d6d4337a3726dfed0832c
+
 
     return currentAddress;
 }
