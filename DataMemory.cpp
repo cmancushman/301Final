@@ -131,7 +131,7 @@ void DataMemory::setShouldWrite(bool writeToMemory){
     if(debug)
         cout << "DATA MEMORY CAN BE OVERWRITTEN?: (1 yes, 0 no): " << writeToMemory << endl;
     if(toFile)
-        ofile << "DATA MEMORY CAN BE OVERWRITTEN?: (1 yes, 0 no): " << writeToMemory << endl;
+        &ofile << "DATA MEMORY CAN BE OVERWRITTEN?: (1 yes, 0 no): " << writeToMemory << endl;
     shouldWrite = writeToMemory;
 }
 
@@ -140,7 +140,7 @@ void DataMemory::setShouldRead(bool readFromMemory){
     if(debug)
         cout << "DATA MEMORY CAN BE READ?: (1 yes, 0 no): " << readFromMemory << endl;
     if(toFile)
-        ofile << "DATA MEMORY CAN BE READ?: (1 yes, 0 no): " << readFromMemory << endl;
+        &ofile << "DATA MEMORY CAN BE READ?: (1 yes, 0 no): " << readFromMemory << endl;
     shouldRead = readFromMemory;
 }
 
@@ -149,7 +149,7 @@ void DataMemory::storeWord(string word){
     if(debug)
         cout << "DATA MEMORY SET WRITE DATA: " << word << endl;
     if(toFile)
-        ofile << "DATA MEMORY SET WRITE DATA: " << word << endl;
+        &ofile << "DATA MEMORY SET WRITE DATA: " << word << endl;
     if(word == ""){
         currentWord = "0x";
     }else{
@@ -163,7 +163,7 @@ void DataMemory::setCurrentAddress(string address){
     if(debug)
         cout << "DATA MEMORY SET ADDRESS: " << address << endl;
     if(toFile)
-        ofile << "DATA MEMORY SET ADDRESS: " << address << endl;
+        &ofile << "DATA MEMORY SET ADDRESS: " << address << endl;
     if(address == ""){
         currentWord = "0x";
     }else{
@@ -177,7 +177,7 @@ void DataMemory::saveMemory(){
         if(debug)
             cout << "DATA MEMORY SAVING:  " << currentWord << "  AT ADDRESS  " << currentAddress << endl;
         if(toFile)
-            ofile << "DATA MEMORY SAVING:  " << currentWord << "  AT ADDRESS  " << currentAddress << endl;
+            &ofile << "DATA MEMORY SAVING:  " << currentWord << "  AT ADDRESS  " << currentAddress << endl;
         memoryMap[currentAddress] = currentWord;
     }else{
         if(debug)
@@ -222,6 +222,6 @@ void DataMemory::setToFile(val){
 
 //This is for the writing to a file, it intakes an ostream
 void DataMemory::setOstream(ostream out){
-    ofile = out;
+    ofile = &out;
 }
 
