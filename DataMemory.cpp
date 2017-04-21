@@ -148,6 +148,8 @@ void DataMemory::setShouldRead(bool readFromMemory){
 void DataMemory::storeWord(string word){
     if(debug)
         cout << "DATA MEMORY SET WRITE DATA: " << word << endl;
+    if(toFile)
+        ofile << "DATA MEMORY SET WRITE DATA: " << word << endl;
     if(word == ""){
         currentWord = "0x";
     }else{
@@ -160,6 +162,8 @@ void DataMemory::storeWord(string word){
 void DataMemory::setCurrentAddress(string address){
     if(debug)
         cout << "DATA MEMORY SET ADDRESS: " << address << endl;
+    if(toFile)
+        ofile << "DATA MEMORY SET ADDRESS: " << address << endl;
     if(address == ""){
         currentWord = "0x";
     }else{
@@ -172,6 +176,8 @@ void DataMemory::saveMemory(){
     if(shouldWrite){
         if(debug)
             cout << "DATA MEMORY SAVING:  " << currentWord << "  AT ADDRESS  " << currentAddress << endl;
+        if(toFile)
+            ofile << "DATA MEMORY SAVING:  " << currentWord << "  AT ADDRESS  " << currentAddress << endl;
         memoryMap[currentAddress] = currentWord;
     }else{
         if(debug)
@@ -185,14 +191,14 @@ string DataMemory::readMemory(){
         if(debug)
             cout << "MEMORY READ: " << getBinFromHex(memoryMap[currentAddress]) << endl;
         if(toFile)
-            ofile << "MEMORY READ: " << getBinFromHex(memoryMap[currentAddress]) << endl;
+            &out << "MEMORY READ: " << getBinFromHex(memoryMap[currentAddress]) << endl;
 
         return getBinFromHex(memoryMap[currentAddress]);
     }else{
         if(debug)
             cout << "MEMORY READ NOT ENABLED " <<  endl;
         if(toFile)
-            ofile << "MEMORY READ NOT ENABLED " <<  endl;
+            &out << "MEMORY READ NOT ENABLED " <<  endl;
 
     }
     return "";
@@ -204,16 +210,18 @@ void DataMemory::print(){
     }
 }
 
-
+//This is for the debugger, intakes a boolean value
 void DataMemory::setDebug(bool value){
     debug = value;
 }
 
+//This is for writing to a file, intaking a value
 void DataMemory::setToFile(val){
     toFile = val;
 }
 
-void DataMemory::setOstrream(ostream *out){
-    ofile = file;
+//This is for the writing to a file, it intakes an ostream
+void DataMemory::setOstream(ostream &out){
+    ofile = &out;
 }
 

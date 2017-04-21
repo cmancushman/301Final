@@ -54,7 +54,9 @@ public:
     
     void setDebug(bool value);
 
-    void DataMemory::toOstream(*file);
+    void DataMemory::setFile(bool val);
+
+    void setOstream(ostream &out);
     
 private:
     
@@ -79,8 +81,9 @@ private:
     
     bool debug;
 
-    bool output;
+    bool toFile;
 
+    ostream &ofile;
 
 };
 
