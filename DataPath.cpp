@@ -18,6 +18,8 @@ DataPath::DataPath()
     registerFile.print();
     registerFile.setReadRegister1("8");
     registerFile.getReadRegister1();
+    registerFile.setFile("Registers.asm");
+    registerFile.print();
     
     parse.setFile("inst.asm");
     //parse.getInstruction(0);
