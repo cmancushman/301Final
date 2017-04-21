@@ -149,7 +149,11 @@ void DataMemory::setShouldRead(bool readFromMemory){
 //This method intakes a string called word and sets the currentWord variable equal to a hexadecimal number
 void DataMemory::storeWord(string word){
     if(debug)
+<<<<<<< HEAD
         cout << "DATA MEMORY SET WRITE DATA: " << word << endl;
+=======
+        cout << "DATA MEMORY SET WRITE DATA: " << getHexFromBin(word) << endl;
+>>>>>>> 9a952d57cb9efa514555f6b65ee31762750fc4a7
     
     if(tofile);
         //ofile << "DATA MEMORY SET WRITE DATA: " << word << endl;
@@ -165,7 +169,11 @@ void DataMemory::storeWord(string word){
 //This method intakes a string called address and sets the currentAddress variable equal to a hexadecimal number
 void DataMemory::setCurrentAddress(string address){
     if(debug)
+<<<<<<< HEAD
         cout << "DATA MEMORY SET ADDRESS: " << address << endl;
+=======
+        cout << "DATA MEMORY SET ADDRESS: " << getHexFromBin(address) << endl;
+>>>>>>> 9a952d57cb9efa514555f6b65ee31762750fc4a7
     if(tofile);
         //ofile << "DATA MEMORY SET ADDRESS: " << address << endl;
 

@@ -82,6 +82,12 @@ DataPath::DataPath()
     cout << endl << endl;
     cout << "WE DID IT! END OF FILE!!!" << endl;
 
+<<<<<<< HEAD
+=======
+    std::ofstream out("output.txt");
+    out << "asd";
+    out.close();
+>>>>>>> 9a952d57cb9efa514555f6b65ee31762750fc4a7
 }
 
 

@@ -140,3 +140,7 @@ bool Parser::weAreDone(string address){
     return false;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9a952d57cb9efa514555f6b65ee31762750fc4a7
