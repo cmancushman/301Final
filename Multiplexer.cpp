@@ -26,7 +26,7 @@ void Multiplexer::setControl(bool newControl){
 //This method intakes a string called input, converts it to a hexadecimal number, and sets it equal to input0
 void Multiplexer::setInput0(string input){
     if (debug)
-        cout << "SETTING MULTIPLEXER INPUT0: "<< binaryOperation.getHexFromBin(input) << endl;
+        cout << "SETTING MULTIPLEXER INPUT0: " << binaryOperation.getHexFromBin(input) << endl;
     
     input0 = input;
     

@@ -37,6 +37,7 @@ private:
     string getHexFromBin(string sBinary);
     
     bool debug;
+    
 public:
     
     /* Default Constructor */
@@ -56,6 +57,8 @@ public:
 
     
     void setDebug(bool value);
+    
+    int getNumberOfInstructions();
 
 };
 #endif /* Parser_hpp */
