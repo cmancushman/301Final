@@ -113,7 +113,6 @@ void Registers::setReadRegister2(string registerNumber){
 
 //This method gets a hex value from a binary string, and if it should write, it sets the values of the index and the writeValue
 void Registers::write(){
-<<<<<<< HEAD
 
     if (debug)
         cout << "writing " << getHexFromBin(writeValue) << " to register $" <<  writeIndex << endl;

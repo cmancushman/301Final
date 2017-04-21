@@ -23,21 +23,12 @@ void ProgramCounter::setAddress(string address){
 
 //Retruns the current address
 string ProgramCounter::getAddress(){
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 5bddfa40c9ff1541df57ae548acf1ffbc9f69a46
-=======
-=======
->>>>>>> b09aa6e4f7111a4dd7aee00810c10587c0962c96
-
-    if (debug)
+   if (debug)
     {
         cout << "Parser getAddress OUTPUT: " << binaryOperation.getHexFromBin(currentAddress) << endl
             << endl;
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     if (debug) cout << "Parser getAddress OUTPUT: " << binaryOperation.getHexFromBin(currentAddress)
@@ -60,15 +51,13 @@ string ProgramCounter::getAddress(){
 >>>>>>> c2e45607c5dfcb563d18e4a84d503466310ed74d
 =======
 >>>>>>> 9db97d8ba24fb96a60bc18548d26eac4269c2dc3
+=======
+>>>>>>> 2b49359dc14acf92151d6d4337a3726dfed0832c
 
->>>>>>> b09aa6e4f7111a4dd7aee00810c10587c0962c96
     return currentAddress;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> c2e45607c5dfcb563d18e4a84d503466310ed74d
+
 string ProgramCounter::getBinFromHex(string sHex)
 {
     string s = sHex;
@@ -80,18 +69,8 @@ string ProgramCounter::getBinFromHex(string sHex)
     //cout << "Test Return Hex " << b.to_string() << endl;
     
     return b.to_string();
-<<<<<<< HEAD
-    
-=======
-void ProgramCounter::setDebug(bool value)
-{
-    debug = value;
->>>>>>> f0b9ae2f1dfc5530345335fc9e8deafd0f247f40
-=======
 }
-
 void ProgramCounter::setDebug(bool value)
 {
     debug = value;
->>>>>>> c2e45607c5dfcb563d18e4a84d503466310ed74d
 }
