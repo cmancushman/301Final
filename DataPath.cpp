@@ -177,6 +177,7 @@ void DataPath::execute(){
     aluToMemory.execute();
     
 <<<<<<< HEAD
+<<<<<<< HEAD
     cout <<"SETTING BRANCH OR INCREMENTED ADDRESS MULTIPLEXER CONTROL " << endl;
     branchOrIncrementMultiplexer.setControl(control.isBranch() && aluToMemory.getComparisonResult());
 =======
@@ -189,15 +190,33 @@ void DataPath::execute(){
     jumpOrIncrementMultiplexer.setInput0(branchOrIncrementMultiplexer.getOutput());
     
 <<<<<<< HEAD
+=======
+    cout <<"SETTING BRANCH OR INCREMENTED ADDRESS MULTIPLEXER CONTROL " << endl;
+    branchOrIncrementMultiplexer.setControl(control.isBranch() && aluToMemory.getComparisonResult());
+
+    if (debug)
+        cout <<"SETTING EXECUTING MEMORY ALU" << endl;
+
+    cout <<"SETTING JUMP OR INCREMENTED ADDRESS INPUT0" << endl;
+    jumpOrIncrementMultiplexer.setInput0(branchOrIncrementMultiplexer.getOutput());
+    
+>>>>>>> c2e45607c5dfcb563d18e4a84d503466310ed74d
 
 }
 void DataPath::memory(){
     cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
+<<<<<<< HEAD
 =======
     if (debug)
         cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
     
 >>>>>>> f0b9ae2f1dfc5530345335fc9e8deafd0f247f40
+=======
+
+    if (debug)
+        cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
+    
+>>>>>>> c2e45607c5dfcb563d18e4a84d503466310ed74d
     string temp = aluToMemory.getOutput();
     memoryUnit.setCurrentAddress(temp);
     temp = registerFile.getReadRegister2();
@@ -205,12 +224,20 @@ void DataPath::memory(){
     memoryUnit.saveMemory();
     
 <<<<<<< HEAD
+<<<<<<< HEAD
     cout <<"SETTING MEMORY OR ALU MULTIPLEXER AS WELL AS WRITE DATA" << endl;
 =======
     if (debug)
         cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
     
 >>>>>>> f0b9ae2f1dfc5530345335fc9e8deafd0f247f40
+=======
+    cout <<"SETTING MEMORY OR ALU MULTIPLEXER AS WELL AS WRITE DATA" << endl;
+
+    if (debug)
+        cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
+    
+>>>>>>> c2e45607c5dfcb563d18e4a84d503466310ed74d
     memoryOrALUMultiplexer.setInput1(memoryUnit.readMemory());
     memoryOrALUMultiplexer.setInput0(aluToMemory.getOutput());
     registerFile.setWriteValue(memoryOrALUMultiplexer.getOutput());
