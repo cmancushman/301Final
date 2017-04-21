@@ -33,8 +33,19 @@ public:
     void memory();
     void writeback();
     
+    string programInput;
+    string memoryContentsInput;
+    string registerFileInput;
+    bool batch;
+    bool debug;
+    bool printMemoryContents;
+    bool writeToFile;
+    string outputFile;
+    
     /* Sets debug to true or false controlling print statements */
     void setDebug(bool debug);
+    
+    void configure(string file);
 private:
     
     ProgramCounter programCounter;
@@ -75,7 +86,6 @@ private:
     string getHexFromBin(string sBinary);
     
     bool debug;
-    
 };
 
 

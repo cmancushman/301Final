@@ -18,6 +18,8 @@ Parser::Parser(string file){
     
 }
 
+
+
 //Sets the file to input string file
 void Parser::setFile(string file){
     check = "asd";
@@ -122,4 +124,3 @@ int Parser::hexToInt(string hexString) {
 void Parser::setDebug(bool value){
     debug = value;
 }
-
