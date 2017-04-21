@@ -37,7 +37,6 @@ public:
     string memoryContentsInput;
     string registerFileInput;
     bool batch;
-    bool debug;
     bool printMemoryContents;
     bool writeToFile;
     string outputFile;

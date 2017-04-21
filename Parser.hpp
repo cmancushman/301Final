@@ -38,7 +38,6 @@ private:
     
     bool debug;
 public:
-    bool debug;
     
     /* Default Constructor */
     Parser();

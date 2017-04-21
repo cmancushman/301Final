@@ -175,25 +175,8 @@ void DataPath::execute(){
         cout <<"EXECUTING MEMORY ALU" << endl;
     
     aluToMemory.execute();
-    
-<<<<<<< HEAD
-    cout <<"SETTING BRANCH OR INCREMENTED ADDRESS MULTIPLEXER CONTROL " << endl;
-    branchOrIncrementMultiplexer.setControl(control.isBranch() && aluToMemory.getComparisonResult());
 
     if (debug)
-        cout <<"SETTING EXECUTING MEMORY ALU" << endl;
-
-    
-=======
-
-    cout <<"SETTING BRANCH OR INCREMENTED ADDRESS MULTIPLEXER CONTROL " << endl;
-    branchOrIncrementMultiplexer.setControl(control.isBranch() && aluToMemory.getComparisonResult());
-
->>>>>>> 2b49359dc14acf92151d6d4337a3726dfed0832c
-    cout <<"SETTING JUMP OR INCREMENTED ADDRESS INPUT0" << endl;
-    jumpOrIncrementMultiplexer.setInput0(branchOrIncrementMultiplexer.getOutput());
-    
-
     cout <<"SETTING BRANCH OR INCREMENTED ADDRESS MULTIPLEXER CONTROL " << endl;
 
     branchOrIncrementMultiplexer.setControl(control.isBranch() && aluToMemory.getComparisonResult());    
@@ -207,29 +190,10 @@ void DataPath::execute(){
     cout <<"SETTING JUMP OR INCREMENTED ADDRESS INPUT0" << endl;
     jumpOrIncrementMultiplexer.setInput0(branchOrIncrementMultiplexer.getOutput());
     
-<<<<<<< HEAD
 }
+
 void DataPath::memory(){
 
-    if (debug)
-        cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
-
-    cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
-
-    if (debug)
-        cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
-
-    cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
-
-    if (debug)
-        cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
-    
-=======
-
-}
-void DataPath::memory(){
-
->>>>>>> 2b49359dc14acf92151d6d4337a3726dfed0832c
 
     if (debug)
         cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
@@ -239,27 +203,10 @@ void DataPath::memory(){
     memoryUnit.storeWord(temp);
     memoryUnit.saveMemory();
     
-<<<<<<< HEAD
-    cout <<"SETTING MEMORY OR ALU MULTIPLEXER AS WELL AS WRITE DATA" << endl;
-
-
-    cout <<"SETTING MEMORY OR ALU MULTIPLEXER AS WELL AS WRITE DATA" << endl;
-
-    if (debug)
-        cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
-    
-
-    cout <<"SETTING MEMORY OR ALU MULTIPLEXER AS WELL AS WRITE DATA" << endl;
-=======
->>>>>>> 2b49359dc14acf92151d6d4337a3726dfed0832c
 
 
     if (debug)
         cout <<"SETTING MEMORY OR ALU MULTIPLEXER AS WELL AS WRITE DATA" << endl;
-<<<<<<< HEAD
-    
-=======
->>>>>>> 2b49359dc14acf92151d6d4337a3726dfed0832c
     memoryOrALUMultiplexer.setInput1(memoryUnit.readMemory());
     memoryOrALUMultiplexer.setInput0(aluToMemory.getOutput());
     registerFile.setWriteValue(memoryOrALUMultiplexer.getOutput());
