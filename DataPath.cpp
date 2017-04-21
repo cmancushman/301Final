@@ -137,6 +137,7 @@ void DataPath::decode(){
     
 }
 
+
 void DataPath::execute(){
     cout <<"SETTING EXECUTING MEMORY ALU" << endl;
     aluToMemory.execute();
@@ -160,6 +161,9 @@ void DataPath::execute(){
     
 
 }
+
+//This method is for converting a hexadecimal string to a string of binary values
+//It receives a binary string and returns a hexadecimal string
 string DataPath::getBinFromHex(string sHex)
 {
     string s = sHex;

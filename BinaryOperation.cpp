@@ -34,7 +34,7 @@ string BinaryOperation::getHexFromBin(string sBinary)
     return "0x";
 }
 
-
+//This method intakes a hexadecimal string and returns an integer
 int BinaryOperation::hexToInt(string hexString) {
     unsigned int x;
     stringstream ss;
@@ -43,6 +43,7 @@ int BinaryOperation::hexToInt(string hexString) {
     return x;
 }
 
+//This method intakes an integer and returns a hexadecimal string
 string BinaryOperation::intToHex(int integer)
 {
     char output[100];

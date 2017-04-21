@@ -64,7 +64,12 @@ private:
     string immediate;
     string jumpAmount;
     
+    //This method is for converting a hexadecimal string to a string of binary values
+    //It receives a binary string and returns a hexadecimal string
     string getBinFromHex(string sHex);
+
+    //This method is for converting binary string to hexadecmial values
+    //It receives a binary string and returns a hexadecimal string
     string getHexFromBin(string sBinary);
     
 };

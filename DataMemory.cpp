@@ -19,6 +19,7 @@ DataMemory::DataMemory(string file){
     
 }
 
+//This method reads in a file of strings
 void DataMemory::setFile(string file){
     
     

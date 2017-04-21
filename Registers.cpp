@@ -29,6 +29,7 @@ Registers::Registers(string file){
     
 }
 
+//This method reads in a file of strings
 void Registers::setFile(string file){
      if (debug) cout << "Registers INPUT 1: " << file << endl;
 
