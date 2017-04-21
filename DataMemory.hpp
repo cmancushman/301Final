@@ -53,6 +53,8 @@ public:
     string readMemory();
     
     void setDebug(bool value);
+
+    void DataMemory::toOstream(*file);
     
 private:
     
@@ -76,6 +78,8 @@ private:
     map<string, string> memoryMap;
     
     bool debug;
+
+    bool output;
 
 
 };

@@ -130,6 +130,8 @@ string DataMemory::getHexFromBin(string sBinary)
 void DataMemory::setShouldWrite(bool writeToMemory){
     if(debug)
         cout << "DATA MEMORY CAN BE OVERWRITTEN?: (1 yes, 0 no): " << writeToMemory << endl;
+    if(toFile)
+        ofile << "DATA MEMORY CAN BE OVERWRITTEN?: (1 yes, 0 no): " << writeToMemory << endl;
     shouldWrite = writeToMemory;
 }
 
@@ -137,6 +139,8 @@ void DataMemory::setShouldWrite(bool writeToMemory){
 void DataMemory::setShouldRead(bool readFromMemory){
     if(debug)
         cout << "DATA MEMORY CAN BE READ?: (1 yes, 0 no): " << readFromMemory << endl;
+    if(toFile)
+        ofile << "DATA MEMORY CAN BE READ?: (1 yes, 0 no): " << readFromMemory << endl;
     shouldRead = readFromMemory;
 }
 
@@ -180,10 +184,16 @@ string DataMemory::readMemory(){
     if(shouldRead){
         if(debug)
             cout << "MEMORY READ: " << getBinFromHex(memoryMap[currentAddress]) << endl;
+        if(toFile)
+            ofile << "MEMORY READ: " << getBinFromHex(memoryMap[currentAddress]) << endl;
+
         return getBinFromHex(memoryMap[currentAddress]);
     }else{
         if(debug)
             cout << "MEMORY READ NOT ENABLED " <<  endl;
+        if(toFile)
+            ofile << "MEMORY READ NOT ENABLED " <<  endl;
+
     }
     return "";
 }
@@ -199,4 +209,11 @@ void DataMemory::setDebug(bool value){
     debug = value;
 }
 
+void DataMemory::setToFile(val){
+    toFile = val;
+}
+
+void DataMemory::setOstrream(ostream *out){
+    ofile = file;
+}
 

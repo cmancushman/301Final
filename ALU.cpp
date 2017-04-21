@@ -77,12 +77,12 @@ void ALU::compareLessThan() {
     if (hexToInt(getHexFromBin(operand1)) < hexToInt(getHexFromBin(operand2))) {
         //strings are different
         if (debug) cout << "Operand 1 is smaller" << endl;
-        comparisonResult = true;
+        output = getBinFromHex(intToHex(1));
     }
     
     else {
         if (debug) cout << "Operand 1 is not smaller" << endl;
-        comparisonResult = false;
+        output = getBinFromHex(intToHex(0));
     }
 }
 
@@ -110,7 +110,7 @@ void ALU::subtract() {
     int temp1 = hexToInt(getHexFromBin(operand1));
     int temp2 = hexToInt(getHexFromBin(operand2));
     
-    int result = temp1 + temp2;
+    int result = temp1 - temp2;
     
     output = getBinFromHex(intToHex(result));
 
