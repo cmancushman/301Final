@@ -16,12 +16,11 @@ Registers::Registers(){
 
 //This method pads the string values in the linked list with zeros
 void Registers::init(){
-    wordListCompare1 = LinkedList<string>();
-    
     for(int x = 0; x < 32; x++){
         
-        wordListCompare1.add("00000000000000000000000000000000");
+        registerMap[x] = "00000000000000000000000000000000";
     }
+    
 }
 
 //Im assuming this method will read in a file of strings
@@ -73,12 +72,19 @@ void Registers::setFile(string file){
                 cout <<"Process check " << stringArray[0] << " " << stringArray[1] << endl; 
             
             //set LinkedList, pass register as index and hex string as element
-            wordListCompare1.set(stoi(stringArray[0]),stringArray[1]);
-            
+            registerMap[stoi(stringArray[0])] = getBinFromHex(stringArray[1]);
         }
     }
 
 }
+
+//This method prints out the register number
+void Registers::print(){
+    for(int x = 0; x < 32; x++){
+        cout<<"Register #"<< x << " : " << getHexFromBin(registerMap[x]) << endl;
+    }
+}
+
 
 //This method sets the value of the index and the value of a string
 void Registers::setWriteIndex(string value){
@@ -125,7 +131,7 @@ void Registers::write(){
         if(debug){
         cout << "WRITING " << getHexFromBin(writeValue) << " TO REGISTER $" <<  writeIndex << endl;
         }
-        wordListCompare1.set(overwriteIndex, writeValue);
+        registerMap[overwriteIndex] = writeValue;
     }else{
         cout << "REGISTER OVREWRITING NOT ENABLED" << endl;
     }
@@ -140,7 +146,7 @@ string Registers::getReadRegister1(){
         searchInt = 0;
     }
     if (debug) cout << "getReadRegister1 INPUT: " << "index: " << readRegister1 << endl;
-    string result = wordListCompare1.get(searchInt);
+    string result = registerMap[searchInt];
     if (debug) cout << "getReadRegister1 OUTPUT: " <<  getHexFromBin(result) << endl;
     return result;
 }
@@ -154,19 +160,13 @@ string Registers::getReadRegister2(){
         searchInt = 0;
     }
     if (debug) cout << "getReadRegister2 INPUT: " << "index: " << readRegister2 << endl;
-    string result = wordListCompare1.get(searchInt);
+    string result = registerMap[searchInt];
     if (debug) cout << "getReadRegister2 OUTPUT: " <<  getHexFromBin(result) << endl;
     return result;
 }
 
 
 
-//This method prints out the register number
-void Registers::print(){
-    for(int x = 0; x < 32; x++){
-        cout<<"Register #"<< x << " : " << getHexFromBin(wordListCompare1.get(x)) << endl;
-    }
-}
 
 //This method is for converting hexadecmial string to binary values
 //It receives a hexadecimal string and returns a binary string

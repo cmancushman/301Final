@@ -1,6 +1,6 @@
 //
 //  SignExtend.cpp
-//  
+//
 //
 //  Created by Alex Christine on 4/18/17.
 //
@@ -10,27 +10,24 @@
 
 DataPath::DataPath()
 {
+    configure("input_configuration.txt");
     registerFile.init();
-    registerFile.setWriteIndex("8");
-    registerFile.setWriteValue("11111111111111111111111111111111");
-    registerFile.setWrite(true);
-    registerFile.write();
+    registerFile.setFile(registerFileInput);
     registerFile.print();
-    registerFile.setReadRegister1("8");
-    registerFile.getReadRegister1();
-    registerFile.setFile("Registers.asm");
-    registerFile.print();
+    registerFile.setDebug(debug);
+    registerFile.setDebug(debug);
+
     
-    parse.setFile("inst.asm");
+    parse.setFile(programInput);
     //parse.getInstruction(0);
     parse.printAllInstructions();
     
-    memoryUnit.setFile("DataMemory.asm");
+    memoryUnit.setFile(memoryContentsInput);
     
     aluAddPCand4.setOperation(1);
     aluAddBranchAndAddress.setOperation(1);
-
-
+    
+    
     control.setComponents(&registerFile,&memoryUnit,&aluToMemory,&registerMultiplexer,&registerOrImmediateMultiplexer,&memoryOrALUMultiplexer,&jumpOrIncrementMultiplexer);
     
     fetch();
@@ -42,7 +39,7 @@ DataPath::DataPath()
 
 void DataPath::fetch(){
     
-
+    
     currentInstruction = parse.getInstruction(programCounter.getAddress());
     if (debug)
         cout << "Current instruction to run: "; currentInstruction.print(); cout << endl;
@@ -60,7 +57,7 @@ void DataPath::fetch(){
     if (debug)
         cout<< endl;
     
-
+    
     
     
     if (debug)
@@ -76,7 +73,7 @@ void DataPath::fetch(){
         cout << "SETTING THE MULTIPLEXER FOR BRANCH VS CURRENT ADDRESS" << endl << endl;
     
     branchOrIncrementMultiplexer.setInput0(currentAddress);
-
+    
     
     opcode = currentInstruction.getOpcode();
     rs = currentInstruction.getRs();
@@ -112,26 +109,26 @@ void DataPath::decode(){
     
     if (debug)
         cout << endl;
-
+    
     
     jumpAmount = shiftJump.shift(jumpAmount);
     
     if (debug)
         cout << endl;
-
+    
     if (debug)
         cout << "merging: first four bits of current address: " <<currentAddress.substr(0,4) << "  with shifted jump 28 bits: " <<jumpAmount<< " new current address: " << currentAddress.substr(0,4) + jumpAmount <<  endl << endl;
     
     jumpAmount = currentAddress.substr(0,4) + jumpAmount;
     jumpOrIncrementMultiplexer.setInput1(jumpAmount);
     
-
+    
     if (debug)
         cout <<"SIGN EXTENDING IMMEDIATE" << endl << endl;
     
     immediate = signExtend.extend(immediate);
-
-
+    
+    
     if (debug)
         cout <<"ADJUSTING ALU SOURCE MULTIPLEXER INPUT0" << endl << endl;
     
@@ -151,7 +148,7 @@ void DataPath::decode(){
     aluToMemory.setOperand1(registerFile.getReadRegister1());
     aluToMemory.setOperand2(registerOrImmediateMultiplexer.getOutput());
     
-      
+    
     if (debug)
         cout << "SETTING THE OPERAND2 IN BRANCH AND CURRENT ADDRESS ALU" << endl << endl;
     
@@ -175,26 +172,26 @@ void DataPath::execute(){
         cout <<"EXECUTING MEMORY ALU" << endl;
     
     aluToMemory.execute();
-
+    
     if (debug)
-    cout <<"SETTING BRANCH OR INCREMENTED ADDRESS MULTIPLEXER CONTROL " << endl;
-
-    branchOrIncrementMultiplexer.setControl(control.isBranch() && aluToMemory.getComparisonResult());    
-
-
+        cout <<"SETTING BRANCH OR INCREMENTED ADDRESS MULTIPLEXER CONTROL " << endl;
+    
+    branchOrIncrementMultiplexer.setControl(control.isBranch() && aluToMemory.getComparisonResult());
+    
+    
     if (debug)
         cout <<"SETTING EXECUTING MEMORY ALU" << endl;
-
+    
     branchOrIncrementMultiplexer.setControl(control.isBranch() && aluToMemory.getComparisonResult());
-
+    
     cout <<"SETTING JUMP OR INCREMENTED ADDRESS INPUT0" << endl;
     jumpOrIncrementMultiplexer.setInput0(branchOrIncrementMultiplexer.getOutput());
     
 }
 
 void DataPath::memory(){
-
-
+    
+    
     if (debug)
         cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
     string temp = aluToMemory.getOutput();
@@ -203,8 +200,8 @@ void DataPath::memory(){
     memoryUnit.storeWord(temp);
     memoryUnit.saveMemory();
     
-
-
+    
+    
     if (debug)
         cout <<"SETTING MEMORY OR ALU MULTIPLEXER AS WELL AS WRITE DATA" << endl;
     memoryOrALUMultiplexer.setInput1(memoryUnit.readMemory());
@@ -216,7 +213,7 @@ void DataPath::writeback(){
     registerFile.write();
     programCounter.setAddress(jumpOrIncrementMultiplexer.getOutput());
     parse.getInstruction(programCounter.getAddress()).print();
-
+    
 }
 
 //This method is for converting a hexadecimal string to a string of binary values
@@ -289,31 +286,36 @@ void DataPath::configure(string file)
         }
         else if (line.find("output_mode") != std::string::npos)
         {
-            if (line.find("batch") != std::string::npos)
+            if (line.find("batch") != std::string::npos){
                 batch = true;
-            
-            batch = false;
+            }else{
+                batch = false;
+            }
         }
         else if (line.find("debug_mode") != std::string::npos)
         {
-            if (line.find("true") != std::string::npos)
+            if (line.find("true") != std::string::npos){
                 debug = true;
-            
+            }else{
+                debug = false;
+            }
             debug = false;
         }
         else if (line.find("print_memory_contents") != std::string::npos)
         {
-            if (line.find("true") != std::string::npos)
+            if (line.find("true") != std::string::npos){
                 printMemoryContents = true;
-            
+            }else{
             printMemoryContents = false;
+            }
         }
         else if (line.find("write_to_file") != std::string::npos)
         {
-            if (line.find("true") != std::string::npos)
+            if (line.find("true") != std::string::npos){
                 writeToFile = true;
-            
-            writeToFile = false;
+            }else{
+                writeToFile = false;
+            }
         }
         else if (line.find("output_file") != std::string::npos)
         {

@@ -13,6 +13,7 @@
 #include "LinkedList.h"
 #include <iostream>
 #include <fstream>
+#include <map>
 
 using namespace std;
 class Registers{
@@ -20,7 +21,7 @@ private:
 
     
     //This is the declaration of a linked list of strings
-    LinkedList<string> wordListCompare1;
+    map<int, string> registerMap;
     
     //Declaration of a string called writeIndex
     string writeIndex;
