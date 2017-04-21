@@ -177,42 +177,24 @@ void DataPath::execute(){
     
     cout <<"SETTING BRANCH OR INCREMENTED ADDRESS MULTIPLEXER CONTROL " << endl;
     branchOrIncrementMultiplexer.setControl(control.isBranch() && aluToMemory.getComparisonResult());
-<<<<<<< HEAD
-    
 
-    
-=======
-
-    if (debug)
-        cout <<"SETTING EXECUTING MEMORY ALU" << endl;
-
->>>>>>> c2e45607c5dfcb563d18e4a84d503466310ed74d
     cout <<"SETTING JUMP OR INCREMENTED ADDRESS INPUT0" << endl;
     jumpOrIncrementMultiplexer.setInput0(branchOrIncrementMultiplexer.getOutput());
     
 
 }
 void DataPath::memory(){
-<<<<<<< HEAD
-    if (debug)
-        cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
-=======
-    cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
 
     if (debug)
         cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
     
->>>>>>> c2e45607c5dfcb563d18e4a84d503466310ed74d
     string temp = aluToMemory.getOutput();
     memoryUnit.setCurrentAddress(temp);
     temp = registerFile.getReadRegister2();
     memoryUnit.storeWord(temp);
     memoryUnit.saveMemory();
     
-<<<<<<< HEAD
-=======
-    cout <<"SETTING MEMORY OR ALU MULTIPLEXER AS WELL AS WRITE DATA" << endl;
->>>>>>> c2e45607c5dfcb563d18e4a84d503466310ed74d
+
 
     if (debug)
         cout <<"SETTING MEMORY OR ALU MULTIPLEXER AS WELL AS WRITE DATA" << endl;
