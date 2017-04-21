@@ -54,7 +54,6 @@ private:
     bool debug;
     
     bool toFile;
-    //ofstream ofile;
 
 public:
     //This is the constructor for the Register() function
@@ -103,8 +102,6 @@ public:
     /* Sets toFile to true or false determining if a file is written to */
     void setToFile(bool val);
     
-    /* Sets the location of the ostream that will be written to */
-    //void setOfStream(ofstream& out);
 
 };
 #endif /* Registers_hpp */
