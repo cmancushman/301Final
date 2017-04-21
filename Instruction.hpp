@@ -45,12 +45,15 @@ private:
     // Jump component if applicable
     string jumpComponent;
     
+    //Converts a hexadecimal string to an integer
     int hexToInt(string hexString);
     
+    //Converts an integer to a hexadecimal string
     string intToHex(int integer);
     
 public:
     
+    //Constructor
     Instruction();
     
     /* Constructor with all inputs */
