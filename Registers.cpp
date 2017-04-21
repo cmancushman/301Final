@@ -288,6 +288,6 @@ void Registers::setToFile(bool val)
 
 void Registers::setOStream(ostream *out)
 {
-    ofile = file;
+    ofile = out;
 }
 
