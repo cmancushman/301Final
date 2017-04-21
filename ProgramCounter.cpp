@@ -20,7 +20,7 @@ void ProgramCounter::setAddress(string address){
 }
 
 string ProgramCounter::getAddress(){
-    cout << "Parser getAddress OUTPUT: " << BinaryOperation.getHexFromBin(currentAddress) << endl
+    cout << "Parser getAddress OUTPUT: " << binaryOperation.getHexFromBin(currentAddress) << endl
         << endl;
     
     return currentAddress;

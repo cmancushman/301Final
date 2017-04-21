@@ -18,7 +18,7 @@ using namespace std;
 class ProgramCounter{
 private:
     string currentAddress;
-    
+    BinaryOperation binaryOperation;
 public:
     
     /* Constructor for program counter */

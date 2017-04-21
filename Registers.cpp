@@ -107,22 +107,40 @@ void Registers::setReadRegister2(string registerNumber){
 void Registers::write(){
     cout << "writing " << getHexFromBin(writeValue) << " to register $" <<  writeIndex << endl;
 
+    int overwriteIndex;
+    if(writeIndex != ""){
+        overwriteIndex = stoi(writeIndex);
+    }else{
+        overwriteIndex = 0;
+    }
     if(shouldWrite){
-        wordListCompare1.set(stoi(writeIndex), writeValue);
+        wordListCompare1.set(overwriteIndex, writeValue);
     }
 }
 //This method gets the value of the readRegister1
 string Registers::getReadRegister1(){
+    int searchInt;
+    if(readRegister1 != ""){
+        searchInt = stoi(readRegister1);
+    }else{
+        searchInt = 0;
+    }
     cout << "getReadRegister1 INPUT: " << "index: " << readRegister1 << endl;
-    string result = wordListCompare1.get(stoi(readRegister1));
+    string result = wordListCompare1.get(searchInt);
     cout << "getReadRegister1 OUTPUT: " <<  getHexFromBin(result) << endl;
     return result;
 }
 
 //This method gets the value of the readRegister2
 string Registers::getReadRegister2(){
+    int searchInt;
+    if(readRegister2 != ""){
+        searchInt = stoi(readRegister2);
+    }else{
+        searchInt = 0;
+    }
     cout << "getReadRegister2 INPUT: " << "index: " << readRegister2 << endl;
-    string result = wordListCompare1.get(stoi(readRegister2));
+    string result = wordListCompare1.get(searchInt);
     cout << "getReadRegister2 OUTPUT: " <<  getHexFromBin(result) << endl;
     return result;
 }

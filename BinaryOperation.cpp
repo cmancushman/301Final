@@ -1,6 +1,6 @@
 //
 //  BinaryOperation.cpp
-//  
+//
 //
 //  Created by Alex Christine on 4/20/17.
 //
@@ -18,16 +18,20 @@ BinaryOperation::BinaryOperation()
  */
 string BinaryOperation::getHexFromBin(string sBinary)
 {
-    std::stringstream ss;
-    ss << std::hex << std::stoll(sBinary, NULL, 2);
-    //std::cout <<"hex test " << ss.str() << std::endl;
-    
-    string s =  ss.str();
-    while (s.length() != 8){
-        s = "0" + s;
+    if(sBinary != ""){
+        std::stringstream ss;
+        ss << std::hex << std::stoll(sBinary, NULL, 2);
+        //std::cout <<"hex test " << ss.str() << std::endl;
+        
+        string s =  ss.str();
+        while (s.length() != 8){
+            s = "0" + s;
+        }
+        s = "0x" + s;
+        return s;
+        
     }
-    s = "0x" + s;
-    return s;
+    return "0x";
 }
 
 

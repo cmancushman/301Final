@@ -80,13 +80,12 @@ void DataPath::decode(){
     cout << "ADJUSTING READ REGISTERS" << endl;
     registerFile.setReadRegister1(rs);
     registerFile.setReadRegister2(rt);
-
     cout << endl;
     
     
     cout <<"ADJUSTING REGISTER MULTIPLEXER INPUTS" << endl;
-    registerMultiplexer.setInput0(currentInstruction.getRt());
-    registerMultiplexer.setInput1(currentInstruction.getRd());
+    registerMultiplexer.setInput0(rt);
+    registerMultiplexer.setInput1(rd);
     cout << endl;
     
     cout <<"SETTING WRITE REGISTER" << endl;
@@ -94,29 +93,42 @@ void DataPath::decode(){
     cout << endl;
     
     control.sendSignals(opcode);
+    cout << endl;
 
     
     jumpAmount = shiftJump.shift(jumpAmount);
+    cout << endl;
+
     cout << "merging: first four bits of current address: " <<currentAddress.substr(0,4) << "  with shifted jump 28 bits: " <<jumpAmount<< " new current address: " << currentAddress.substr(0,4) + jumpAmount <<  endl;
     jumpAmount = currentAddress.substr(0,4) + jumpAmount;
     jumpOrIncrementMultiplexer.setInput1(jumpAmount);
-    
+    cout << endl;
+
     cout <<"SIGN EXTENDING IMMEDIATE" << endl;
     immediate = signExtend.extend(immediate);
+    cout << endl;
+
+    cout <<"ADJUSTING ALU SOURCE MULTIPLEXER INPUT0" << endl;
+    string temp = registerFile.getReadRegister2();
+    registerOrImmediateMultiplexer.setInput0(temp);
+    cout << endl;
     
     cout <<"ADJUSTING ALU SOURCE MULTIPLEXER INPUT1" << endl;
     registerOrImmediateMultiplexer.setInput1(immediate);
+    cout << endl;
     
-    immediate = shiftBranch.shift(immediate);
+    cout <<"SETTING THE MEMORY ALU OPERANDS" << endl;
+    aluToMemory.setOperand1(registerFile.getReadRegister1());
+    aluToMemory.setOperand2(registerOrImmediateMultiplexer.getOutput());
     
+      
     cout << "SETTING THE OPERAND2 IN BRANCH AND CURRENT ADDRESS ALU" << endl;
+    immediate = shiftBranch.shift(immediate);
     aluAddBranchAndAddress.setOperand2(immediate);
     cout << endl;
     
     aluAddBranchAndAddress.execute();
-    string temp = aluAddBranchAndAddress.getOutput();
-    branchOrIncrementMultiplexer.setInput1(temp);
-    
+    branchOrIncrementMultiplexer.setInput1(aluAddBranchAndAddress.getOutput());
     
     
     

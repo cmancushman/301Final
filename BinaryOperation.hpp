@@ -13,7 +13,7 @@
 #include <fstream>
 #include <iostream>
 #include <algorithm>
-
+#include <sstream>
 using namespace std;
 
 class BinaryOperation
@@ -22,7 +22,7 @@ class BinaryOperation
 private:
     
 public:
-    BinaryOperation()
+    BinaryOperation();
     
     string getHexFromBin(string sBinary);
     
