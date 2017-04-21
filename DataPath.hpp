@@ -53,7 +53,6 @@ private:
     DataMemory memoryUnit;
     ALU aluToMemory;
     ALU aluAddBranchAndAddress;
-    ALU aluAddJumpAndAddress;
     ALU aluAddPCand4;
     ShiftLeft shiftJump;
     ShiftLeft shiftBranch;

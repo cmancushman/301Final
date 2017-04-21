@@ -89,7 +89,7 @@ public:
     void init();
     
     //Sets the debug instance variable to true
-    void setDebug();
+    void setDebug(bool value);
     
     
 

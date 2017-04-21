@@ -14,9 +14,24 @@ DataPath::DataPath()
     registerFile.init();
     registerFile.setFile(registerFileInput);
     registerFile.print();
+    
+    
+    programCounter.setDebug(debug);
+    parse.setDebug(debug);
     registerFile.setDebug(debug);
-    registerFile.setDebug(debug);
-
+    aluToMemory.setDebug(debug);
+    aluAddBranchAndAddress.setDebug(debug);
+    aluAddPCand4.setDebug(debug);
+    shiftJump.setDebug(debug);
+    shiftBranch.setDebug(debug);
+    control.setDebug(debug);
+    registerMultiplexer.setDebug(debug);
+    registerOrImmediateMultiplexer.setDebug(debug);
+    memoryOrALUMultiplexer.setDebug(debug);
+    branchOrIncrementMultiplexer.setDebug(debug);
+    jumpOrIncrementMultiplexer.setDebug(debug);
+    signExtend.setDebug(debug);
+    
     
     parse.setFile(programInput);
     //parse.getInstruction(0);
@@ -299,14 +314,13 @@ void DataPath::configure(string file)
             }else{
                 debug = false;
             }
-            debug = false;
         }
         else if (line.find("print_memory_contents") != std::string::npos)
         {
             if (line.find("true") != std::string::npos){
                 printMemoryContents = true;
             }else{
-            printMemoryContents = false;
+                printMemoryContents = false;
             }
         }
         else if (line.find("write_to_file") != std::string::npos)
