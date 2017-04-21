@@ -66,5 +66,10 @@ public:
     void sendSignals(string opCode);
     
     void setDebug(bool value);
+
+private:
+
+    //Method that gets hexadecimal string from binary string
+    string getHexFromBin(string sBinary);
 };
 #endif /* Control_hpp */

@@ -81,7 +81,30 @@ void Control::sendSignals(string opcode){
         aluControl.sendSignals("11");
     }
 
+    cout << "Signal for beq: " << getHexFromBin("00") << endl; 
+    cout << "Signal for add, addi, lw, sw: " << getHexFromBin("01") << endl;
+    cout << "Signal for sub: " << getHexFromBin("10") << endl;
+    cout << "Signal for slt: " << getHexFromBin("11") << endl;
+}
 
+//This method is for converting binary string to hexadecmial values
+//It receives a binary string and returns a hexadecimal string
+string DataMemory::getHexFromBin(string sBinary)
+{
+    if(sBinary != ""){
+        std::stringstream ss;
+        ss << std::hex << std::stoll(sBinary, NULL, 2);
+        //std::cout <<"hex test " << ss.str() << std::endl;
+        
+        string s =  ss.str();
+        while (s.length() != 8){
+            s = "0" + s;
+        }
+        s = "0x" + s;
+        return s;
+    }else{
+        return "0x";
+    }
 }
 
 void Control::setDebug(bool value){
