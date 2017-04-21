@@ -33,6 +33,9 @@ public:
     void execute();
     void memory();
     void writeback();
+    
+    /* Sets debug to true or false controlling print statements */
+    void setDebug(bool debug);
 private:
     
     ProgramCounter programCounter;
@@ -66,6 +69,8 @@ private:
     
     string getBinFromHex(string sHex);
     string getHexFromBin(string sBinary);
+    
+    bool degug;
     
 };
 

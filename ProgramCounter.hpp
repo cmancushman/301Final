@@ -19,6 +19,8 @@ class ProgramCounter{
 private:
     string currentAddress;
     BinaryOperation binaryOperation;
+    bool debug;
+    
 public:
     
     /* Constructor for program counter */
@@ -30,6 +32,8 @@ public:
     /* Retruns the current address */
     string getAddress();
     
+    /* Sets debug to true or false controlling print statements */
+    void setDebug(bool debug);
 };
 
 

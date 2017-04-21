@@ -42,30 +42,38 @@ void DataPath::fetch(){
     
 
     currentInstruction = parse.getInstruction(programCounter.getAddress());
-    cout << "Current instruction to run: "; currentInstruction.print(); cout << endl;
+    if (debug)
+        cout << "Current instruction to run: "; currentInstruction.print(); cout << endl;
     
     
     
-    cout << "INCREMENTING PC: " << endl;
+    if (debug)
+        cout << "INCREMENTING PC: " << endl;
+    
     aluAddPCand4.setOperand1(programCounter.getAddress());
     aluAddPCand4.setOperand2("00000000000000000000000000000100");
     aluAddPCand4.execute();
     currentAddress = aluAddPCand4.getOutput();
     
-    cout<< endl;
+    if (debug)
+        cout<< endl;
     
 
     
     
-    cout << "address for instruction: " << getHexFromBin(currentAddress) << endl << endl;
+    if (debug)
+        cout << "address for instruction: " << getHexFromBin(currentAddress) << endl << endl;
     
-    cout << "SETTING THE OPERAND1 IN BRANCH AND CURRENT ADDRESS ALU" << endl;
+    if (debug)
+        cout << "SETTING THE OPERAND1 IN BRANCH AND CURRENT ADDRESS ALU" << endl << endl;
+    
     aluAddBranchAndAddress.setOperand1(currentAddress);
-    cout << endl;
     
-    cout << "SETTING THE MULTIPLEXER FOR BRANCH VS CURRENT ADDRESS" << endl;
+    
+    if (debug)
+        cout << "SETTING THE MULTIPLEXER FOR BRANCH VS CURRENT ADDRESS" << endl << endl;
+    
     branchOrIncrementMultiplexer.setInput0(currentAddress);
-    cout << endl;
 
     
     opcode = currentInstruction.getOpcode();
@@ -78,55 +86,76 @@ void DataPath::fetch(){
 
 void DataPath::decode(){
     
-    cout << "ADJUSTING READ REGISTERS" << endl;
+    if (debug)
+        cout << "ADJUSTING READ REGISTERS" << endl << endl;
+    
     registerFile.setReadRegister1(rs);
     registerFile.setReadRegister2(rt);
-    cout << endl;
     
     
-    cout <<"ADJUSTING REGISTER MULTIPLEXER INPUTS" << endl;
+    
+    if (debug)
+        cout <<"ADJUSTING REGISTER MULTIPLEXER INPUTS" << endl << endl;
     registerMultiplexer.setInput0(rt);
     registerMultiplexer.setInput1(rd);
-    cout << endl;
     
-    cout <<"SETTING WRITE REGISTER" << endl;
+    
+    if (debug)
+        cout <<"SETTING WRITE REGISTER" << endl << endl;
+    
     registerFile.setWriteIndex(registerMultiplexer.getOutput());
-    cout << endl;
+    
     
     control.sendSignals(opcode);
-    cout << endl;
+    
+    if (debug)
+        cout << endl;
 
     
     jumpAmount = shiftJump.shift(jumpAmount);
-    cout << endl;
+    
+    if (debug)
+        cout << endl;
 
-    cout << "merging: first four bits of current address: " <<currentAddress.substr(0,4) << "  with shifted jump 28 bits: " <<jumpAmount<< " new current address: " << currentAddress.substr(0,4) + jumpAmount <<  endl;
+    if (debug)
+        cout << "merging: first four bits of current address: " <<currentAddress.substr(0,4) << "  with shifted jump 28 bits: " <<jumpAmount<< " new current address: " << currentAddress.substr(0,4) + jumpAmount <<  endl << endl;
+    
     jumpAmount = currentAddress.substr(0,4) + jumpAmount;
     jumpOrIncrementMultiplexer.setInput1(jumpAmount);
-    cout << endl;
+    
 
-    cout <<"SIGN EXTENDING IMMEDIATE" << endl;
+    if (debug)
+        cout <<"SIGN EXTENDING IMMEDIATE" << endl << endl;
+    
     immediate = signExtend.extend(immediate);
-    cout << endl;
 
-    cout <<"ADJUSTING ALU SOURCE MULTIPLEXER INPUT0" << endl;
+
+    if (debug)
+        cout <<"ADJUSTING ALU SOURCE MULTIPLEXER INPUT0" << endl << endl;
+    
     string temp = registerFile.getReadRegister2();
     registerOrImmediateMultiplexer.setInput0(temp);
-    cout << endl;
     
-    cout <<"ADJUSTING ALU SOURCE MULTIPLEXER INPUT1" << endl;
+    
+    if (debug)
+        cout <<"ADJUSTING ALU SOURCE MULTIPLEXER INPUT1" << endl << endl;
+    
     registerOrImmediateMultiplexer.setInput1(immediate);
-    cout << endl;
     
-    cout <<"SETTING THE MEMORY ALU OPERANDS" << endl;
+    
+    if (debug)
+        cout <<"SETTING THE MEMORY ALU OPERANDS" << endl;
+    
     aluToMemory.setOperand1(registerFile.getReadRegister1());
     aluToMemory.setOperand2(registerOrImmediateMultiplexer.getOutput());
     
       
-    cout << "SETTING THE OPERAND2 IN BRANCH AND CURRENT ADDRESS ALU" << endl;
+    if (debug)
+        cout << "SETTING THE OPERAND2 IN BRANCH AND CURRENT ADDRESS ALU" << endl << endl;
+    
     immediate = shiftBranch.shift(immediate);
     aluAddBranchAndAddress.setOperand2(immediate);
-    cout << endl;
+    
     
     aluAddBranchAndAddress.execute();
     branchOrIncrementMultiplexer.setInput1(aluAddBranchAndAddress.getOutput());
@@ -138,21 +167,29 @@ void DataPath::decode(){
 }
 
 void DataPath::execute(){
-    cout <<"SETTING EXECUTING MEMORY ALU" << endl;
+    
+    if (debug)
+        cout <<"SETTING EXECUTING MEMORY ALU" << endl;
+    
     aluToMemory.execute();
     
-    cout <<"SETTING EXECUTING MEMORY ALU" << endl;
+    if (debug)
+        cout <<"SETTING EXECUTING MEMORY ALU" << endl;
 
     
     
-    cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
+    if (debug)
+        cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
+    
     string temp = aluToMemory.getOutput();
     memoryUnit.setCurrentAddress(temp);
     temp = registerFile.getReadRegister2();
     memoryUnit.storeWord(temp);
     memoryUnit.saveMemory();
     
-    cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
+    if (debug)
+        cout <<"SETTING DATA MEMORY ADDRESS AND WRITE DATA" << endl;
+    
     memoryOrALUMultiplexer.setInput1(memoryUnit.readMemory());
     memoryOrALUMultiplexer.setInput0(aluToMemory.getOutput());
 
@@ -188,4 +225,9 @@ string DataPath::getHexFromBin(string sBinary)
     }
     s = "0x" + s;
     return s;
+}
+
+void DataPath::setDebug(bool value)
+{
+    debug = value;
 }
