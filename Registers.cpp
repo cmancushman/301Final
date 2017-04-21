@@ -30,8 +30,12 @@ Registers::Registers(string file){
 
 //This method reads in a file of strings
 void Registers::setFile(string file){
-     if (debug) cout << "Registers INPUT 1: " << file << endl;
+    if (debug)
+        cout << "Registers INPUT 1: " << file << endl;
 
+    if (toFile)
+        ofile << "Registers INPUT 1: " << file << endl;
+    
     fstream in;
     in.open(file.c_str());
     
@@ -68,8 +72,12 @@ void Registers::setFile(string file){
             if(stringArray[1].substr(0,2)!="0x"){
                 stringArray[1] = "0x" + stringArray[1];
             }
+            
             if (debug)
-                cout <<"Process check " << stringArray[0] << " " << stringArray[1] << endl; 
+                cout <<"Process check " << stringArray[0] << " " << stringArray[1] << endl;
+            
+            if (toFile)
+                ofile <<"Process check " << stringArray[0] << " " << stringArray[1] << endl;
             
             //set LinkedList, pass register as index and hex string as element
             registerMap[stoi(stringArray[0])] = getBinFromHex(stringArray[1]);
@@ -229,5 +237,13 @@ void Registers::setDebug(bool value) {
     debug = value;
 }
 
+void Registers::setToFile(bool val)
+{
+    toFile = val;
+}
 
+void Registers::setOStream(ostream *out)
+{
+    ofile = file;
+}
 

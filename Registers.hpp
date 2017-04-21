@@ -50,6 +50,9 @@ private:
 
     //variable that determines whether or no debugger is on
     bool debug;
+    
+    bool toFile;
+    ostream *ofile;
 
 public:
     //This is the constructor for the Register() function
@@ -95,7 +98,11 @@ public:
     //Sets the debug instance variable to true
     void setDebug(bool value);
     
+    /* Sets toFile to true or false determining if a file is written to */
+    void setToFile(bool val);
     
+    /* Sets the location of the ostream that will be written to */
+    void setOStream(ostream *out);
 
 };
 #endif /* Registers_hpp */
