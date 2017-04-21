@@ -54,9 +54,15 @@ public:
     
     void setDebug(bool value);
 
+<<<<<<< HEAD
     void setOfStream(ofstream& out);
     
     void setToFile(bool val);
+=======
+    void setFile(bool val);
+
+    void setOstream(ostream &out);
+>>>>>>> 23ca18a918bdd5b3c6b45bef2151b665a82cb212
     
 private:
     
@@ -85,8 +91,9 @@ private:
     
     bool debug;
 
-    bool output;
+    bool toFile;
 
+    ostream &ofile;
 
 };
 
