@@ -31,6 +31,8 @@ private:
     int hexToInt(string hexString);
     
     string getHexFromBin(string sBinary);
+    
+    bool debug;
 public:
     /* Default Constructor */
     Parser();
@@ -46,6 +48,8 @@ public:
     
     /* Prints all the instructions of the instance */
     void printAllInstructions();
+    
+    void setDebug(bool value);
     
 
 };

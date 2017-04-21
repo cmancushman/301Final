@@ -110,11 +110,6 @@ void Registers::setReadRegister2(string registerNumber){
 
 //This method gets a hex value from a binary string, and if it should write, it sets the values of the index and the writeValue
 void Registers::write(){
-<<<<<<< HEAD
-
-=======
-    if (debug) cout << "writing " << getHexFromBin(writeValue) << " to register $" <<  writeIndex << endl;
->>>>>>> f0b9ae2f1dfc5530345335fc9e8deafd0f247f40
 
     int overwriteIndex;
     if(writeIndex != ""){
@@ -123,7 +118,9 @@ void Registers::write(){
         overwriteIndex = 0;
     }
     if(shouldWrite){
+        if(debug){
         cout << "WRITING " << getHexFromBin(writeValue) << " TO REGISTER $" <<  writeIndex << endl;
+        }
         wordListCompare1.set(overwriteIndex, writeValue);
     }else{
         cout << "REGISTER OVREWRITING NOT ENABLED" << endl;

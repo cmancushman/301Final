@@ -69,7 +69,7 @@ private:
     string getBinFromHex(string sHex);
     string getHexFromBin(string sBinary);
     
-    bool degug;
+    bool debug;
     
 };
 
