@@ -68,8 +68,9 @@ void Registers::setFile(string file){
             if(stringArray[1].substr(0,2)!="0x"){
                 stringArray[1] = "0x" + stringArray[1];
             }
-
-            cout <<"Process check " << stringArray[0] << " " << stringArray[1] << endl; 
+            if (debug)
+                cout <<"Process check " << stringArray[0] << " " << stringArray[1] << endl; 
+            
             //set LinkedList, pass register as index and hex string as element
             wordListCompare1.set(stoi(stringArray[0]),stringArray[1]);
             
@@ -92,7 +93,8 @@ void Registers::setWriteValue(string value){
 
 //This method intakes a boolean value called write and sets it equal to the value shouldWrite after determining if register memory can be overwritten
 void Registers::setWrite(bool write){
-    if (debug) cout << "REGISTER MEMORY CAN BE OVERWRITTEN?: (1 yes, 0 no): " << write << endl;
+    if (debug)
+        cout << "REGISTER MEMORY CAN BE OVERWRITTEN?: (1 yes, 0 no): " << write << endl;
     shouldWrite = write;
 }
 
@@ -110,7 +112,8 @@ void Registers::setReadRegister2(string registerNumber){
 
 //This method gets a hex value from a binary string, and if it should write, it sets the values of the index and the writeValue
 void Registers::write(){
-    if (debug) cout << "writing " << getHexFromBin(writeValue) << " to register $" <<  writeIndex << endl;
+    if (debug)
+        cout << "writing " << getHexFromBin(writeValue) << " to register $" <<  writeIndex << endl;
 
     int overwriteIndex;
     if(writeIndex != ""){
