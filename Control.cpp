@@ -65,6 +65,10 @@ void Control::sendSignals(string opcode){
     registerFile->setWrite(regWrite);
     cout << endl;
     
+    branch = (opcode == "beq");
+    
+    
+    
     if(opcode == "beq"){
         aluControl.sendSignals("00");
     }else if(opcode == "add" || opcode == "addi" || opcode == "lw" || opcode == "sw"){
