@@ -196,8 +196,8 @@ void DataMemory::print(){
 }
 
 
-
-
-
+void DataMemory::setDebug(bool value){
+    debug = value;
+}
 
 

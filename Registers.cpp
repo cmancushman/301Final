@@ -133,7 +133,8 @@ void Registers::write(){
         }
         registerMap[overwriteIndex] = writeValue;
     }else{
-        cout << "REGISTER OVREWRITING NOT ENABLED" << endl;
+        if(debug)
+            cout << "REGISTER OVREWRITING NOT ENABLED" << endl;
     }
 }
 

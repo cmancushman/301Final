@@ -13,9 +13,12 @@ DataPath::DataPath()
     configure("input_configuration.txt");
     registerFile.init();
     registerFile.setFile(registerFileInput);
+    cout<< "*****CURRENT REGISTERS*****" <<endl;
     registerFile.print();
+    cout << endl;
     
-    
+    //set debug values for all classes
+    /****/
     programCounter.setDebug(debug);
     parse.setDebug(debug);
     registerFile.setDebug(debug);
@@ -31,12 +34,14 @@ DataPath::DataPath()
     branchOrIncrementMultiplexer.setDebug(debug);
     jumpOrIncrementMultiplexer.setDebug(debug);
     signExtend.setDebug(debug);
+    memoryUnit.setDebug(debug);
+    /*****/
     
-    
+    cout << endl;
     parse.setFile(programInput);
-    //parse.getInstruction(0);
+    cout<< "*****CURRENT INSTRUCTIONS*****" <<endl;
     parse.printAllInstructions();
-    
+    cout << endl;
     memoryUnit.setFile(memoryContentsInput);
     
     aluAddPCand4.setOperation(1);
@@ -45,11 +50,20 @@ DataPath::DataPath()
     
     control.setComponents(&registerFile,&memoryUnit,&aluToMemory,&registerMultiplexer,&registerOrImmediateMultiplexer,&memoryOrALUMultiplexer,&jumpOrIncrementMultiplexer);
     
+    
     fetch();
     decode();
     execute();
     memory();
     writeback();
+    
+    cout<< "*****CURRENT REGISTERS*****" <<endl;
+    registerFile.print();
+    cout << endl;
+    
+    cout<< "*****CURRENT INSTRUCTIONS*****" <<endl;
+    parse.printAllInstructions();
+    cout << endl;
 }
 
 void DataPath::fetch(){
@@ -198,8 +212,8 @@ void DataPath::execute(){
         cout <<"SETTING EXECUTING MEMORY ALU" << endl;
     
     branchOrIncrementMultiplexer.setControl(control.isBranch() && aluToMemory.getComparisonResult());
-    
-    cout <<"SETTING JUMP OR INCREMENTED ADDRESS INPUT0" << endl;
+    if(debug)
+        cout <<"SETTING JUMP OR INCREMENTED ADDRESS INPUT0" << endl;
     jumpOrIncrementMultiplexer.setInput0(branchOrIncrementMultiplexer.getOutput());
     
 }
