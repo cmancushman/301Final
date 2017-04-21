@@ -16,7 +16,7 @@ ProgramCounter::ProgramCounter(){
 }
 
 void ProgramCounter::setAddress(string address){
-    cout << "SETTING PROGRAM COUNTER ADDRESS " << address << endl;
+    cout << "SETTING PROGRAM COUNTER ADDRESS " << binaryOperation.getHexFromBin(address) << endl;
     currentAddress = address;
 }
 
@@ -31,6 +31,7 @@ string ProgramCounter::getAddress(){
     if (debug) cout << "Parser getAddress OUTPUT: " << binaryOperation.getHexFromBin(currentAddress)
      << endl;
     
+
     return currentAddress;
 }
 
