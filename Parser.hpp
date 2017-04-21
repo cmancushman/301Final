@@ -20,6 +20,8 @@ using namespace std;
 class Parser{
     
 private:
+    
+    
     /* Returns an instruction from input stringArray */
     Instruction toInstruction(string stringArray[]);
     
@@ -32,6 +34,8 @@ private:
     
     string getHexFromBin(string sBinary);
 public:
+    bool debug;
+    
     /* Default Constructor */
     Parser();
     
@@ -46,7 +50,5 @@ public:
     
     /* Prints all the instructions of the instance */
     void printAllInstructions();
-    
-
 };
 #endif /* Parser_hpp */
