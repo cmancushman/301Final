@@ -17,7 +17,7 @@ ProgramCounter::ProgramCounter(){
 
 //Sets the programCounters address to the input address
 void ProgramCounter::setAddress(string address){
-    cout << "SETTING PROGRAM COUNTER ADDRESS " << address << endl;
+    cout << "SETTING PROGRAM COUNTER ADDRESS " << binaryOperation.getHexFromBin(address) << endl;
     currentAddress = address;
 }
 
