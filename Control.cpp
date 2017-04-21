@@ -89,7 +89,7 @@ void Control::sendSignals(string opcode){
 
 //This method is for converting binary string to hexadecmial values
 //It receives a binary string and returns a hexadecimal string
-string Control::getHexFromBin(string sBinary)
+string DataMemory::getHexFromBin(string sBinary)
 {
     if(sBinary != ""){
         std::stringstream ss;

@@ -99,10 +99,14 @@ void Registers::print(){
 
 //This method sets the value of the index and the value of a string
 void Registers::setWriteIndex(string value){
+<<<<<<< HEAD
     if (debug) cout << "setWriteIndex INPUT: " << "  value " << hexToInt(getHexFromBin(value)) << endl;
     
     if (toFile); //ofile << "setWriteIndex INPUT: " << "  value " << hexToInt(getHexFromBin(value)) << endl;
     
+=======
+    if (debug) cout << "setWriteIndex INPUT: " << "  value " << value << endl;
+>>>>>>> parent of a3705bc... asd
     writeIndex = value;
 }
 
@@ -128,21 +132,29 @@ void Registers::setWrite(bool write){
 
 //This method sets the value of the readRegister1
 void Registers::setReadRegister1(string registerNumber){
+<<<<<<< HEAD
     
     if (debug) cout << "setReadRegister1 INPUT: " << "register: " << hexToInt(getHexFromBin(registerNumber)) << endl;
     
     if (toFile); //ofile << "setReadRegister1 INPUT: " << "register: " << hexToInt(getHexFromBin(registerNumber)) << endl;
     
+=======
+    if (debug) cout << "setReadRegister1 INPUT: " << "index: " << registerNumber << endl;
+>>>>>>> parent of a3705bc... asd
     readRegister1 = registerNumber;
 }
 
 //This method sets the value of the readRegister2
 void Registers::setReadRegister2(string registerNumber){
+<<<<<<< HEAD
     
     if (debug) cout << "setReadRegister2 INPUT: " << "index: " << hexToInt(getHexFromBin(registerNumber)) << endl;
     
     if (toFile); //ofile << "setReadRegister2 INPUT: " << "index: " << hexToInt(getHexFromBin(registerNumber)) << endl;
     
+=======
+    if (debug) cout << "setReadRegister2 INPUT: " << "index: " << registerNumber << endl;
+>>>>>>> parent of a3705bc... asd
     readRegister2 = registerNumber;
 }
 
@@ -182,14 +194,18 @@ void Registers::write(){
 string Registers::getReadRegister1(){
     int searchInt;
     if(readRegister1 != ""){
-        searchInt =  hexToInt(getHexFromBin(readRegister1));
+        searchInt = stoi(readRegister1);
     }else{
         searchInt = 0;
     }
+<<<<<<< HEAD
     
     if (debug) cout << "getReadRegister1 INPUT: " << "index: " << hexToInt(getHexFromBin(readRegister1)) << endl;
     if (toFile); //ofile << "getReadRegister1 INPUT: " << "index: " << hexToInt(getHexFromBin(readRegister1)) << endl;
     
+=======
+    if (debug) cout << "getReadRegister1 INPUT: " << "index: " << readRegister1 << endl;
+>>>>>>> parent of a3705bc... asd
     string result = registerMap[searchInt];
     
     if (debug) cout << "getReadRegister1 OUTPUT: " <<  getHexFromBin(result) << endl;
@@ -202,14 +218,18 @@ string Registers::getReadRegister1(){
 string Registers::getReadRegister2(){
     int searchInt;
     if(readRegister2 != ""){
-        searchInt = hexToInt(getHexFromBin(readRegister2));
+        searchInt = stoi(readRegister2);
     }else{
         searchInt = 0;
     }
+<<<<<<< HEAD
     
     if (debug) cout << "getReadRegister2 INPUT: " << "register: " << hexToInt(getHexFromBin(readRegister2)) << endl;
     if (toFile); //ofile << "getReadRegister2 INPUT: " << "register: " << hexToInt(getHexFromBin(readRegister2)) << endl;
     
+=======
+    if (debug) cout << "getReadRegister2 INPUT: " << "index: " << readRegister2 << endl;
+>>>>>>> parent of a3705bc... asd
     string result = registerMap[searchInt];
     
     if (debug) cout << "getReadRegister2 OUTPUT: " <<  getHexFromBin(result) << endl;
@@ -253,25 +273,6 @@ string Registers::getHexFromBin(string sBinary)
     }else{
         return "0x";
     }
-}
-
-//This method intakes a hex string and outputs a decimal
-int Registers::hexToInt(string hexString) {
-    unsigned int x;
-    stringstream ss;
-    ss << std::hex << hexString;
-    ss >> x;
-    return x;
-}
-
-//This method intakes an integer and returns a hexadecimal string
-string Registers::intToHex(int integer)
-{
-    char output[100];
-    sprintf(output, "%08x", integer);
-    string result = output;
-    result = "0x" + result;
-    return result;
 }
 
 /*

@@ -8,9 +8,6 @@
 
 #include "Parser.hpp"
 
-bool BothAreSpaces(char lhs, char rhs);
-
-
 //Default constructor
 Parser::Parser(){
 }
@@ -40,9 +37,6 @@ void Parser::setFile(string file){
         while( getline(in, line)){
             //cout  << line << endl;
             
-            std::string::iterator new_end = std::unique(line.begin(), line.end(), BothAreSpaces);
-            line.erase(new_end, line.end());
-            
             line.erase(std::remove(line.begin(), line.end(), ','), line.end());
             
             //replace all parentheses with a space
@@ -64,7 +58,6 @@ void Parser::setFile(string file){
         }
     }
 }
-bool BothAreSpaces(char lhs, char rhs) { return (lhs == rhs) && (lhs == ' '); }
 
 //Returns the instruction at an index
 Instruction Parser::getInstruction(string binaryIndex){
@@ -131,6 +124,7 @@ int Parser::hexToInt(string hexString) {
 void Parser::setDebug(bool value){
     debug = value;
 }
+<<<<<<< HEAD
 
 int Parser::getNumberOfInstructions(){
     return instructionList.size();
@@ -142,3 +136,5 @@ bool Parser::weAreDone(string address){
     }
     return false;
 }
+=======
+>>>>>>> parent of a3705bc... asd
