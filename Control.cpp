@@ -81,7 +81,10 @@ void Control::sendSignals(string opcode){
         aluControl.sendSignals("11");
     }
 
-
+    cout << "Signal for beq: " << getHexFromBin("00") << endl; 
+    cout << "Signal for add, addi, lw, sw: " << getHexFromBin("01") << endl;
+    cout << "Signal for sub: " << getHexFromBin("10") << endl;
+    cout << "Signal for slt: " << getHexFromBin("11") << endl;
 }
 
 void Control::setDebug(bool value){
