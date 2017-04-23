@@ -32,44 +32,62 @@ void Control::setComponents(Registers *reg, DataMemory *mem, ALU *alu, Multiplex
 
 //Sends control signals to each processor component in accordance to what is required by the opcode
 void Control::sendSignals(string opcode){
+    
+    cout << "OPCODE : " << opcode << endl;
     if (debug) cout <<"ADJUSTING REGISTER MULTIPLEXER CONTROL" << endl;
     regDst = (opcode == "add" || opcode == "sub" || opcode == "slt");
+    cout << "regDst " << "0x" << regDst << endl;
+
     registerMultiplexer->setControl(regDst);
     cout << endl;
     
     if (debug) cout <<"ADJUSTING JUMP MULTIPLEXER CONTROL" << endl;
     jump = (opcode == "j");
     jumpOrIncrementMultiplexer->setControl(jump);
-    cout << endl;
+    cout << "jump " << "0x" << jump << endl;
     
     if (debug) cout <<"ADJUSTING MEMORY READ" << endl;
     memRead = (opcode == "lw");
     memoryUnit->setShouldRead(memRead);
-    cout << endl;
+    cout << "memRead " << "0x" << memRead << endl;
     
     if (debug) cout <<"ADJUSTING MEMORY WRITE" << endl;
     memWrite = (opcode == "sw");
     memoryUnit->setShouldWrite(memWrite);
     cout << endl;
+    cout << "memWrite " << "0x" << memWrite << endl;
     
     if (debug) cout <<"ADJUSTING MEMORY VS ALU MULTIPLEXER" << endl;
     memToReg = (opcode == "lw");
     memoryOrALUMultiplexer->setControl(memToReg);
+    cout << "memToReg " << "0x" << memToReg << endl;
     cout << endl;
     
     if (debug) cout <<"ADJUSTING REGISTER VS IMMEDIATE MULTIPLEXER" << endl;
+    
     aluSRC = (opcode == "addi" || opcode == "lw" || opcode == "sw");
+    
     registerOrImmediateMultiplexer->setControl(aluSRC);
+    cout << "aluSRC " << "0x" << aluSRC << endl;
     cout << endl;
     
     if (debug) cout <<"ADJUSTING REGISTER WRITE" << endl;
+    
     regWrite = (opcode == "add" || opcode == "addi" || opcode == "lw" || opcode == "slt" || opcode == "sub");
     registerFile->setWrite(regWrite);
+    cout << "regWrite " << "0x" << regWrite << endl;
+
     cout << endl;
     
     branch = (opcode == "beq");
+    cout << "branch " << "0x" << branch << endl;
     
     
+    ALUOp1 = (opcode == "add" || opcode == "sub" || opcode == "slt" || opcode == "addi");
+    cout << "ALUOp1 " << "0x" << ALUOp1 << endl;
+
+    ALUOp0 = (opcode == "beq");
+    cout << "ALUOp0 " << "0x" << ALUOp0 << endl;
     
     if(opcode == "beq"){
         aluControl.sendSignals("00");

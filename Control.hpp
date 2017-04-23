@@ -41,6 +41,8 @@ private:
     bool aluSRC;
     bool regWrite;
     bool regDst;
+    bool ALUOp1;
+    bool ALUOp0;
     
     string aluOP;
     

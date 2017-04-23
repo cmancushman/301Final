@@ -92,6 +92,15 @@ void Parser::printAllInstructions(){
     }
 }
 
+//Returns all the instructions
+string Parser::getAllInstructions(){
+    stringstream ss;
+    for(int x = 0; x < instructionList.size(); x ++){
+        ss << "Instruction #"<<x << " : "<< instructionList.get(x).getStringVersion() << endl;
+    }
+    return ss.str();
+}
+
 /*
  * Takes a binary string and returns its hex string representation
  */
@@ -140,7 +149,4 @@ bool Parser::weAreDone(string address){
     return false;
 }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 9a952d57cb9efa514555f6b65ee31762750fc4a7

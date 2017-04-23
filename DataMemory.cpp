@@ -129,7 +129,6 @@ string DataMemory::getHexFromBin(string sBinary)
 void DataMemory::setShouldWrite(bool writeToMemory){
     if(debug)
         cout << "DATA MEMORY CAN BE OVERWRITTEN?: (1 yes, 0 no): " << writeToMemory << endl;
-    if(tofile);
         //ofile << "DATA MEMORY CAN BE OVERWRITTEN?: (1 yes, 0 no): " << writeToMemory << endl;
 
     shouldWrite = writeToMemory;
@@ -140,7 +139,6 @@ void DataMemory::setShouldRead(bool readFromMemory){
     if(debug)
         cout << "DATA MEMORY CAN BE READ?: (1 yes, 0 no): " << readFromMemory << endl;
 
-    if(tofile);
         //ofile << "DATA MEMORY CAN BE READ?: (1 yes, 0 no): " << readFromMemory << endl;
 
     shouldRead = readFromMemory;
@@ -149,13 +147,8 @@ void DataMemory::setShouldRead(bool readFromMemory){
 //This method intakes a string called word and sets the currentWord variable equal to a hexadecimal number
 void DataMemory::storeWord(string word){
     if(debug)
-<<<<<<< HEAD
-        cout << "DATA MEMORY SET WRITE DATA: " << word << endl;
-=======
         cout << "DATA MEMORY SET WRITE DATA: " << getHexFromBin(word) << endl;
->>>>>>> 9a952d57cb9efa514555f6b65ee31762750fc4a7
     
-    if(tofile);
         //ofile << "DATA MEMORY SET WRITE DATA: " << word << endl;
 
     if(word == ""){
@@ -169,12 +162,7 @@ void DataMemory::storeWord(string word){
 //This method intakes a string called address and sets the currentAddress variable equal to a hexadecimal number
 void DataMemory::setCurrentAddress(string address){
     if(debug)
-<<<<<<< HEAD
-        cout << "DATA MEMORY SET ADDRESS: " << address << endl;
-=======
         cout << "DATA MEMORY SET ADDRESS: " << getHexFromBin(address) << endl;
->>>>>>> 9a952d57cb9efa514555f6b65ee31762750fc4a7
-    if(tofile);
         //ofile << "DATA MEMORY SET ADDRESS: " << address << endl;
 
     if(address == ""){
@@ -189,7 +177,6 @@ void DataMemory::saveMemory(){
     if(shouldWrite){
         if(debug)
             cout << "DATA MEMORY SAVING:  " << currentWord << "  AT ADDRESS  " << currentAddress << endl;
-        if(tofile);
             //ofile << "DATA MEMORY SAVING:  " << currentWord << "  AT ADDRESS  " << currentAddress << endl;
         memoryMap[currentAddress] = currentWord;
     }else{
@@ -203,7 +190,6 @@ string DataMemory::readMemory(){
     if(shouldRead){
         if(debug)
             cout << "MEMORY READ: " << getBinFromHex(memoryMap[currentAddress]) << endl;
-        if(tofile);
             //ofile << "MEMORY READ: " << getBinFromHex(memoryMap[currentAddress]) << endl;
 
 
@@ -212,7 +198,6 @@ string DataMemory::readMemory(){
         if(debug)
             cout << "MEMORY READ NOT ENABLED " <<  endl;
 
-        if(tofile);
             //ofile << "MEMORY READ NOT ENABLED " <<  endl;
 
 
@@ -222,10 +207,37 @@ string DataMemory::readMemory(){
 }
 //This method prints
 void DataMemory::print(){
-    for (const auto &p : memoryMap) {
-        std::cout << "memoryMap[" << p.first << "] = " << p.second << '\n';
-     }
+    map<string, string>::iterator it;
+
+    for ( it = memoryMap.begin(); it != memoryMap.end(); it++ )
+    {
+        cout << "memoryMap[" << it->first  // string (key)
+        << "] = "
+        << it->second   // string's value
+        <<endl;
+    }
 }
+
+//This method returns all pairs
+string DataMemory::getAllPairs(){
+    stringstream ss;
+    /*for (const auto &p : memoryMap) {
+        ss << "memoryMap[" << p.first << "] = " << p.second << endl;
+        
+         }*/
+    
+    map<string, string>::iterator it;
+    
+    for ( it = memoryMap.begin(); it != memoryMap.end(); it++ )
+    {
+        ss << "memoryMap[" << it->first  // string (key)
+        << "] = "
+        << it->second   // string's value
+        <<endl;
+    }
+    return ss.str();
+}
+
 
 
 void DataMemory::setDebug(bool value){

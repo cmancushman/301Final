@@ -1,0 +1,152 @@
+Current Instruction: lw $10 0 $5 
+
+*****CURRENT INSTRUCTIONS*****
+Instruction #0 : lw $10 0 $5 
+
+Instruction #1 : lw $11 0 $6 
+
+Instruction #2 : add $1 $10 $11 
+
+Instruction #3 : sub $2 $11 $10 
+
+Instruction #4 : addi $2 $2 6 
+
+Instruction #5 : sw $2 32 $5 
+
+Instruction #6 : slt $3 $2 $10 
+
+Instruction #7 : slt $4 $10 $2 
+
+Current Instruction: lw $11 0 $6 
+
+*****CURRENT INSTRUCTIONS*****
+Instruction #0 : lw $10 0 $5 
+
+Instruction #1 : lw $11 0 $6 
+
+Instruction #2 : add $1 $10 $11 
+
+Instruction #3 : sub $2 $11 $10 
+
+Instruction #4 : addi $2 $2 6 
+
+Instruction #5 : sw $2 32 $5 
+
+Instruction #6 : slt $3 $2 $10 
+
+Instruction #7 : slt $4 $10 $2 
+
+Current Instruction: add $1 $10 $11 
+
+*****CURRENT INSTRUCTIONS*****
+Instruction #0 : lw $10 0 $5 
+
+Instruction #1 : lw $11 0 $6 
+
+Instruction #2 : add $1 $10 $11 
+
+Instruction #3 : sub $2 $11 $10 
+
+Instruction #4 : addi $2 $2 6 
+
+Instruction #5 : sw $2 32 $5 
+
+Instruction #6 : slt $3 $2 $10 
+
+Instruction #7 : slt $4 $10 $2 
+
+Current Instruction: sub $2 $11 $10 
+
+*****CURRENT INSTRUCTIONS*****
+Instruction #0 : lw $10 0 $5 
+
+Instruction #1 : lw $11 0 $6 
+
+Instruction #2 : add $1 $10 $11 
+
+Instruction #3 : sub $2 $11 $10 
+
+Instruction #4 : addi $2 $2 6 
+
+Instruction #5 : sw $2 32 $5 
+
+Instruction #6 : slt $3 $2 $10 
+
+Instruction #7 : slt $4 $10 $2 
+
+Current Instruction: addi $2 $2 6 
+
+*****CURRENT INSTRUCTIONS*****
+Instruction #0 : lw $10 0 $5 
+
+Instruction #1 : lw $11 0 $6 
+
+Instruction #2 : add $1 $10 $11 
+
+Instruction #3 : sub $2 $11 $10 
+
+Instruction #4 : addi $2 $2 6 
+
+Instruction #5 : sw $2 32 $5 
+
+Instruction #6 : slt $3 $2 $10 
+
+Instruction #7 : slt $4 $10 $2 
+
+Current Instruction: sw $2 32 $5 
+
+*****CURRENT INSTRUCTIONS*****
+Instruction #0 : lw $10 0 $5 
+
+Instruction #1 : lw $11 0 $6 
+
+Instruction #2 : add $1 $10 $11 
+
+Instruction #3 : sub $2 $11 $10 
+
+Instruction #4 : addi $2 $2 6 
+
+Instruction #5 : sw $2 32 $5 
+
+Instruction #6 : slt $3 $2 $10 
+
+Instruction #7 : slt $4 $10 $2 
+
+Current Instruction: slt $3 $2 $10 
+
+*****CURRENT INSTRUCTIONS*****
+Instruction #0 : lw $10 0 $5 
+
+Instruction #1 : lw $11 0 $6 
+
+Instruction #2 : add $1 $10 $11 
+
+Instruction #3 : sub $2 $11 $10 
+
+Instruction #4 : addi $2 $2 6 
+
+Instruction #5 : sw $2 32 $5 
+
+Instruction #6 : slt $3 $2 $10 
+
+Instruction #7 : slt $4 $10 $2 
+
+Current Instruction: slt $4 $10 $2 
+
+*****CURRENT INSTRUCTIONS*****
+Instruction #0 : lw $10 0 $5 
+
+Instruction #1 : lw $11 0 $6 
+
+Instruction #2 : add $1 $10 $11 
+
+Instruction #3 : sub $2 $11 $10 
+
+Instruction #4 : addi $2 $2 6 
+
+Instruction #5 : sw $2 32 $5 
+
+Instruction #6 : slt $3 $2 $10 
+
+Instruction #7 : slt $4 $10 $2 
+

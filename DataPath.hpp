@@ -45,6 +45,9 @@ public:
     void setDebug(bool debug);
     
     void configure(string file);
+    
+    void setConfig(string file);
+    void run();
 private:
     
     ProgramCounter programCounter;

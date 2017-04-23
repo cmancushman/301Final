@@ -10,17 +10,25 @@
 
 DataPath::DataPath()
 {
-    configure("input_configuration.txt");
-    
+
+}
+
+void DataPath::setConfig(string file){
+    configure(file);
+
+}
+void DataPath::run(){
+    cout << "print memory contents 2 " << printMemoryContents << endl;
+
     registerFile.init();
     registerFile.setFile(registerFileInput);
-    cout<< "*****CURRENT REGISTERS*****" <<endl;
-    registerFile.print();
-    cout << endl;
+    //cout<< "*****CURRENT REGISTERS*****" <<endl;
+    //registerFile.print();
+    //cout << endl;
     
     //set debug values for all classes
     /****/
-    debug = true;
+    //debug = true;
     programCounter.setDebug(debug);
     parse.setDebug(debug);
     registerFile.setDebug(debug);
@@ -41,9 +49,9 @@ DataPath::DataPath()
     
     cout << endl;
     parse.setFile(programInput);
-    cout<< "*****CURRENT INSTRUCTIONS*****" <<endl;
-    parse.printAllInstructions();
-    cout << endl;
+    //cout<< "*****CURRENT INSTRUCTIONS*****" <<endl;
+    //parse.printAllInstructions();
+    //cout << endl;
     memoryUnit.setFile(memoryContentsInput);
     
     aluAddPCand4.setOperation(1);
@@ -51,19 +59,9 @@ DataPath::DataPath()
     
     
     control.setComponents(&registerFile,&memoryUnit,&aluToMemory,&registerMultiplexer,&registerOrImmediateMultiplexer,&memoryOrALUMultiplexer,&jumpOrIncrementMultiplexer);
-    debug = true;
-    cout << "debug mode is : " << debug << endl;
-    int x;
-    while(true){
-        if(parse.weAreDone( programCounter.getAddress()) ){
-            break;
-        }
-        fetch();
-        decode();
-        execute();
-        memory();
-        writeback();
-        
+    //debug = true;
+    
+    if(printMemoryContents){
         cout<< "*****CURRENT REGISTERS*****" <<endl;
         registerFile.print();
         cout << endl;
@@ -74,23 +72,55 @@ DataPath::DataPath()
         
         cout<< "*****CURRENT DATA MEMORY*****" <<endl;
         memoryUnit.print();
-        /*cout << endl;
-        if(batch){
-            std::cin >> x;
-        }*/
+    }
+    
+    std::ofstream out(outputFile);
+    
+    while(true){
+        if(parse.weAreDone( programCounter.getAddress()) ){
+            break;
+        }
+        out << "Current Instruction: " << parse.getInstruction(programCounter.getAddress()).getStringVersion() << endl;
+        out<< "*****CURRENT INSTRUCTIONS*****" <<endl;
+        out << parse.getAllInstructions();
+        
+        if(writeToFile){
+            out<< "*****CURRENT REGISTERS*****" <<endl;
+            out << registerFile.getAllRegisters();
+            out << endl;
+            out<< "*****CURRENT DATA MEMORY*****" <<endl;
+            out << memoryUnit.getAllPairs();
+        }
+        
+        fetch();
+        decode();
+        execute();
+        memory();
+        writeback();
+        if(printMemoryContents){
+            cout<< "*****CURRENT REGISTERS*****" <<endl;
+            registerFile.print();
+            cout << endl;
+            
+            cout<< "*****CURRENT INSTRUCTIONS*****" <<endl;
+            parse.printAllInstructions();
+            cout << endl;
+            
+            cout<< "*****CURRENT DATA MEMORY*****" <<endl;
+            memoryUnit.print();
+        }
+        
+        
+        if(!batch){
+            system("read");
+        }
     }
     cout << endl << endl;
     cout << "WE DID IT! END OF FILE!!!" << endl;
-
-<<<<<<< HEAD
-=======
-    std::ofstream out("output.txt");
-    out << "asd";
     out.close();
->>>>>>> 9a952d57cb9efa514555f6b65ee31762750fc4a7
+    
+
 }
-
-
 void DataPath::fetch(){
     
     
@@ -361,6 +391,8 @@ void DataPath::configure(string file)
             }else{
                 printMemoryContents = false;
             }
+            cout << "print memory contents " << printMemoryContents << endl;
+
         }
         else if (line.find("write_to_file") != std::string::npos)
         {

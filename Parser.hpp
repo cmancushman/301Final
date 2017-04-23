@@ -61,6 +61,7 @@ public:
     
     bool weAreDone(string address);
 
+    string getAllInstructions();
 
 };
 #endif /* Parser_hpp */

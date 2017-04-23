@@ -42,8 +42,6 @@ string ShiftLeft::shift(string input)
     if (debug)
         cout << "ShiftLeft OUTPUT: " << binaryOperation.getHexFromBin(input) << endl << endl;
     
-    if (toFile);
-        //ofile << "ShiftLeft OUTPUT: " << binaryOperation.getHexFromBin(input) << endl << endl;
     
     return input;
 }

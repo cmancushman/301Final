@@ -1,0 +1,3 @@
+mainLinux: main.cpp  Parser.cpp DataPath.cpp Registers.cpp DataMemory.cpp ALU.cpp Control.cpp ProgramCounter.cpp Instruction.cpp SignExtend.cpp ShiftLeft.cpp Multiplexer.cpp ALUControl.cpp BinaryOperation.cpp
+
+	g++ -Wall -o mainLinux main.cpp DataPath.cpp Parser.cpp Registers.cpp DataMemory.cpp ALU.cpp Control.cpp ProgramCounter.cpp Instruction.cpp SignExtend.cpp ShiftLeft.cpp Multiplexer.cpp ALUControl.cpp BinaryOperation.cpp

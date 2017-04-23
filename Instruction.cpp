@@ -49,6 +49,7 @@ Instruction::Instruction(string str1, string str2, string str3, string str4){
 
     //This if statement runs if the instruction is "addi" and sets immediate, rs, and rt to s, str3, and str2 respectively
     else if(component1 == "addi"){
+        
         std::string s = std::bitset< 16 >( stoi(str4) ).to_string(); // string conversion
         immediate = s;
         
@@ -197,4 +198,12 @@ string Instruction::getImmediate(){
 void Instruction::print(){
     cout << component1 << " " << component2 << " "  << component3 << " "  << component4 << " "  << endl;
     
+}
+
+string Instruction::getStringVersion(){
+    stringstream ss;
+    
+    ss << component1 << " " << component2 << " "  << component3 << " "  << component4 << " "  << endl;
+    
+    return ss.str();
 }

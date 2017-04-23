@@ -1,0 +1,502 @@
+Current Instruction: slt $1 $2 $3 
+
+*****CURRENT INSTRUCTIONS*****
+Instruction #0 : slt $1 $2 $3 
+
+Instruction #1 : sw $2 0 $3 
+
+Instruction #2 : lw $1 0 $3 
+
+Instruction #3 : add $3 $4 $8 
+
+Instruction #4 : addi $3 $4 5 
+
+Instruction #5 : j 0x10006   
+
+Instruction #6 : beq $3 $9 0x1 
+
+Instruction #7 : slt $6 $2 $3 
+
+*****CURRENT REGISTERS*****
+Register #0 : 0x00000001
+Register #1 : 0x00000002
+Register #2 : 0x00000004
+Register #3 : 0x00000008
+Register #4 : 0x00000004
+Register #5 : 0x00000003
+Register #6 : 0x00000002
+Register #7 : 0x00000009
+Register #8 : 0x00000001
+Register #9 : 0x00000005
+Register #10 : 0xcb9ad632
+Register #11 : 0x5b4350cd
+Register #12 : 0x10089420
+Register #13 : 0x90df5599
+Register #14 : 0x06b77c30
+Register #15 : 0x566c0165
+Register #16 : 0x9b67808b
+Register #17 : 0x12a2eb13
+Register #18 : 0x10d2e6f7
+Register #19 : 0x2ef71507
+Register #20 : 0xb20554be
+Register #21 : 0x0000000c
+Register #22 : 0x00000893
+Register #23 : 0x0000000c
+Register #24 : 0x0000000c
+Register #25 : 0x00000008
+Register #26 : 0xf1a971a8
+Register #27 : 0xb6a035ea
+Register #28 : 0x88b99c66
+Register #29 : 0xc488699a
+Register #30 : 0x00000000
+Register #31 : 0x00000000
+
+*****CURRENT DATA MEMORY*****
+memoryMap[0x44578220] = 0xa7c31002
+memoryMap[0x44578224] = 0x234f0000
+memoryMap[0x44578228] = 0x2345B000
+memoryMap[0x44578232] = 0x321C1234
+memoryMap[0x44578234] = 0x12345678
+memoryMap[0x44578238] = 0x87654321
+memoryMap[0x44578242] = 0x98765432
+memoryMap[0x44578244] = 0x98765422
+Current Instruction: sw $2 0 $3 
+
+*****CURRENT INSTRUCTIONS*****
+Instruction #0 : slt $1 $2 $3 
+
+Instruction #1 : sw $2 0 $3 
+
+Instruction #2 : lw $1 0 $3 
+
+Instruction #3 : add $3 $4 $8 
+
+Instruction #4 : addi $3 $4 5 
+
+Instruction #5 : j 0x10006   
+
+Instruction #6 : beq $3 $9 0x1 
+
+Instruction #7 : slt $6 $2 $3 
+
+*****CURRENT REGISTERS*****
+Register #0 : 0x00000001
+Register #1 : 0x00000001
+Register #2 : 0x00000004
+Register #3 : 0x00000008
+Register #4 : 0x00000004
+Register #5 : 0x00000003
+Register #6 : 0x00000002
+Register #7 : 0x00000009
+Register #8 : 0x00000001
+Register #9 : 0x00000005
+Register #10 : 0xcb9ad632
+Register #11 : 0x5b4350cd
+Register #12 : 0x10089420
+Register #13 : 0x90df5599
+Register #14 : 0x06b77c30
+Register #15 : 0x566c0165
+Register #16 : 0x9b67808b
+Register #17 : 0x12a2eb13
+Register #18 : 0x10d2e6f7
+Register #19 : 0x2ef71507
+Register #20 : 0xb20554be
+Register #21 : 0x0000000c
+Register #22 : 0x00000893
+Register #23 : 0x0000000c
+Register #24 : 0x0000000c
+Register #25 : 0x00000008
+Register #26 : 0xf1a971a8
+Register #27 : 0xb6a035ea
+Register #28 : 0x88b99c66
+Register #29 : 0xc488699a
+Register #30 : 0x00000000
+Register #31 : 0x00000000
+
+*****CURRENT DATA MEMORY*****
+memoryMap[0x44578220] = 0xa7c31002
+memoryMap[0x44578224] = 0x234f0000
+memoryMap[0x44578228] = 0x2345B000
+memoryMap[0x44578232] = 0x321C1234
+memoryMap[0x44578234] = 0x12345678
+memoryMap[0x44578238] = 0x87654321
+memoryMap[0x44578242] = 0x98765432
+memoryMap[0x44578244] = 0x98765422
+Current Instruction: lw $1 0 $3 
+
+*****CURRENT INSTRUCTIONS*****
+Instruction #0 : slt $1 $2 $3 
+
+Instruction #1 : sw $2 0 $3 
+
+Instruction #2 : lw $1 0 $3 
+
+Instruction #3 : add $3 $4 $8 
+
+Instruction #4 : addi $3 $4 5 
+
+Instruction #5 : j 0x10006   
+
+Instruction #6 : beq $3 $9 0x1 
+
+Instruction #7 : slt $6 $2 $3 
+
+*****CURRENT REGISTERS*****
+Register #0 : 0x00000001
+Register #1 : 0x00000001
+Register #2 : 0x00000004
+Register #3 : 0x00000008
+Register #4 : 0x00000004
+Register #5 : 0x00000003
+Register #6 : 0x00000002
+Register #7 : 0x00000009
+Register #8 : 0x00000001
+Register #9 : 0x00000005
+Register #10 : 0xcb9ad632
+Register #11 : 0x5b4350cd
+Register #12 : 0x10089420
+Register #13 : 0x90df5599
+Register #14 : 0x06b77c30
+Register #15 : 0x566c0165
+Register #16 : 0x9b67808b
+Register #17 : 0x12a2eb13
+Register #18 : 0x10d2e6f7
+Register #19 : 0x2ef71507
+Register #20 : 0xb20554be
+Register #21 : 0x0000000c
+Register #22 : 0x00000893
+Register #23 : 0x0000000c
+Register #24 : 0x0000000c
+Register #25 : 0x00000008
+Register #26 : 0xf1a971a8
+Register #27 : 0xb6a035ea
+Register #28 : 0x88b99c66
+Register #29 : 0xc488699a
+Register #30 : 0x00000000
+Register #31 : 0x00000000
+
+*****CURRENT DATA MEMORY*****
+memoryMap[0x00000008] = 0x00000004
+memoryMap[0x44578220] = 0xa7c31002
+memoryMap[0x44578224] = 0x234f0000
+memoryMap[0x44578228] = 0x2345B000
+memoryMap[0x44578232] = 0x321C1234
+memoryMap[0x44578234] = 0x12345678
+memoryMap[0x44578238] = 0x87654321
+memoryMap[0x44578242] = 0x98765432
+memoryMap[0x44578244] = 0x98765422
+Current Instruction: add $3 $4 $8 
+
+*****CURRENT INSTRUCTIONS*****
+Instruction #0 : slt $1 $2 $3 
+
+Instruction #1 : sw $2 0 $3 
+
+Instruction #2 : lw $1 0 $3 
+
+Instruction #3 : add $3 $4 $8 
+
+Instruction #4 : addi $3 $4 5 
+
+Instruction #5 : j 0x10006   
+
+Instruction #6 : beq $3 $9 0x1 
+
+Instruction #7 : slt $6 $2 $3 
+
+*****CURRENT REGISTERS*****
+Register #0 : 0x00000001
+Register #1 : 0x00000004
+Register #2 : 0x00000004
+Register #3 : 0x00000008
+Register #4 : 0x00000004
+Register #5 : 0x00000003
+Register #6 : 0x00000002
+Register #7 : 0x00000009
+Register #8 : 0x00000001
+Register #9 : 0x00000005
+Register #10 : 0xcb9ad632
+Register #11 : 0x5b4350cd
+Register #12 : 0x10089420
+Register #13 : 0x90df5599
+Register #14 : 0x06b77c30
+Register #15 : 0x566c0165
+Register #16 : 0x9b67808b
+Register #17 : 0x12a2eb13
+Register #18 : 0x10d2e6f7
+Register #19 : 0x2ef71507
+Register #20 : 0xb20554be
+Register #21 : 0x0000000c
+Register #22 : 0x00000893
+Register #23 : 0x0000000c
+Register #24 : 0x0000000c
+Register #25 : 0x00000008
+Register #26 : 0xf1a971a8
+Register #27 : 0xb6a035ea
+Register #28 : 0x88b99c66
+Register #29 : 0xc488699a
+Register #30 : 0x00000000
+Register #31 : 0x00000000
+
+*****CURRENT DATA MEMORY*****
+memoryMap[0x00000008] = 0x00000004
+memoryMap[0x44578220] = 0xa7c31002
+memoryMap[0x44578224] = 0x234f0000
+memoryMap[0x44578228] = 0x2345B000
+memoryMap[0x44578232] = 0x321C1234
+memoryMap[0x44578234] = 0x12345678
+memoryMap[0x44578238] = 0x87654321
+memoryMap[0x44578242] = 0x98765432
+memoryMap[0x44578244] = 0x98765422
+Current Instruction: addi $3 $4 5 
+
+*****CURRENT INSTRUCTIONS*****
+Instruction #0 : slt $1 $2 $3 
+
+Instruction #1 : sw $2 0 $3 
+
+Instruction #2 : lw $1 0 $3 
+
+Instruction #3 : add $3 $4 $8 
+
+Instruction #4 : addi $3 $4 5 
+
+Instruction #5 : j 0x10006   
+
+Instruction #6 : beq $3 $9 0x1 
+
+Instruction #7 : slt $6 $2 $3 
+
+*****CURRENT REGISTERS*****
+Register #0 : 0x00000001
+Register #1 : 0x00000004
+Register #2 : 0x00000004
+Register #3 : 0x00000005
+Register #4 : 0x00000004
+Register #5 : 0x00000003
+Register #6 : 0x00000002
+Register #7 : 0x00000009
+Register #8 : 0x00000001
+Register #9 : 0x00000005
+Register #10 : 0xcb9ad632
+Register #11 : 0x5b4350cd
+Register #12 : 0x10089420
+Register #13 : 0x90df5599
+Register #14 : 0x06b77c30
+Register #15 : 0x566c0165
+Register #16 : 0x9b67808b
+Register #17 : 0x12a2eb13
+Register #18 : 0x10d2e6f7
+Register #19 : 0x2ef71507
+Register #20 : 0xb20554be
+Register #21 : 0x0000000c
+Register #22 : 0x00000893
+Register #23 : 0x0000000c
+Register #24 : 0x0000000c
+Register #25 : 0x00000008
+Register #26 : 0xf1a971a8
+Register #27 : 0xb6a035ea
+Register #28 : 0x88b99c66
+Register #29 : 0xc488699a
+Register #30 : 0x00000000
+Register #31 : 0x00000000
+
+*****CURRENT DATA MEMORY*****
+memoryMap[0x00000008] = 0x00000004
+memoryMap[0x44578220] = 0xa7c31002
+memoryMap[0x44578224] = 0x234f0000
+memoryMap[0x44578228] = 0x2345B000
+memoryMap[0x44578232] = 0x321C1234
+memoryMap[0x44578234] = 0x12345678
+memoryMap[0x44578238] = 0x87654321
+memoryMap[0x44578242] = 0x98765432
+memoryMap[0x44578244] = 0x98765422
+Current Instruction: j 0x10006   
+
+*****CURRENT INSTRUCTIONS*****
+Instruction #0 : slt $1 $2 $3 
+
+Instruction #1 : sw $2 0 $3 
+
+Instruction #2 : lw $1 0 $3 
+
+Instruction #3 : add $3 $4 $8 
+
+Instruction #4 : addi $3 $4 5 
+
+Instruction #5 : j 0x10006   
+
+Instruction #6 : beq $3 $9 0x1 
+
+Instruction #7 : slt $6 $2 $3 
+
+*****CURRENT REGISTERS*****
+Register #0 : 0x00000001
+Register #1 : 0x00000004
+Register #2 : 0x00000004
+Register #3 : 0x00000009
+Register #4 : 0x00000004
+Register #5 : 0x00000003
+Register #6 : 0x00000002
+Register #7 : 0x00000009
+Register #8 : 0x00000001
+Register #9 : 0x00000005
+Register #10 : 0xcb9ad632
+Register #11 : 0x5b4350cd
+Register #12 : 0x10089420
+Register #13 : 0x90df5599
+Register #14 : 0x06b77c30
+Register #15 : 0x566c0165
+Register #16 : 0x9b67808b
+Register #17 : 0x12a2eb13
+Register #18 : 0x10d2e6f7
+Register #19 : 0x2ef71507
+Register #20 : 0xb20554be
+Register #21 : 0x0000000c
+Register #22 : 0x00000893
+Register #23 : 0x0000000c
+Register #24 : 0x0000000c
+Register #25 : 0x00000008
+Register #26 : 0xf1a971a8
+Register #27 : 0xb6a035ea
+Register #28 : 0x88b99c66
+Register #29 : 0xc488699a
+Register #30 : 0x00000000
+Register #31 : 0x00000000
+
+*****CURRENT DATA MEMORY*****
+memoryMap[0x00000008] = 0x00000004
+memoryMap[0x44578220] = 0xa7c31002
+memoryMap[0x44578224] = 0x234f0000
+memoryMap[0x44578228] = 0x2345B000
+memoryMap[0x44578232] = 0x321C1234
+memoryMap[0x44578234] = 0x12345678
+memoryMap[0x44578238] = 0x87654321
+memoryMap[0x44578242] = 0x98765432
+memoryMap[0x44578244] = 0x98765422
+Current Instruction: beq $3 $9 0x1 
+
+*****CURRENT INSTRUCTIONS*****
+Instruction #0 : slt $1 $2 $3 
+
+Instruction #1 : sw $2 0 $3 
+
+Instruction #2 : lw $1 0 $3 
+
+Instruction #3 : add $3 $4 $8 
+
+Instruction #4 : addi $3 $4 5 
+
+Instruction #5 : j 0x10006   
+
+Instruction #6 : beq $3 $9 0x1 
+
+Instruction #7 : slt $6 $2 $3 
+
+*****CURRENT REGISTERS*****
+Register #0 : 0x00000001
+Register #1 : 0x00000004
+Register #2 : 0x00000004
+Register #3 : 0x00000009
+Register #4 : 0x00000004
+Register #5 : 0x00000003
+Register #6 : 0x00000002
+Register #7 : 0x00000009
+Register #8 : 0x00000001
+Register #9 : 0x00000005
+Register #10 : 0xcb9ad632
+Register #11 : 0x5b4350cd
+Register #12 : 0x10089420
+Register #13 : 0x90df5599
+Register #14 : 0x06b77c30
+Register #15 : 0x566c0165
+Register #16 : 0x9b67808b
+Register #17 : 0x12a2eb13
+Register #18 : 0x10d2e6f7
+Register #19 : 0x2ef71507
+Register #20 : 0xb20554be
+Register #21 : 0x0000000c
+Register #22 : 0x00000893
+Register #23 : 0x0000000c
+Register #24 : 0x0000000c
+Register #25 : 0x00000008
+Register #26 : 0xf1a971a8
+Register #27 : 0xb6a035ea
+Register #28 : 0x88b99c66
+Register #29 : 0xc488699a
+Register #30 : 0x00000000
+Register #31 : 0x00000000
+
+*****CURRENT DATA MEMORY*****
+memoryMap[0x00000008] = 0x00000004
+memoryMap[0x44578220] = 0xa7c31002
+memoryMap[0x44578224] = 0x234f0000
+memoryMap[0x44578228] = 0x2345B000
+memoryMap[0x44578232] = 0x321C1234
+memoryMap[0x44578234] = 0x12345678
+memoryMap[0x44578238] = 0x87654321
+memoryMap[0x44578242] = 0x98765432
+memoryMap[0x44578244] = 0x98765422
+Current Instruction: slt $6 $2 $3 
+
+*****CURRENT INSTRUCTIONS*****
+Instruction #0 : slt $1 $2 $3 
+
+Instruction #1 : sw $2 0 $3 
+
+Instruction #2 : lw $1 0 $3 
+
+Instruction #3 : add $3 $4 $8 
+
+Instruction #4 : addi $3 $4 5 
+
+Instruction #5 : j 0x10006   
+
+Instruction #6 : beq $3 $9 0x1 
+
+Instruction #7 : slt $6 $2 $3 
+
+*****CURRENT REGISTERS*****
+Register #0 : 0x00000001
+Register #1 : 0x00000004
+Register #2 : 0x00000004
+Register #3 : 0x00000009
+Register #4 : 0x00000004
+Register #5 : 0x00000003
+Register #6 : 0x00000002
+Register #7 : 0x00000009
+Register #8 : 0x00000001
+Register #9 : 0x00000005
+Register #10 : 0xcb9ad632
+Register #11 : 0x5b4350cd
+Register #12 : 0x10089420
+Register #13 : 0x90df5599
+Register #14 : 0x06b77c30
+Register #15 : 0x566c0165
+Register #16 : 0x9b67808b
+Register #17 : 0x12a2eb13
+Register #18 : 0x10d2e6f7
+Register #19 : 0x2ef71507
+Register #20 : 0xb20554be
+Register #21 : 0x0000000c
+Register #22 : 0x00000893
+Register #23 : 0x0000000c
+Register #24 : 0x0000000c
+Register #25 : 0x00000008
+Register #26 : 0xf1a971a8
+Register #27 : 0xb6a035ea
+Register #28 : 0x88b99c66
+Register #29 : 0xc488699a
+Register #30 : 0x00000000
+Register #31 : 0x00000000
+
+*****CURRENT DATA MEMORY*****
+memoryMap[0x00000008] = 0x00000004
+memoryMap[0x44578220] = 0xa7c31002
+memoryMap[0x44578224] = 0x234f0000
+memoryMap[0x44578228] = 0x2345B000
+memoryMap[0x44578232] = 0x321C1234
+memoryMap[0x44578234] = 0x12345678
+memoryMap[0x44578238] = 0x87654321
+memoryMap[0x44578242] = 0x98765432
+memoryMap[0x44578244] = 0x98765422

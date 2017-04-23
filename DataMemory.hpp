@@ -14,6 +14,7 @@
 #include <sstream>
 #include <iostream>
 #include <fstream>
+#include <iterator>
 using namespace std;
 
 //This class simulates the Data Memory portion of the processor
@@ -59,7 +60,7 @@ public:
     void setToFile(bool val);
     void setFile(bool val);
 
-
+    string getAllPairs();
     
 private:
     

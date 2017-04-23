@@ -79,5 +79,7 @@ public:
     
     /* Prints the instruction */
     void print();
+    
+    string getStringVersion();
 };
 #endif /* Instruction_hpp */

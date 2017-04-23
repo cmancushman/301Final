@@ -33,8 +33,6 @@ void Registers::setFile(string file){
     if (debug)
         cout << "Registers INPUT 1: " << file << endl;
 
-    if (toFile);
-        //ofile << "Registers INPUT 1: " << file << endl;
     
     fstream in;
     in.open(file.c_str());
@@ -76,8 +74,7 @@ void Registers::setFile(string file){
             if (debug)
                 cout <<"Process check " << stringArray[0] << " " << stringArray[1] << endl;
             
-            if (toFile);
-                //ofile <<"Process check " << stringArray[0] << " " << stringArray[1] << endl;
+
             
             //set LinkedList, pass register as index and hex string as element
             registerMap[stoi(stringArray[0])] = getBinFromHex(stringArray[1]);
@@ -91,9 +88,19 @@ void Registers::print(){
     for(int x = 0; x < 32; x++){
         cout<<"Register #"<< x << " : " << getHexFromBin(registerMap[x]) << endl;
         
-        if (toFile);
-            //ofile<<"Register #"<< x << " : " << getHexFromBin(registerMap[x]) << endl;
+
     }
+}
+
+//This method prints out the register number
+string Registers::getAllRegisters(){
+    stringstream ss;
+    for(int x = 0; x < 32; x++){
+        ss <<"Register #"<< x << " : " << getHexFromBin(registerMap[x]) << endl;
+        
+        //ofile<<"Register #"<< x << " : " << getHexFromBin(registerMap[x]) << endl;
+    }
+    return ss.str();
 }
 
 
@@ -101,7 +108,7 @@ void Registers::print(){
 void Registers::setWriteIndex(string value){
     if (debug) cout << "setWriteIndex INPUT: " << "  value " << hexToInt(getHexFromBin(value)) << endl;
     
-    if (toFile); //ofile << "setWriteIndex INPUT: " << "  value " << hexToInt(getHexFromBin(value)) << endl;
+
     
     writeIndex = value;
 }
@@ -110,7 +117,6 @@ void Registers::setWriteIndex(string value){
 void Registers::setWriteValue(string value){
     if (debug) cout << "setWriteValue INPUT: " << "  value " << getHexFromBin(value) << endl;
     
-    if (toFile); //ofile << "setWriteValue INPUT: " << "  value " << value << endl;
     writeValue = value;
 }
 
@@ -120,8 +126,7 @@ void Registers::setWrite(bool write){
     if (debug)
         cout << "REGISTER MEMORY CAN BE OVERWRITTEN?: (1 yes, 0 no): " << write << endl;
    
-    if (toFile);
-        //ofile << "REGISTER MEMORY CAN BE OVERWRITTEN?: (1 yes, 0 no): " << write << endl;
+
     
     shouldWrite = write;
 }
@@ -131,7 +136,7 @@ void Registers::setReadRegister1(string registerNumber){
     
     if (debug) cout << "setReadRegister1 INPUT: " << "register: " << hexToInt(getHexFromBin(registerNumber)) << endl;
     
-    if (toFile); //ofile << "setReadRegister1 INPUT: " << "register: " << hexToInt(getHexFromBin(registerNumber)) << endl;
+
     
     readRegister1 = registerNumber;
 }
@@ -141,7 +146,7 @@ void Registers::setReadRegister2(string registerNumber){
     
     if (debug) cout << "setReadRegister2 INPUT: " << "index: " << hexToInt(getHexFromBin(registerNumber)) << endl;
     
-    if (toFile); //ofile << "setReadRegister2 INPUT: " << "index: " << hexToInt(getHexFromBin(registerNumber)) << endl;
+
     
 
     readRegister2 = registerNumber;
@@ -164,18 +169,14 @@ void Registers::write(){
             cout << "WRITING " << getHexFromBin(writeValue) << " TO REGISTER $" <<  hexToInt(getHexFromBin(writeIndex)) << endl;
         }
         
-        if(toFile)
-        {
-            //ofile << "WRITING " << getHexFromBin(writeValue) << " TO REGISTER $" <<  hexToInt(getHexFromBin(writeIndex)) << endl;
-        }
+
         registerMap[overwriteIndex] = writeValue;
         
     }else{
         if(debug)
             cout << "REGISTER OVREWRITING NOT ENABLED" << endl;
         
-        if(toFile);
-            //ofile << "REGISTER OVREWRITING NOT ENABLED" << endl;
+
     }
 }
 
@@ -189,12 +190,12 @@ string Registers::getReadRegister1(){
     }
     
     if (debug) cout << "getReadRegister1 INPUT: " << "index: " << hexToInt(getHexFromBin(readRegister1)) << endl;
-    if (toFile); //ofile << "getReadRegister1 INPUT: " << "index: " << hexToInt(getHexFromBin(readRegister1)) << endl;
+
     
     string result = registerMap[searchInt];
     
     if (debug) cout << "getReadRegister1 OUTPUT: " <<  getHexFromBin(result) << endl;
-    if (toFile); //ofile << "getReadRegister1 OUTPUT: " <<  getHexFromBin(result) << endl;
+
     
     return result;
 }
@@ -209,13 +210,13 @@ string Registers::getReadRegister2(){
     }
     
     if (debug) cout << "getReadRegister2 INPUT: " << "register: " << hexToInt(getHexFromBin(readRegister2)) << endl;
-    if (toFile); //ofile << "getReadRegister2 INPUT: " << "register: " << hexToInt(getHexFromBin(readRegister2)) << endl;
+
     
 
     string result = registerMap[searchInt];
     
     if (debug) cout << "getReadRegister2 OUTPUT: " <<  getHexFromBin(result) << endl;
-    if (toFile); //ofile << "getReadRegister2 OUTPUT: " <<  getHexFromBin(result) << endl;
+
     
     return result;
 }
@@ -287,12 +288,5 @@ void Registers::setToFile(bool val)
     toFile = val;
 }
 
-<<<<<<< HEAD
-/*void Registers::setOfStream(ofstream& out)
-{
-    ofile = out;
-}*/
-=======
 
->>>>>>> 9a952d57cb9efa514555f6b65ee31762750fc4a7
 

@@ -18,8 +18,6 @@ void Multiplexer::setControl(bool newControl){
     if (debug)
         cout << "SETTING MULTIPLEXER CONTROL TO "<< newControl << endl;
 
-    if (toFile);
-        //ofile << "SETTING MULTIPLEXER CONTROL TO "<< newControl << endl;
     
     control = newControl;
     
@@ -31,8 +29,7 @@ void Multiplexer::setInput0(string input){
     if (debug)
         cout << "SETTING MULTIPLEXER INPUT0: "<< binaryOperation.getHexFromBin(input) << endl;
     
-    if (toFile);
-        //ofile << "SETTING MULTIPLEXER INPUT0: " << binaryOperation.getHexFromBin(input) << endl;
+
     
     input0 = input;
     
@@ -44,8 +41,6 @@ void Multiplexer::setInput1(string input){
     if (debug)
         cout << "SETTING MULTIPLEXER INPUT1: "<< binaryOperation.getHexFromBin(input) << " " << endl;
     
-    if (toFile);
-        //ofile << "SETTING MULTIPLEXER INPUT1: "<< binaryOperation.getHexFromBin(input) << endl;
     
     input1 = input;
     
@@ -58,8 +53,6 @@ string Multiplexer::getOutput()
     if (debug)
         cout << "MULTIPLEXER OUTPUT: "<< binaryOperation.getHexFromBin(output) << endl;
     
-    if (toFile);
-        //ofile << "MULTIPLEXER OUTPUT: "<< binaryOperation.getHexFromBin(output) << endl;
     
     return output;
 }

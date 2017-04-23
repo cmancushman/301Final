@@ -12,6 +12,8 @@
 int main(int argc, const char * argv[]) {
 
     DataPath data;
+    data.setConfig(argv[1]);
+    data.run();
     return 0;
 }
 //asd
